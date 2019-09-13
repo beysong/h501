@@ -24,11 +24,14 @@ export default function() {
         <div style={{ width: 500, marginTop: 80, textAlign: 'left' }}>
           <img style={{ width: 450 }} src={Label} alt="黑胶唱片" />
         </div>
-
         <div className={styles.show11}>
-          <div className={styles.inshow11}>&nbsp;</div>
-          <div className={styles.inshow11}>&nbsp;</div>
-          <div className={styles.inshow11}>&nbsp;</div>
+          <div className={styles.progressWrap}>
+            <div className={styles.line}>
+              <div className={styles.whiteLine}></div>
+              <div className={styles.circle}></div>
+            </div>
+          </div>
+          <div className={styles.inshow11}>听到xxx的未来想象力</div>
         </div>
 
         <div className={styles.show12}>
