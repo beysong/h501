@@ -6,6 +6,9 @@ body,
 
 body {
   margin: 0;
+  background-color: #000;
+  color: white;
+  font-size: 25px;
 }
 
 /* 页面淡隐淡出 */

@@ -1,6 +1,6 @@
 import React from 'react';
 import router from 'umi/router';
-import styles from './index.less';
+import styles from './loading.less';
 
 const CP = require('../assets/changpian.jpg');
 

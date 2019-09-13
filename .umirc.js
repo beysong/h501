@@ -6,6 +6,7 @@ export default {
     [
       'umi-plugin-react',
       {
+        hd: true,
         antd: false,
         dva: false,
         dynamicImport: { webpackChunkName: true },
