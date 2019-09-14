@@ -1,8 +1,9 @@
 {
   "private": true,
   "scripts": {
-    "start": "umi dev",
+    "start": "UMI_ENV=dev umi dev",
     "build": "umi build",
+    "build-test": "UMI_ENV=dev umi build",
     "test": "umi test",
     "lint": "eslint --ext .js src mock tests",
     "precommit": "lint-staged"

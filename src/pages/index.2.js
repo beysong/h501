@@ -1,8 +1,6 @@
 import React from 'react';
-import router from 'umi/router';
-import styles from './index.less';
 
-const CP = require('../assets/changpian.jpg');
+import styles from './index.less';
 
 export default class Index extends React.PureComponent {
   componentDidMount() {

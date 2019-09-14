@@ -9,7 +9,7 @@ export default {
         hd: true,
         antd: false,
         dva: false,
-        dynamicImport: { webpackChunkName: true },
+        dynamicImport: { webpackChunkName: true, loadingComponent: './components/loading.js' },
         title: 'h501',
         dll: true,
 

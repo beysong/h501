@@ -2,8 +2,6 @@ import React from 'react';
 import router from 'umi/router';
 import styles from './index.less';
 
-const CP = require('../assets/changpian.jpg');
-
 export default class Index extends React.PureComponent {
   componentDidMount() {
     setTimeout(() => {
