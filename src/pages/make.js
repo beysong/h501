@@ -36,7 +36,10 @@ export default class Make extends React.PureComponent {
   /* global wx */
   // 开始录音
   toggleStart = () => {
-    const { processing } = this.state;
+    const { processing, playing } = this.state;
+    if (playing) {
+      return;
+    }
     if (processing) {
       wx.stopRecord({
         success: res => {
@@ -63,7 +66,10 @@ export default class Make extends React.PureComponent {
 
   // 播放录音
   togglePlay = () => {
-    const { playing, sourceId } = this.state;
+    const { playing, processing, sourceId } = this.state;
+    if (processing) {
+      return;
+    }
     if (playing) {
       wx.pauseVoice({
         localId: sourceId, // 需要暂停的音频的本地ID，由stopRecord接口获得

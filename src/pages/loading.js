@@ -1,6 +1,7 @@
 import React from 'react';
 import router from 'umi/router';
 import styles from './loading.less';
+const Label = require('../assets/Label.png');
 
 export default class Index extends React.PureComponent {
   componentDidMount() {
@@ -117,6 +118,7 @@ export default class Index extends React.PureComponent {
             才是最好的<span style={{ fontSize: 30 }}>驱动力</span>
           </div>
         </div>
+        <img style={{ width: 0 }} src={Label} alt="黑胶唱片" />
       </div>
     );
   }

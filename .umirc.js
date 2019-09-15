@@ -1,9 +1,9 @@
 // ref: https://umijs.org/config/
 export default {
   treeShaking: true,
-  base: 'https://beysong.github.io/h501/dist/',
-  publicPath: '/h501/dist/',
-  history: 'browser',
+  // base: 'https://beysong.github.io/h501/dist/',
+  // publicPath: '/h501/dist/',
+  // history: 'browser',
   hash: true,
   exportStatic: {
     htmlSuffix: true,

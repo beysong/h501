@@ -27,6 +27,7 @@ export default class Shared extends React.PureComponent {
       if (r.status === 200) {
         this.setState({ dataInfo: r.body });
       }
+      this.createAudio();
     });
 
     wx.ready(function() {
@@ -60,28 +61,25 @@ export default class Shared extends React.PureComponent {
   togglePlay = () => {
     const { playing } = this.state;
     const { location } = this.props;
+    let audioRef = document.getElementById('audioLabel');
     if (this.interval) {
       clearInterval(this.interval);
       this.interval = null;
     } else {
       this.interval = setInterval(() => {
         this.setState((state, props) => ({
-          lineWidth: state.lineWidth + 400 / 30,
+          lineWidth: state.lineWidth + 400 / audioRef.duration,
         }));
       }, 1000);
     }
 
     if (playing) {
-      wx.pauseVoice({
-        localId: location.query.sid, // 需要暂停的音频的本地ID，由stopRecord接口获得
-      });
+      audioRef.pause();
       this.setState({
         playing: false,
       });
     } else {
-      wx.playVoice({
-        localId: location.query.sid,
-      });
+      audioRef.play();
       this.setState({
         playing: true,
       });
@@ -90,6 +88,14 @@ export default class Shared extends React.PureComponent {
 
   toJoin = () => {
     window.location.href = 'http://www.baidu.com';
+  };
+
+  createAudio = () => {
+    let x = document.createElement('AUDIO');
+    x.setAttribute('id', 'audioLabel');
+    x.setAttribute('src', '/test.mp3');
+    x.setAttribute('controls', 'controls');
+    document.body.appendChild(x);
   };
 
   render() {
@@ -150,6 +156,10 @@ export default class Shared extends React.PureComponent {
             </div>
           </div>
         </div>
+        {/* <audio controls>
+          <source src="/test.mp3" type="audio/mpeg" />
+          您的浏览器不支持 audio 元素。
+        </audio> */}
       </div>
     );
   }
