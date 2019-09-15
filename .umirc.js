@@ -1,6 +1,8 @@
 // ref: https://umijs.org/config/
 export default {
   treeShaking: true,
+  base: 'https://beysong.github.io/h501/dist/',
+  publicPath: 'https://beysong.github.io/h501/dist/',
   plugins: [
     // ref: https://umijs.org/plugin/umi-plugin-react.html
     [
