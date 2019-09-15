@@ -2,7 +2,7 @@
 export default {
   treeShaking: true,
   base: 'https://beysong.github.io/h501/dist/',
-  // publicPath: 'https://beysong.github.io/h501/dist/',
+  publicPath: '/dist/',
   history: 'browser',
   hash: true,
   // exportStatic: {
