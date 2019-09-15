@@ -5,9 +5,9 @@ export default {
   publicPath: 'https://beysong.github.io/h501/dist/',
   history: 'browser',
   hash: true,
-  // exportStatic: {
-  //   dynamicRoot: true,
-  // },
+  exportStatic: {
+    dynamicRoot: true,
+  },
   plugins: [
     // ref: https://umijs.org/plugin/umi-plugin-react.html
     [
