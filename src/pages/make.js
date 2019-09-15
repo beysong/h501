@@ -110,7 +110,7 @@ export default class Make extends React.PureComponent {
     return (
       <div className={styles.normal}>
         {uploading ? <Loading text="上传中..." /> : false}
-        <div>
+        <div className={styles.contentWrap}>
           <div className={styles.layer01}>
             <img src={QINGHUIDA} alt="请回答2029" />
           </div>
