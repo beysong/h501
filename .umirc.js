@@ -3,6 +3,11 @@ export default {
   treeShaking: true,
   base: 'https://beysong.github.io/h501/dist/',
   publicPath: 'https://beysong.github.io/h501/dist/',
+  history: 'browser',
+  hash: true,
+  // exportStatic: {
+  //   dynamicRoot: true,
+  // },
   plugins: [
     // ref: https://umijs.org/plugin/umi-plugin-react.html
     [
@@ -12,7 +17,7 @@ export default {
         antd: false,
         dva: false,
         dynamicImport: { webpackChunkName: true, loadingComponent: './components/loading.js' },
-        title: 'h501',
+        title: '加入远景',
         dll: true,
 
         routes: {
