@@ -5,9 +5,10 @@ export default {
   publicPath: '/h501/dist/',
   history: 'browser',
   hash: true,
-  // exportStatic: {
-  //   dynamicRoot: true,
-  // },
+  exportStatic: {
+    htmlSuffix: true,
+    dynamicRoot: true,
+  },
   plugins: [
     // ref: https://umijs.org/plugin/umi-plugin-react.html
     [
