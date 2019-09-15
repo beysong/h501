@@ -106,31 +106,27 @@ export default class Make extends React.PureComponent {
   };
 
   render() {
-    const { sourceId, processing, finished, uploading, playing } = this.state;
+    const { sourceId, processing, uploading, playing } = this.state;
     return (
       <div className={styles.normal}>
         {uploading ? <Loading text="上传中..." /> : false}
-        <div
-          style={{
-            height: 1000,
-          }}
-        >
-          <div style={{ height: 80 }}>
-            <img style={{ width: 500 }} src={QINGHUIDA} alt="请回答2029" />
+        <div>
+          <div className={styles.layer01}>
+            <img src={QINGHUIDA} alt="请回答2029" />
           </div>
           <div className={styles.show10}>
-            <img style={{ width: 290 }} src={wenzi} alt="向现在 说未来" />
+            <img src={wenzi} alt="向现在 说未来" />
           </div>
           <div className={styles.show20}>
             <div>对人、物、网的想象是无限趋近自己的过程</div>
             <div>多想象一点 </div>
             <div>就离未来更近一点</div>
           </div>
-          <div style={{ width: 500, marginTop: 80, textAlign: 'left' }}>
-            <img style={{ width: 450 }} src={Label} alt="黑胶唱片" />
+          <div className={styles.layer02}>
+            <img src={Label} alt="黑胶唱片" />
           </div>
           <div className={styles.show21}>
-            <img style={{ width: 260 }} src={wenzi2} alt="向现在 说未来" />
+            <img src={wenzi2} alt="向现在 说未来" />
           </div>
 
           <div className={styles.show11}>
@@ -147,7 +143,7 @@ export default class Make extends React.PureComponent {
                     {playing ? (
                       <div className={styles.process}></div>
                     ) : (
-                      <img src={tryImg} alt="试听" style={{ width: 50 }} />
+                      <img src={tryImg} alt="试听" />
                     )}
                   </div>
                 </div>
@@ -156,7 +152,7 @@ export default class Make extends React.PureComponent {
                 </div>
                 <div className={styles.btn} onClick={this.upload}>
                   <div className={styles.upload}>
-                    <img src={uploadImg} alt="上传" style={{ width: 50 }} />
+                    <img src={uploadImg} alt="上传" />
                   </div>
                 </div>
               </div>

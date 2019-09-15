@@ -96,20 +96,16 @@ export default class Share extends React.PureComponent {
         ) : (
           false
         )}
-        <div
-          style={{
-            height: 1000,
-          }}
-        >
-          <div style={{ height: 80 }}>
-            <img style={{ width: 500 }} src={QINGHUIDA} alt="请回答2029" />
+        <div>
+          <div className={styles.layer01}>
+            <img src={QINGHUIDA} alt="请回答2029" />
           </div>
           <div className={styles.show10}>
-            <img style={{ width: 290 }} src={wenzi} alt="向现在 说未来" />
+            <img src={wenzi} alt="向现在 说未来" />
           </div>
 
-          <div style={{ width: 500, marginTop: 80, textAlign: 'left' }}>
-            <img style={{ width: 450 }} src={Label} alt="黑胶唱片" />
+          <div className={styles.layer02}>
+            <img src={Label} alt="黑胶唱片" />
           </div>
 
           <div className={styles.show11}>
@@ -121,21 +117,17 @@ export default class Share extends React.PureComponent {
           <div className={styles.show12}>
             <div onClick={this.toggleShare} className={styles.btn}>
               <div className={styles.try}>
-                <img src={shareImg} alt="叫人试听" style={{ width: 50 }} />
+                <img src={shareImg} alt="叫人试听" />
               </div>
             </div>
             <div onClick={this.togglePlay} className={styles.btn}>
               <div className={styles.try}>
-                {playing ? (
-                  <div className={styles.process}></div>
-                ) : (
-                  <img src={tryImg} alt="播放" style={{ width: 50 }} />
-                )}
+                {playing ? <div className={styles.process}></div> : <img src={tryImg} alt="播放" />}
               </div>
             </div>
             <div onClick={this.toJoin} className={styles.btn}>
               <div className={styles.upload}>
-                <img src={joinImg} alt="加入远景" style={{ width: 50 }} />
+                <img src={joinImg} alt="加入远景" />
               </div>
             </div>
           </div>

@@ -102,20 +102,16 @@ export default class Shared extends React.PureComponent {
     const { playing, dataInfo, lineWidth } = this.state;
     return (
       <div className={styles.normal}>
-        <div
-          style={{
-            height: 1000,
-          }}
-        >
-          <div style={{ height: 80 }}>
-            <img style={{ width: 500 }} src={QINGHUIDA} alt="请回答2029" />
+        <div>
+          <div className={styles.layer01}>
+            <img src={QINGHUIDA} alt="请回答2029" />
           </div>
           <div className={styles.show10}>
-            <img style={{ width: 290 }} src={wenzi} alt="向现在 说未来" />
+            <img src={wenzi} alt="向现在 说未来" />
           </div>
 
-          <div style={{ width: 500, marginTop: 80, textAlign: 'left' }}>
-            <img style={{ width: 450 }} src={Label} alt="黑胶唱片" />
+          <div className={styles.layer02}>
+            <img src={Label} alt="黑胶唱片" />
           </div>
           <div className={styles.show11}>
             <div className={styles.progressWrap}>
@@ -139,13 +135,13 @@ export default class Shared extends React.PureComponent {
                 {playing ? (
                   <div className={styles.process}></div>
                 ) : (
-                  <img src={tryImg} alt="按下播放" style={{ width: 50 }} />
+                  <img src={tryImg} alt="按下播放" />
                 )}
               </div>
             </div>
             <div onClick={this.toJoin} className={styles.btn}>
               <div className={styles.upload}>
-                <img src={joinImg} alt="加入远景" style={{ width: 50 }} />
+                <img src={joinImg} alt="加入远景" />
               </div>
             </div>
           </div>

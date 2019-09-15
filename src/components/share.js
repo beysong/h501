@@ -6,7 +6,7 @@ export default class Index extends React.PureComponent {
   render() {
     return (
       <div className={styles.normal} onClick={this.props.click}>
-        <img style={{ width: 400 }} src={shareBg} alt="微信分享" />
+        <img src={shareBg} alt="微信分享" />
       </div>
     );
   }
