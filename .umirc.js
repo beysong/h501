@@ -5,7 +5,7 @@ export default {
   // publicPath: '/h501/dist/',
   // history: 'browser',
   // base: '/static/dist/',
-  publicPath: '/static/dist/',
+  publicPath: '/static/',
   // cssPublicPath: '/static/dist/',
   hash: true,
   exportStatic: {
