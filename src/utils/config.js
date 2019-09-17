@@ -1,15 +1,15 @@
 const IMG_HOST = process.env.TEST
   ? '//baidu.img-cn-shanghai.aliyuncs.com'
   : '//baidu.img-cn-hangzhou.aliyuncs.com';
-const WEB_HOST = process.env.TEST ? '//open-test.wehome.net.cn' : '//open-test.wehome.net.cn';
-const API_HOST = process.env.TEST ? '//open-test.wehome.net.cn' : '//open-api.wehome.net.cn';
+const WEB_HOST = process.env.TEST ? '//yuanjing.icuch.com/future' : '//yuanjing.icuch.com/future';
+const API_HOST = process.env.TEST ? '//yuanjing.icuch.com/future' : '//yuanjing.icuch.com/future';
 
 // console.log('111', process.env);
 const WEB_URL = 'http://recruit.envisioncn.com/future/';
 
 const WECHATOPTIONS = {
-  title: '加入远景',
-  desc: '加入远景2019',
+  title: '请回答2029',
+  desc: '现在，向未来发声；2029，让未来发生。',
   img: WEB_URL + 'shareicon.png',
   link: window.location.href,
 };

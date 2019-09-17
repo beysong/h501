@@ -23,7 +23,7 @@ export default class Shared extends React.PureComponent {
 
   componentDidMount() {
     const { location } = this.props;
-    getVoice({ sourceid: location.query.sourceid || '' }).then(r => {
+    getVoice({ mediaId: location.query.sourceid || '' }).then(r => {
       if (r.status === 200) {
         this.setState({ dataInfo: r.body });
       }

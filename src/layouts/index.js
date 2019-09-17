@@ -8,7 +8,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 const BasicLayout = withRouter(({ location, children }) => (
   <TransitionGroup component={null}>
-    <CSSTransition key={location.pathname} classNames="fade" timeout={300}>
+    <CSSTransition key={location.pathname} classNames="swipe" timeout={300}>
       <div className={styles.pageWrapper}>{children}</div>
     </CSSTransition>
   </TransitionGroup>

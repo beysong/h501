@@ -2,7 +2,7 @@ import request from '../utils/request';
 
 /* wx config */
 export const wxConfig = async params => {
-  return request('/post/config', {
+  return request('/wx_config', {
     method: 'POST',
     apiType: 'web',
     body: { ...params },
@@ -11,7 +11,7 @@ export const wxConfig = async params => {
 
 /* upload voice */
 export const uploadVoice = async params => {
-  return request('/post/asdf', {
+  return request(`/voice/${params.code}/${params.serverId}`, {
     method: 'POST',
     apiType: 'web',
     body: { ...params },
@@ -20,7 +20,7 @@ export const uploadVoice = async params => {
 
 /* get voice */
 export const getVoice = async params => {
-  return request('/post/asdf', {
+  return request(`/get/${params.mediaId}`, {
     method: 'POST',
     body: { ...params },
   });

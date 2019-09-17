@@ -5,8 +5,12 @@ const Label = require('../assets/Label.png');
 
 export default class Index extends React.PureComponent {
   componentDidMount() {
+    const { match, location } = this.props;
+    console.log('match', match, location);
+    localStorage.token = location.query.token || '';
+    localStorage.code = location.query.code || '';
     setTimeout(() => {
-      router.push('make');
+      router.push('make?code=' + location.query.code || '');
     }, 12000);
   }
   render() {

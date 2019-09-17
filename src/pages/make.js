@@ -17,6 +17,7 @@ export default class Make extends React.PureComponent {
     super(props);
     this.state = {
       sourceId: '',
+      serverId: '',
       processing: false, // 录制中
       finished: false, // 录制完成
       uploading: false, // 上传中
@@ -51,11 +52,11 @@ export default class Make extends React.PureComponent {
           });
         },
       });
-      this.setState({
-        sourceId: '21',
-        processing: false,
-        finished: true,
-      });
+      // this.setState({
+      //   sourceId: '21',
+      //   processing: false,
+      //   finished: true,
+      // });
     } else {
       wx.startRecord();
       this.setState({
@@ -66,7 +67,7 @@ export default class Make extends React.PureComponent {
 
   // 播放录音
   togglePlay = () => {
-    const { playing, processing, sourceId } = this.state;
+    const { playing, processing, sourceId, serverId } = this.state;
     if (processing) {
       return;
     }
@@ -78,6 +79,15 @@ export default class Make extends React.PureComponent {
         playing: false,
       });
     } else {
+      wx.downloadVoice({
+        serverId: serverId, // 需要下载的音频的服务器端ID，由uploadVoice接口获得
+        isShowProgressTips: 1, // 默认为1，显示进度提示
+        success: res => {
+          var localId = res.localId; // 返回音频的本地ID
+          console.log('localId in download', localId);
+        },
+      });
+
       wx.playVoice({
         localId: sourceId,
       });
@@ -89,19 +99,33 @@ export default class Make extends React.PureComponent {
 
   // 上传录音
   upload = () => {
+    const { sourceId } = this.state;
+    const { location } = this.props;
+
     this.setState({
       uploading: true,
     });
-    uploadVoice({
-      sourceId: this.state.sourceId,
-    }).then(r => {
-      if (r.status === 200) {
-        localStorage.sourceId = this.state.sourceId;
-        router.push('share');
-      }
-      this.setState({
-        uploading: false,
-      });
+    wx.uploadVoice({
+      localId: sourceId, // 需要上传的音频的本地ID，由stopRecord接口获得
+      isShowProgressTips: 1, // 默认为1，显示进度提示
+      success: res => {
+        let serverId = res.serverId; // 返回音频的服务器端ID
+        this.setState({
+          serverId,
+        });
+        uploadVoice({
+          serverId,
+          code: location.query.code || '',
+        }).then(r => {
+          if (r.status === 200) {
+            localStorage.sourceId = sourceId;
+            router.push('share?localId=' + sourceId + '&mediaId=' + r.media_id || '');
+          }
+          this.setState({
+            uploading: false,
+          });
+        });
+      },
     });
   };
 

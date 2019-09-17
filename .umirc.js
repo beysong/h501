@@ -4,8 +4,8 @@ export default {
   // base: 'https://beysong.github.io/h501/dist/',
   // publicPath: '/h501/dist/',
   // history: 'browser',
-  // base: '/static/dist/',
-  publicPath: '/static/',
+  base: '/future/web/',
+  publicPath: '/future/web/',
   // cssPublicPath: '/static/dist/',
   hash: true,
   exportStatic: {

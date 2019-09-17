@@ -53,7 +53,7 @@ export default function request(api, { apiType, ...option }) {
   };
 
   const defaultOptions = {
-    credentials: 'include',
+    credentials: 'same-origin',
   };
   const newOptions = { ...defaultOptions, ...options };
   if (
