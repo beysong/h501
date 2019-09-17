@@ -107,9 +107,24 @@ export default class Shared extends React.PureComponent {
     const { dataInfo } = this.state;
     let x = document.createElement('AUDIO');
     x.setAttribute('id', 'audioLabel');
+    // x.setAttribute('loop', true);
     x.setAttribute('src', `http:${WEB_HOST}/get/${location.query.code || ''}`);
     x.setAttribute('controls', 'controls');
     document.body.appendChild(x);
+
+    let audioRef = document.getElementById('audioLabel');
+    audioRef.addEventListener('ended', () => {
+      //当播放完一首歌曲时也会触发
+      console.log('event ended: ' + new Date().getTime());
+      if (this.interval) {
+        clearInterval(this.interval);
+        this.interval = null;
+      }
+      this.setState({
+        playing: false,
+        lineWidth: 0,
+      });
+    });
   };
 
   render() {
