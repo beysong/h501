@@ -1,5 +1,6 @@
 import React from 'react';
 import ShareBg from '../components/share';
+import Join from '../components/join';
 import styles from './share.less';
 import { WEB_URL, WECHATOPTIONS } from '../utils/config';
 
@@ -14,35 +15,40 @@ export default class Share extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      sourceId: localStorage.sourceId || '',
+      sourceId: localStorage.sourceId || props.location.query.localId || '',
       isshow: false, // 分享背景图
       playing: false, // 播放中
+      code: props.location.query.code || '',
+      joinShow: false,
     };
   }
 
   componentDidMount() {
+    let _this = this;
     wx.ready(function() {
       //需在用户可能点击分享按钮前就先调用
       wx.updateAppMessageShareData({
         title: WECHATOPTIONS.title || '加入远景', // 分享标题
         desc: WECHATOPTIONS.desc || '加入远景2019', // 分享描述
-        link: WEB_URL + 'shared?sourceid=sourceid', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+        link: WEB_URL + '/shared.html?code=' + _this.state.code, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
         imgUrl: WECHATOPTIONS.img, // 分享图标
-        success: function() {
+        success: () => {
           // 设置成功
         },
       });
       wx.updateTimelineShareData({
         title: WECHATOPTIONS.title, // 分享标题
-        link: WEB_URL + 'shared?sourceid=sourceid', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+        link: WEB_URL + '/shared.html?code=' + _this.state.code, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
         imgUrl: WECHATOPTIONS.img, // 分享图标
-        success: function() {
+        success: () => {
           // 设置成功
         },
       });
     });
+    console.log('0-0-0-0-1');
     wx.onVoicePlayEnd({
       success: res => {
+        console.log('0-0-0-0-2');
         this.setState({
           playing: false,
         });
@@ -80,17 +86,30 @@ export default class Share extends React.PureComponent {
   };
 
   toJoin = () => {
-    window.location.href = 'http://www.baidu.com';
+    this.setState({
+      joinShow: true,
+    });
+
+    // window.location.href = 'http://www.baidu.com';
   };
 
   render() {
-    const { sourceId, isshow, playing } = this.state;
+    const { sourceId, isshow, joinShow, playing } = this.state;
     return (
       <div className={styles.normal}>
         {isshow ? (
           <ShareBg
             click={() => {
               this.setState({ isshow: false });
+            }}
+          />
+        ) : (
+          false
+        )}
+        {joinShow ? (
+          <Join
+            click={() => {
+              this.setState({ joinShow: false });
             }}
           />
         ) : (

@@ -1,5 +1,7 @@
 import React from 'react';
-import { WEB_URL, WECHATOPTIONS } from '../utils/config';
+import router from 'umi/router';
+import Join from '../components/join';
+import { WEB_URL, WEB_HOST, WECHATOPTIONS } from '../utils/config';
 import { getVoice } from '../services/index';
 import styles from './shared.less';
 
@@ -13,7 +15,7 @@ export default class Shared extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      sourceId: props.location.query.sourceid || '',
+      code: props.location.query.code || '',
       isshow: false, // 分享背景图
       playing: false, // 播放中
       dataInfo: {},
@@ -23,19 +25,26 @@ export default class Shared extends React.PureComponent {
 
   componentDidMount() {
     const { location } = this.props;
-    getVoice({ mediaId: location.query.sourceid || '' }).then(r => {
-      if (r.status === 200) {
-        this.setState({ dataInfo: r.body });
-      }
-      this.createAudio();
-    });
+    console.log('location', location);
+    if (!location.query.code) {
+      router.push('error');
+    }
+    // getVoice({ code: location.query.code || '' }).then(r => {
+    //   console.log('r', r);
+    //   if (r.status === 200) {
+    //     this.setState({ dataInfo: r.body }, () => {
+    //       // this.createAudio();
+    //     });
+    //   }
+    // });
+    this.createAudio();
 
-    wx.ready(function() {
+    wx.ready(() => {
       //需在用户可能点击分享按钮前就先调用
       wx.updateAppMessageShareData({
         title: WECHATOPTIONS.title || '加入远景', // 分享标题
         desc: WECHATOPTIONS.desc || '加入远景2019', // 分享描述
-        link: WECHATOPTIONS.link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+        link: WEB_URL + '/shared.html?code=' + this.state.code, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
         imgUrl: WECHATOPTIONS.img, // 分享图标
         success: function() {
           // 设置成功
@@ -43,7 +52,7 @@ export default class Shared extends React.PureComponent {
       });
       wx.updateTimelineShareData({
         title: WECHATOPTIONS.title || '加入远景', // 分享标题
-        link: WECHATOPTIONS.link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+        link: WEB_URL + '/shared.html?code=' + this.state.code, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
         imgUrl: WECHATOPTIONS.img, // 分享图标
         success: function() {
           // 设置成功
@@ -87,21 +96,35 @@ export default class Shared extends React.PureComponent {
   };
 
   toJoin = () => {
-    window.location.href = 'http://www.baidu.com';
+    this.setState({
+      joinShow: true,
+    });
+    // window.location.href = 'http://www.baidu.com';
   };
 
   createAudio = () => {
+    const { location } = this.props;
+    const { dataInfo } = this.state;
     let x = document.createElement('AUDIO');
     x.setAttribute('id', 'audioLabel');
-    x.setAttribute('src', '/test.mp3');
+    x.setAttribute('src', `http:${WEB_HOST}/get/${location.query.code || ''}`);
     x.setAttribute('controls', 'controls');
     document.body.appendChild(x);
   };
 
   render() {
-    const { playing, dataInfo, lineWidth } = this.state;
+    const { playing, dataInfo, lineWidth, joinShow } = this.state;
     return (
       <div className={styles.normal}>
+        {joinShow ? (
+          <Join
+            click={() => {
+              this.setState({ joinShow: false });
+            }}
+          />
+        ) : (
+          false
+        )}
         <div>
           <div className={styles.layer01}>
             <img src={QINGHUIDA} alt="请回答2029" />

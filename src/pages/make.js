@@ -33,7 +33,20 @@ export default class Make extends React.PureComponent {
         // var localId = res.localId; // 返回音频的本地ID
       },
     });
+    wx.onVoiceRecordEnd({
+      // 录音时间超过一分钟没有停止的时候会执行 complete 回调
+      complete: res => {
+        var sourceId = res.localId;
+
+        this.setState({
+          sourceId,
+          processing: false,
+          finished: true,
+        });
+      },
+    });
   }
+
   /* global wx */
   // 开始录音
   toggleStart = () => {
@@ -119,7 +132,7 @@ export default class Make extends React.PureComponent {
         }).then(r => {
           if (r.status === 200) {
             localStorage.sourceId = sourceId;
-            router.push('share?localId=' + sourceId + '&mediaId=' + r.media_id || '');
+            router.push('share?localId=' + sourceId + '&code=' + location.query.code || '');
           }
           this.setState({
             uploading: false,

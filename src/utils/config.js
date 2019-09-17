@@ -5,12 +5,14 @@ const WEB_HOST = process.env.TEST ? '//yuanjing.icuch.com/future' : '//yuanjing.
 const API_HOST = process.env.TEST ? '//yuanjing.icuch.com/future' : '//yuanjing.icuch.com/future';
 
 // console.log('111', process.env);
-const WEB_URL = 'http://recruit.envisioncn.com/future/';
+// const WEB_URL = 'http://recruit.envisioncn.com/future/';
+
+const WEB_URL = 'http://yuanjing.icuch.com/future/web';
 
 const WECHATOPTIONS = {
   title: '请回答2029',
   desc: '现在，向未来发声；2029，让未来发生。',
-  img: WEB_URL + 'shareicon.png',
+  img: WEB_URL + '/shareicon.png',
   link: window.location.href,
 };
 

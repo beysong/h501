@@ -92,10 +92,11 @@ export default function request(api, { apiType, ...option }) {
   } else {
     url += url.indexOf('?') === -1 ? `?token=${token}` : `&token=${token}`;
   }
-
+  console.log('url:', url);
   return fetch(url, newOptions)
     .then(checkStatus)
     .then(response => {
+      console.log('12121221');
       // DELETE and 204 do not return data by default
       // using .json will report an error.
       if (newOptions.method === 'DELETE' || response.status === 204) {
@@ -104,8 +105,8 @@ export default function request(api, { apiType, ...option }) {
       return response.json();
     })
     .then(v => {
-      if (v.status !== 200) {
-        alert(v.msg || '请求错误');
+      if (v.status !== 200 && v.msg) {
+        alert(v.msg);
       }
       if (v.status === 401) {
         router.push('/error');
