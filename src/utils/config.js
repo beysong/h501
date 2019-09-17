@@ -1,13 +1,19 @@
 const IMG_HOST = process.env.TEST
   ? '//baidu.img-cn-shanghai.aliyuncs.com'
   : '//baidu.img-cn-hangzhou.aliyuncs.com';
-const WEB_HOST = process.env.TEST ? '//yuanjing.icuch.com/future' : '//yuanjing.icuch.com/future';
-const API_HOST = process.env.TEST ? '//yuanjing.icuch.com/future' : '//yuanjing.icuch.com/future';
+const WEB_HOST = process.env.TEST
+  ? '//yuanjing.icuch.com/future'
+  : '//recruit.envisioncn.com/future';
+const API_HOST = process.env.TEST
+  ? '//yuanjing.icuch.com/future'
+  : '//recruit.envisioncn.com/future';
 
 // console.log('111', process.env);
 // const WEB_URL = 'http://recruit.envisioncn.com/future/';
 
-const WEB_URL = 'http://yuanjing.icuch.com/future/web';
+const WEB_URL = process.env.TEST
+  ? 'http://yuanjing.icuch.com/future/web'
+  : 'http://recruit.envisioncn.com/future/web';
 
 const WECHATOPTIONS = {
   title: '请回答2029',
