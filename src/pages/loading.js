@@ -14,7 +14,9 @@ export default class Index extends React.PureComponent {
     localStorage.token = location.query.token || '';
     localStorage.code = location.query.code || '';
     setTimeout(() => {
-      router.push('make?code=' + location.query.code || '');
+      // router.push('make?code=' + location.query.code || '');
+
+      location.href = 'make?code=' + location.query.code || '';
     }, 27000);
 
     let x = document.createElement('AUDIO');
@@ -79,7 +81,8 @@ export default class Index extends React.PureComponent {
       } else {
         console.log('222', endY - beginY);
         if (endY - beginY < 0) {
-          router.push('make?code=' + location.query.code || '');
+          // router.push('make?code=' + location.query.code || '');
+          window.location.href = './make.html?code=' + location.query.code || '';
         }
       }
     });

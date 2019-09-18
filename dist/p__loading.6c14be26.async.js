@@ -14,11 +14,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Index; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var umi_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! umi/router */ "./node_modules/umi/router.js");
-/* harmony import */ var umi_router__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(umi_router__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _loading_less__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./loading.less */ "./src/pages/loading.less");
-/* harmony import */ var _loading_less__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_loading_less__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _utils_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/index */ "./src/utils/index.js");
+/* harmony import */ var _loading_less__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./loading.less */ "./src/pages/loading.less");
+/* harmony import */ var _loading_less__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_loading_less__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _utils_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/index */ "./src/utils/index.js");
 
 
 
@@ -28,8 +26,8 @@ var Label = __webpack_require__(/*! ../assets/Label.png */ "./src/assets/Label.p
 
 class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
   componentDidMount() {
-    if (Object(_utils_index__WEBPACK_IMPORTED_MODULE_3__[/* isAndroid */ "a"])() && !Object(_utils_index__WEBPACK_IMPORTED_MODULE_3__[/* weixinVersion */ "b"])()) {
-      Object(_utils_index__WEBPACK_IMPORTED_MODULE_3__[/* wxConfig2 */ "c"])();
+    if (Object(_utils_index__WEBPACK_IMPORTED_MODULE_2__[/* isAndroid */ "a"])() && !Object(_utils_index__WEBPACK_IMPORTED_MODULE_2__[/* weixinVersion */ "b"])()) {
+      Object(_utils_index__WEBPACK_IMPORTED_MODULE_2__[/* wxConfig2 */ "c"])();
     }
 
     var _this$props = this.props,
@@ -39,7 +37,8 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
     localStorage.token = location.query.token || '';
     localStorage.code = location.query.code || '';
     setTimeout(() => {
-      umi_router__WEBPACK_IMPORTED_MODULE_1___default.a.push('make?code=' + location.query.code || false);
+      // router.push('make?code=' + location.query.code || '');
+      location.href = 'make?code=' + location.query.code || false;
     }, 27000);
     var x = document.createElement('AUDIO');
     x.setAttribute('id', 'audioLabel2');
@@ -104,7 +103,8 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
         console.log('222', endY - beginY);
 
         if (endY - beginY < 0) {
-          umi_router__WEBPACK_IMPORTED_MODULE_1___default.a.push('make?code=' + location.query.code || false);
+          // router.push('make?code=' + location.query.code || '');
+          window.location.href = './make.html?code=' + location.query.code || false;
         }
       }
     });
@@ -112,132 +112,132 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
 
   render() {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.normal,
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.normal,
       id: "touchid"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.start1
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.start1
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bars
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bars
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bar
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bar
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bar
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bar
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bar
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bar
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bar
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bar
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bar
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bar
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bar
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bar
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bar
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bar
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bar
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bar
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bar
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bar
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bar
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bar
     })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       style: {
         textAlign: 'left'
       },
       onClick: () => {}
     }, "\u672A\u6765\u662F\u88AB\u60F3\u8C61\u51FA\u6765\u7684", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "\u672A\u6765\u4E0D\u662F\u901A\u8FC7\u4E00\u4E9B\u7EBF\u6027\u7684\u89C4\u5212")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.start2
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.start2
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bars
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bars
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bar
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bar
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bar
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bar
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bar
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bar
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bar
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bar
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bar
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bar
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bar
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bar
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bar
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bar
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bar
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bar
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bar
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bar
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bar
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bar
     })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       style: {
         textAlign: 'left'
       },
       onClick: () => {}
     }, "\u5176\u5B9E\u5F88\u591A\u65F6\u5019 ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "\u662F\u7531\u827A\u672F\u5BB6 \u8BBE\u8BA1\u5E08 \u5305\u62EC\u8FD9\u4E9B\u54F2\u5B66\u5BB6 ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "\u4ED6\u4EEC\u5728\u91CD\u65B0\u5B9A\u4E49\u672A\u6765")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.start3
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.start3
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bars
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bars
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bar
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bar
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bar
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bar
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bar
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bar
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bar
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bar
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bar
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bar
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bar
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bar
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bar
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bar
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bar
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bar
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bar
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bar
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bar
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bar
     })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       style: {
         textAlign: 'left'
       },
       onClick: () => {}
     }, "\u4ED6\u4E0D\u4F1A\u53BB\u91CD\u590D\u8FC7\u53BB\u7684\u4E1C\u897F", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "\u4ED6\u6C38\u8FDC\u662F\u7528\u4ED6\u7684\u60F3\u8C61\u529B", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "\u5728\u5F15\u9886\u672A\u6765\u7684\u53D1\u751F")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.start4
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.start4
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bars
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bars
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bar
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bar
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bar
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bar
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bar
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bar
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bar
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bar
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bar
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bar
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bar
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bar
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bar
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bar
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bar
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bar
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bar
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bar
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.bar
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.bar
     })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       style: {
         textAlign: 'left'
       },
       onClick: () => {}
     }, "\u4E0E\u4EFB\u4F55\u4E00\u79CD\u80FD\u6E90\u76F8\u6BD4 ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.fontSize30
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.fontSize30
     }, "\u60F3\u8C61\u529B"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "\u624D\u662F\u6700\u597D\u7684", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.fontSize30
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.fontSize30
     }, "\u9A71\u52A8\u529B"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.arrow
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.arrow
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.arrow2
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.arrow2
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
       style: {
         width: 0
