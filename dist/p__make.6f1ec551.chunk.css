@@ -214,6 +214,7 @@
 }
 .normal___2womO .timer___ifSiu {
   text-align: center;
+  margin-bottom: 10;
   animation: fadeinout___CylBp 1000ms ease;
 }
 @keyframes fadeinout___CylBp {

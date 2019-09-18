@@ -42,7 +42,8 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
     }, 29000);
     var x = document.createElement('AUDIO');
     x.setAttribute('id', 'audioLabel2');
-    x.setAttribute('style', 'z-index: -1;'); // x.setAttribute('loop', true);
+    x.setAttribute('style', 'z-index: -1;');
+    x.setAttribute('preload', 'load'); // x.setAttribute('loop', true);
 
     x.setAttribute('src', '/future/web/speak.mp3');
     x.setAttribute('controls', 'controls');
@@ -51,9 +52,7 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
     /* global wx */
 
     wx.ready(() => {
-      setTimeout(() => {
-        audioRef.play();
-      }, 0);
+      audioRef.play();
     });
     var ele = document.getElementById('touchid');
     var beginX, beginY, endX, endY, swipeLeft, swipeRight;

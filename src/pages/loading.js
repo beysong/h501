@@ -22,6 +22,7 @@ export default class Index extends React.PureComponent {
     let x = document.createElement('AUDIO');
     x.setAttribute('id', 'audioLabel2');
     x.setAttribute('style', 'z-index: -1;');
+    x.setAttribute('preload', 'load');
     // x.setAttribute('loop', true);
     x.setAttribute('src', '/future/web/speak.mp3');
     x.setAttribute('controls', 'controls');
@@ -30,9 +31,7 @@ export default class Index extends React.PureComponent {
 
     /* global wx */
     wx.ready(() => {
-      setTimeout(() => {
-        audioRef.play();
-      }, 0);
+      audioRef.play();
     });
 
     var ele = document.getElementById('touchid');
