@@ -48,7 +48,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"p__error":"p__error","p__index.2":"p__index.2","p__index.3":"p__index.3","vendors":"vendors","layouts__index":"layouts__index","p__index.1":"p__index.1","p__loading":"p__loading","p__luzhi.1":"p__luzhi.1","p__make":"p__make","p__premake":"p__premake","p__share":"p__share","p__shared":"p__shared"}[chunkId]||chunkId) + "." + {"p__error":"cb5f1ab3","p__index.2":"ee75a9e9","p__index.3":"8c9bf2c5","vendors":"0f609c1a","layouts__index":"68159cd3","p__index.1":"5f3bea5a","p__loading":"5530edc3","p__luzhi.1":"09d27bb3","p__make":"210968ed","p__premake":"ccd19f1a","p__share":"8a356126","p__shared":"ab83bea6"}[chunkId] + ".async.js"
+/******/ 		return __webpack_require__.p + "" + ({"p__error":"p__error","p__index.2":"p__index.2","p__index.3":"p__index.3","vendors":"vendors","layouts__index":"layouts__index","p__index.1":"p__index.1","p__loading":"p__loading","p__luzhi.1":"p__luzhi.1","p__make":"p__make","p__premake":"p__premake","p__share":"p__share","p__shared":"p__shared"}[chunkId]||chunkId) + "." + {"p__error":"cb5f1ab3","p__index.2":"ee75a9e9","p__index.3":"8c9bf2c5","vendors":"0f609c1a","layouts__index":"68159cd3","p__index.1":"5f3bea5a","p__loading":"f6ba6dd0","p__luzhi.1":"09d27bb3","p__make":"95c51272","p__premake":"ccd19f1a","p__share":"8a356126","p__shared":"ab83bea6"}[chunkId] + ".async.js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -21264,7 +21264,7 @@ class RouterWrapper extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compone
 /*! exports provided: ReactDOMServer, default */
 /*! all exports used */
 /*! ModuleConcatenation bailout: Cannot concat with ./src/pages/.umi-production/history.js (<- Module is referenced from these modules with unsupported syntax: ./node_modules/umi/lib/router.js (referenced with cjs require)) */
-/*! ModuleConcatenation bailout: Cannot concat with ./src/services/index.js because of ./src/utils/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./src/services/index.js because of ./src/pages/premake.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/babel-preset-umi/node_modules/@babel/runtime/helpers/asyncToGenerator.js (<- Module is not an ECMAScript module) */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/babel-preset-umi/node_modules/@babel/runtime/helpers/objectSpread.js (<- Module is not an ECMAScript module) */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/babel-preset-umi/node_modules/@babel/runtime/regenerator/index.js (<- Module is not an ECMAScript module) */

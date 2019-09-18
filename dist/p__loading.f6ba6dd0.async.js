@@ -50,7 +50,7 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
     setTimeout(() => {
       // router.push('make?code=' + location.query.code || '');
       window.location.href = './premake.html?code=' + location.query.code || false;
-    }, 29000); // let x = document.createElement('AUDIO');
+    }, 31000); // let x = document.createElement('AUDIO');
     // x.setAttribute('id', 'audioLabel2');
     // x.setAttribute('style', 'z-index: -1;');
     // x.setAttribute('preload', 'load');

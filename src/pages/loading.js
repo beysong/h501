@@ -26,7 +26,7 @@ export default class Index extends React.PureComponent {
       // router.push('make?code=' + location.query.code || '');
 
       window.location.href = './premake.html?code=' + location.query.code || '';
-    }, 29000);
+    }, 31000);
 
     // let x = document.createElement('AUDIO');
     // x.setAttribute('id', 'audioLabel2');
