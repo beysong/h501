@@ -48,7 +48,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"p__error":"p__error","p__index.2":"p__index.2","p__index.3":"p__index.3","vendors":"vendors","layouts__index":"layouts__index","p__index.1":"p__index.1","p__loading":"p__loading","p__luzhi.1":"p__luzhi.1","p__make":"p__make","p__share":"p__share","p__shared":"p__shared"}[chunkId]||chunkId) + "." + {"p__error":"cb5f1ab3","p__index.2":"ee75a9e9","p__index.3":"8c9bf2c5","vendors":"8be59c37","layouts__index":"75eaeab3","p__index.1":"5f3bea5a","p__loading":"482bd783","p__luzhi.1":"09d27bb3","p__make":"abb94ba8","p__share":"6d4fc5ec","p__shared":"4290fb95"}[chunkId] + ".async.js"
+/******/ 		return __webpack_require__.p + "" + ({"p__error":"p__error","p__index.2":"p__index.2","p__index.3":"p__index.3","vendors":"vendors","layouts__index":"layouts__index","p__index.1":"p__index.1","p__loading":"p__loading","p__luzhi.1":"p__luzhi.1","p__make":"p__make","p__share":"p__share","p__shared":"p__shared"}[chunkId]||chunkId) + "." + {"p__error":"cb5f1ab3","p__index.2":"ee75a9e9","p__index.3":"8c9bf2c5","vendors":"c49a5cd7","layouts__index":"75eaeab3","p__index.1":"5f3bea5a","p__loading":"6646d00c","p__luzhi.1":"09d27bb3","p__make":"f18594e7","p__share":"2ac750f5","p__shared":"42145b5a"}[chunkId] + ".async.js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -21729,7 +21729,7 @@ if (false) {}
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js because of ./node_modules/react-transition-group/esm/TransitionGroup.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/extends.js because of ./node_modules/react-transition-group/esm/TransitionGroup.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js because of ./node_modules/react-transition-group/esm/TransitionGroup.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./src/utils/config.js because of ./src/pages/shared.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./src/utils/config.js because of ./src/pages/share.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/babel-preset-umi/node_modules/@babel/runtime/helpers/asyncToGenerator.js (<- Module is not an ECMAScript module) */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/babel-preset-umi/node_modules/@babel/runtime/helpers/objectSpread.js (<- Module is not an ECMAScript module) */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/babel-preset-umi/node_modules/@babel/runtime/helpers/objectWithoutProperties.js (<- Module is not an ECMAScript module) */

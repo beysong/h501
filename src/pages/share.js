@@ -3,7 +3,7 @@ import ShareBg from '../components/share';
 import Join from '../components/join';
 import styles from './share.less';
 import { WEB_URL, WEB_HOST, WECHATOPTIONS } from '../utils/config';
-import { wxConfig2 } from '../utils/index';
+import { wxConfig2, isAndroid, weixinVersion } from '../utils/index';
 
 const QINGHUIDA = require('../assets/qinghuida.png');
 const Label = require('../assets/Label.png');
@@ -26,7 +26,42 @@ export default class Share extends React.PureComponent {
 
   componentDidMount() {
     this.createAudio();
-    wxConfig2().then(r => {
+    if (isAndroid() && !weixinVersion()) {
+      wxConfig2().then(r => {
+        let _this = this;
+        wx.ready(() => {
+          //需在用户可能点击分享按钮前就先调用
+          wx.updateAppMessageShareData({
+            title: WECHATOPTIONS.title || '加入远景', // 分享标题
+            desc: WECHATOPTIONS.desc || '加入远景2019', // 分享描述
+            link: WEB_URL + '/shared.html?code=' + _this.state.code, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+            imgUrl: WECHATOPTIONS.img, // 分享图标
+            success: () => {
+              // 设置成功
+            },
+          });
+          wx.updateTimelineShareData({
+            title: WECHATOPTIONS.title, // 分享标题
+            link: WEB_URL + '/shared.html?code=' + _this.state.code, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+            imgUrl: WECHATOPTIONS.img, // 分享图标
+            success: () => {
+              // 设置成功
+            },
+          });
+
+          console.log('0-0-0-0-1');
+          // wx.onVoicePlayEnd({
+          //   success: res => {
+          //     console.log('0-0-0-0-2');
+          //     this.setState({
+          //       playing: false,
+          //     });
+          //     // var localId = res.localId; // 返回音频的本地ID
+          //   },
+          // });
+        });
+      });
+    } else {
       let _this = this;
       wx.ready(() => {
         //需在用户可能点击分享按钮前就先调用
@@ -59,7 +94,7 @@ export default class Share extends React.PureComponent {
         //   },
         // });
       });
-    });
+    }
   }
 
   /* global wx */

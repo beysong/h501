@@ -1,12 +1,14 @@
 import React from 'react';
 import router from 'umi/router';
 import styles from './loading.less';
-import { wxConfig2 } from '../utils/index';
+import { wxConfig2, isAndroid, weixinVersion } from '../utils/index';
 const Label = require('../assets/Label.png');
 
 export default class Index extends React.PureComponent {
   componentDidMount() {
-    wxConfig2();
+    if (isAndroid() && !weixinVersion()) {
+      wxConfig2();
+    }
     const { match, location } = this.props;
     console.log('match', match, location);
     localStorage.token = location.query.token || '';

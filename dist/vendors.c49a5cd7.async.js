@@ -1284,13 +1284,13 @@ module.exports = {"normal":"normal___3O4nd"};
   !*** ./src/utils/index.js ***!
   \****************************/
 /*! exports provided: isAndroid, weixinVersion, wxConfig2 */
-/*! exports used: wxConfig2 */
+/*! exports used: isAndroid, weixinVersion, wxConfig2 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* unused harmony export isAndroid */
-/* unused harmony export weixinVersion */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return wxConfig2; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return isAndroid; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return weixinVersion; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return wxConfig2; });
 /* harmony import */ var _services_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../services/index */ "./src/services/index.js");
  // wxConfig({
 //   url: window.location.href.split('#')[0],

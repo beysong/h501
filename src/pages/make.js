@@ -2,7 +2,7 @@ import React from 'react';
 import router from 'umi/router';
 import styles from './make.less';
 import Loading from '../components/loading';
-import { wxConfig2 } from '../utils/index';
+import { wxConfig2, isAndroid, weixinVersion } from '../utils/index';
 
 import { uploadVoice } from '../services/index';
 
@@ -26,7 +26,7 @@ export default class Make extends React.PureComponent {
     };
   }
   componentDidMount() {
-    wxConfig2().then(r => {
+    if (isAndroid() && !weixinVersion()) {
       wx.ready(() => {
         wx.onVoicePlayEnd({
           success: res => {
@@ -49,7 +49,32 @@ export default class Make extends React.PureComponent {
           },
         });
       });
-    });
+    } else {
+      wxConfig2().then(r => {
+        wx.ready(() => {
+          wx.onVoicePlayEnd({
+            success: res => {
+              this.setState({
+                playing: false,
+              });
+              // var localId = res.localId; // 返回音频的本地ID
+            },
+          });
+          wx.onVoiceRecordEnd({
+            // 录音时间超过一分钟没有停止的时候会执行 complete 回调
+            complete: res => {
+              var sourceId = res.localId;
+
+              this.setState({
+                sourceId,
+                processing: false,
+                finished: true,
+              });
+            },
+          });
+        });
+      });
+    }
   }
 
   /* global wx */

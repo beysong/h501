@@ -167,7 +167,7 @@ class Make extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
   }
 
   componentDidMount() {
-    Object(_utils_index__WEBPACK_IMPORTED_MODULE_4__[/* wxConfig2 */ "a"])().then(r => {
+    if (Object(_utils_index__WEBPACK_IMPORTED_MODULE_4__[/* isAndroid */ "a"])() && !Object(_utils_index__WEBPACK_IMPORTED_MODULE_4__[/* weixinVersion */ "b"])()) {
       wx.ready(() => {
         wx.onVoicePlayEnd({
           success: res => {
@@ -188,7 +188,30 @@ class Make extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
           }
         });
       });
-    });
+    } else {
+      Object(_utils_index__WEBPACK_IMPORTED_MODULE_4__[/* wxConfig2 */ "c"])().then(r => {
+        wx.ready(() => {
+          wx.onVoicePlayEnd({
+            success: res => {
+              this.setState({
+                playing: false
+              }); // var localId = res.localId; // 返回音频的本地ID
+            }
+          });
+          wx.onVoiceRecordEnd({
+            // 录音时间超过一分钟没有停止的时候会执行 complete 回调
+            complete: res => {
+              var sourceId = res.localId;
+              this.setState({
+                sourceId,
+                processing: false,
+                finished: true
+              });
+            }
+          });
+        });
+      });
+    }
   }
   /* global wx */
   // 开始录音

@@ -123,7 +123,36 @@ class Shared extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
     }
 
     this.createAudio();
-    Object(_utils_index__WEBPACK_IMPORTED_MODULE_5__[/* wxConfig2 */ "a"])().then(r => {
+
+    if (Object(_utils_index__WEBPACK_IMPORTED_MODULE_5__[/* isAndroid */ "a"])() && !Object(_utils_index__WEBPACK_IMPORTED_MODULE_5__[/* weixinVersion */ "b"])()) {
+      Object(_utils_index__WEBPACK_IMPORTED_MODULE_5__[/* wxConfig2 */ "c"])().then(r => {
+        wx.ready(() => {
+          //需在用户可能点击分享按钮前就先调用
+          wx.updateAppMessageShareData({
+            title: _utils_config__WEBPACK_IMPORTED_MODULE_3__[/* WECHATOPTIONS */ "d"].title || '加入远景',
+            // 分享标题
+            desc: _utils_config__WEBPACK_IMPORTED_MODULE_3__[/* WECHATOPTIONS */ "d"].desc || '加入远景2019',
+            // 分享描述
+            link: _utils_config__WEBPACK_IMPORTED_MODULE_3__[/* WEB_URL */ "c"] + '/shared.html?code=' + this.state.code,
+            // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+            imgUrl: _utils_config__WEBPACK_IMPORTED_MODULE_3__[/* WECHATOPTIONS */ "d"].img,
+            // 分享图标
+            success: function success() {// 设置成功
+            }
+          });
+          wx.updateTimelineShareData({
+            title: _utils_config__WEBPACK_IMPORTED_MODULE_3__[/* WECHATOPTIONS */ "d"].title || '加入远景',
+            // 分享标题
+            link: _utils_config__WEBPACK_IMPORTED_MODULE_3__[/* WEB_URL */ "c"] + '/shared.html?code=' + this.state.code,
+            // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+            imgUrl: _utils_config__WEBPACK_IMPORTED_MODULE_3__[/* WECHATOPTIONS */ "d"].img,
+            // 分享图标
+            success: function success() {// 设置成功
+            }
+          });
+        });
+      });
+    } else {
       wx.ready(() => {
         //需在用户可能点击分享按钮前就先调用
         wx.updateAppMessageShareData({
@@ -149,7 +178,7 @@ class Shared extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
           }
         });
       });
-    });
+    }
   }
 
   componentWillUnmount() {

@@ -28,7 +28,10 @@ var Label = __webpack_require__(/*! ../assets/Label.png */ "./src/assets/Label.p
 
 class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
   componentDidMount() {
-    Object(_utils_index__WEBPACK_IMPORTED_MODULE_3__[/* wxConfig2 */ "a"])();
+    if (Object(_utils_index__WEBPACK_IMPORTED_MODULE_3__[/* isAndroid */ "a"])() && !Object(_utils_index__WEBPACK_IMPORTED_MODULE_3__[/* weixinVersion */ "b"])()) {
+      Object(_utils_index__WEBPACK_IMPORTED_MODULE_3__[/* wxConfig2 */ "c"])();
+    }
+
     var _this$props = this.props,
         match = _this$props.match,
         location = _this$props.location;

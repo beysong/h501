@@ -197,7 +197,47 @@ class share_Share extends react_default.a.PureComponent {
 
   componentDidMount() {
     this.createAudio();
-    Object(utils["a" /* wxConfig2 */])().then(r => {
+
+    if (Object(utils["a" /* isAndroid */])() && !Object(utils["b" /* weixinVersion */])()) {
+      Object(utils["c" /* wxConfig2 */])().then(r => {
+        var _this = this;
+
+        wx.ready(() => {
+          //需在用户可能点击分享按钮前就先调用
+          wx.updateAppMessageShareData({
+            title: config["d" /* WECHATOPTIONS */].title || '加入远景',
+            // 分享标题
+            desc: config["d" /* WECHATOPTIONS */].desc || '加入远景2019',
+            // 分享描述
+            link: config["c" /* WEB_URL */] + '/shared.html?code=' + _this.state.code,
+            // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+            imgUrl: config["d" /* WECHATOPTIONS */].img,
+            // 分享图标
+            success: () => {// 设置成功
+            }
+          });
+          wx.updateTimelineShareData({
+            title: config["d" /* WECHATOPTIONS */].title,
+            // 分享标题
+            link: config["c" /* WEB_URL */] + '/shared.html?code=' + _this.state.code,
+            // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+            imgUrl: config["d" /* WECHATOPTIONS */].img,
+            // 分享图标
+            success: () => {// 设置成功
+            }
+          });
+          console.log('0-0-0-0-1'); // wx.onVoicePlayEnd({
+          //   success: res => {
+          //     console.log('0-0-0-0-2');
+          //     this.setState({
+          //       playing: false,
+          //     });
+          //     // var localId = res.localId; // 返回音频的本地ID
+          //   },
+          // });
+        });
+      });
+    } else {
       var _this = this;
 
       wx.ready(() => {
@@ -234,7 +274,7 @@ class share_Share extends react_default.a.PureComponent {
         //   },
         // });
       });
-    });
+    }
   }
   /* global wx */
   // 播放录音
