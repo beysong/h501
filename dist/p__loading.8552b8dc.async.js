@@ -47,10 +47,14 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
     x.setAttribute('src', '/future/web/speak.mp3');
     x.setAttribute('controls', 'controls');
     document.body.appendChild(x);
-    setTimeout(() => {
-      var audioRef = document.getElementById('audioLabel2');
-      audioRef.play();
-    }, 0);
+    var audioRef = document.getElementById('audioLabel2');
+    /* global wx */
+
+    wx.ready(() => {
+      setTimeout(() => {
+        audioRef.play();
+      }, 0);
+    });
     var ele = document.getElementById('touchid');
     var beginX, beginY, endX, endY, swipeLeft, swipeRight;
     ele.addEventListener('touchstart', function (event) {

@@ -26,10 +26,14 @@ export default class Index extends React.PureComponent {
     x.setAttribute('src', '/future/web/speak.mp3');
     x.setAttribute('controls', 'controls');
     document.body.appendChild(x);
-    setTimeout(() => {
-      let audioRef = document.getElementById('audioLabel2');
-      audioRef.play();
-    }, 0);
+    let audioRef = document.getElementById('audioLabel2');
+
+    /* global wx */
+    wx.ready(() => {
+      setTimeout(() => {
+        audioRef.play();
+      }, 0);
+    });
 
     var ele = document.getElementById('touchid');
     var beginX, beginY, endX, endY, swipeLeft, swipeRight;
