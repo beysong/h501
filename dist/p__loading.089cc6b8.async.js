@@ -42,7 +42,7 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
       var x = document.createElement('AUDIO');
       x.setAttribute('id', 'audioLabel2'); // x.setAttribute('loop', true);
 
-      x.setAttribute('src', '/future/web/speak.mp3');
+      x.setAttribute('src', window.routerBase + 'speak.mp3');
       x.setAttribute('controls', 'controls');
       document.body.appendChild(x);
       var audioRef = document.getElementById('audioLabel2');
