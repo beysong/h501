@@ -4,6 +4,8 @@ import styles from './loading.less';
 import { wxConfig2, isAndroid, weixinVersion } from '../utils/index';
 const Label = require('../assets/Label.png');
 
+const audioSource = require('../assets/speak.mp3');
+
 export default class Index extends React.PureComponent {
   componentDidMount() {
     if (isAndroid() && !weixinVersion()) {
@@ -24,7 +26,7 @@ export default class Index extends React.PureComponent {
     x.setAttribute('style', 'z-index: -1;');
     x.setAttribute('preload', 'load');
     // x.setAttribute('loop', true);
-    x.setAttribute('src', '/future/web/speak.mp3');
+    x.setAttribute('src', audioSource);
     x.setAttribute('controls', 'controls');
     document.body.appendChild(x);
     let audioRef = document.getElementById('audioLabel2');

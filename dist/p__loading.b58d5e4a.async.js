@@ -1,5 +1,18 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["p__loading"],{
 
+/***/ "./src/assets/speak.mp3":
+/*!******************************!*\
+  !*** ./src/assets/speak.mp3 ***!
+  \******************************/
+/*! no static exports found */
+/*! all exports used */
+/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/speak.3b4d7a93.mp3";
+
+/***/ }),
+
 /***/ "./src/pages/loading.js":
 /*!******************************!*\
   !*** ./src/pages/loading.js ***!
@@ -24,6 +37,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var Label = __webpack_require__(/*! ../assets/Label.png */ "./src/assets/Label.png");
 
+var audioSource = __webpack_require__(/*! ../assets/speak.mp3 */ "./src/assets/speak.mp3");
+
 class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
   componentDidMount() {
     if (Object(_utils_index__WEBPACK_IMPORTED_MODULE_2__[/* isAndroid */ "a"])() && !Object(_utils_index__WEBPACK_IMPORTED_MODULE_2__[/* weixinVersion */ "b"])()) {
@@ -45,7 +60,7 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
     x.setAttribute('style', 'z-index: -1;');
     x.setAttribute('preload', 'load'); // x.setAttribute('loop', true);
 
-    x.setAttribute('src', '/future/web/speak.mp3');
+    x.setAttribute('src', audioSource);
     x.setAttribute('controls', 'controls');
     document.body.appendChild(x);
     var audioRef = document.getElementById('audioLabel2');
