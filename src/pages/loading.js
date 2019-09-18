@@ -13,7 +13,7 @@ export default class Index extends React.PureComponent {
     localStorage.code = location.query.code || '';
     setTimeout(() => {
       router.push('make?code=' + location.query.code || '');
-    }, 16000);
+    }, 27000);
 
     let x = document.createElement('AUDIO');
     x.setAttribute('id', 'audioLabel2');

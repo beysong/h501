@@ -82,6 +82,7 @@ export default class Share extends React.PureComponent {
       // wx.playVoice({
       //   localId: sourceId,
       // });
+      console.log('audioRef', audioRef);
       audioRef.play();
       this.setState({
         playing: true,

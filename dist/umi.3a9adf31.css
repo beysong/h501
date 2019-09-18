@@ -19,7 +19,7 @@
 }
 .bars___Tyis5 {
   height: 1.2rem;
-  width: 2rem;
+  width: 2.5rem;
   display: flex;
   justify-content: center;
 }
@@ -27,7 +27,8 @@
   background: #cacbcd;
   height: 0.32rem;
   width: 0.06rem;
-  margin-right: 0.12rem;
+  margin-right: 0.06rem;
+  margin-left: 0.06rem;
   animation: sound___3a313 0ms -800ms linear infinite alternate;
 }
 @keyframes sound___3a313 {

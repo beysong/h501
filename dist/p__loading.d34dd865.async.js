@@ -37,7 +37,7 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
     localStorage.code = location.query.code || '';
     setTimeout(() => {
       umi_router__WEBPACK_IMPORTED_MODULE_1___default.a.push('make?code=' + location.query.code || false);
-    }, 16000);
+    }, 27000);
     var x = document.createElement('AUDIO');
     x.setAttribute('id', 'audioLabel2'); // x.setAttribute('loop', true);
 

@@ -203,7 +203,7 @@ class Make extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: _make_less__WEBPACK_IMPORTED_MODULE_2___default.a.normal
     }, uploading ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_loading__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      text: "\u4E0A\u4F20\u4E2D..."
+      text: "\u6B63\u5728\u63A5\u6536\u672A\u6765\u4FE1\u53F7..."
     }) : false, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: _make_less__WEBPACK_IMPORTED_MODULE_2___default.a.contentWrap
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

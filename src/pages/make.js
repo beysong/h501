@@ -142,7 +142,7 @@ export default class Make extends React.PureComponent {
     const { sourceId, processing, uploading, playing } = this.state;
     return (
       <div className={styles.normal}>
-        {uploading ? <Loading text="上传中..." /> : false}
+        {uploading ? <Loading text="正在接收未来信号..." /> : false}
         <div className={styles.contentWrap}>
           <div className={styles.layer01}>
             <img src={QINGHUIDA} alt="请回答2029" />
