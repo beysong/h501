@@ -1,0 +1,153 @@
+.normal___g9MS7 {
+  font-family: Georgia, sans-serif;
+  font-size: 0.25rem;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.loading___2CfNt {
+  position: absolute;
+  animation: disapear___3okgY 3000ms;
+  opacity: 0;
+}
+@keyframes disapear___3okgY {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.start1___2jllD,
+.start3___187PN {
+  animation: movein1___FLX4b 8000ms ease 1000ms;
+  margin-left: 20rem;
+  width: 5rem;
+}
+.start2___2upap {
+  animation: movein2___1twr6 8500ms ease 1000ms;
+  margin-left: 20rem;
+  width: 4rem;
+}
+.start4___iuzis {
+  animation: movein3___1tu_O 12000ms ease 6000ms;
+  position: absolute;
+  left: 60rem;
+  width: 5rem;
+}
+@keyframes movein1___FLX4b {
+  0% {
+    margin-left: -20rem;
+  }
+  20% {
+    margin-left: -20rem;
+  }
+  40% {
+    margin-left: 0px;
+  }
+  80% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: 20rem;
+  }
+}
+@keyframes movein2___1twr6 {
+  0% {
+    margin-left: -20rem;
+  }
+  20% {
+    margin-left: -20rem;
+  }
+  40% {
+    margin-left: 0px;
+  }
+  80% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: 20rem;
+  }
+}
+@keyframes movein3___1tu_O {
+  0% {
+    left: -20rem;
+  }
+  20% {
+    left: -20rem;
+  }
+  40% {
+    left: 2rem;
+  }
+  70% {
+    left: 2rem;
+  }
+  80% {
+    left: 2rem;
+  }
+  100% {
+    left: 60rem;
+  }
+}
+.bars___2I4VR {
+  height: 1.2rem;
+  width: 2rem;
+  display: flex;
+  justify-content: center;
+}
+.bar___1MV-l {
+  background: #cacbcd;
+  height: 0.32rem;
+  width: 0.06rem;
+  margin-right: 0.12rem;
+  animation: sound___1H3j3 0ms -800ms linear infinite alternate;
+}
+@keyframes sound___1H3j3 {
+  0% {
+    opacity: 0.35;
+    height: 0.2rem;
+    margin-top: 0.4rem;
+  }
+  100% {
+    opacity: 1;
+    height: 1.2rem;
+    margin-top: 0px;
+  }
+}
+.bar___1MV-l:nth-child(1) {
+  animation-duration: 474ms;
+}
+.bar___1MV-l:nth-child(2) {
+  animation-duration: 433ms;
+}
+.bar___1MV-l:nth-child(3) {
+  animation-duration: 407ms;
+}
+.bar___1MV-l:nth-child(4) {
+  animation-duration: 458ms;
+}
+.bar___1MV-l:nth-child(5) {
+  animation-duration: 400ms;
+}
+.bar___1MV-l:nth-child(6) {
+  animation-duration: 427ms;
+}
+.bar___1MV-l:nth-child(7) {
+  animation-duration: 441ms;
+}
+.bar___1MV-l:nth-child(8) {
+  animation-duration: 419ms;
+}
+.bar___1MV-l:nth-child(9) {
+  animation-duration: 487ms;
+}
+.bar___1MV-l:nth-child(10) {
+  animation-duration: 442ms;
+}
+

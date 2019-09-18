@@ -1,0 +1,24 @@
+.normal___2QzRC {
+  height: 100%;
+  overflow: hidden;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.normal___2QzRC .btnWrap___11aYq {
+  display: flex;
+  justify-content: space-around;
+  margin: 0.2rem;
+}
+.normal___2QzRC .btnWrap___11aYq .btn___1GXsY {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid white;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 0.3rem;
+  vertical-align: middle;
+}
+

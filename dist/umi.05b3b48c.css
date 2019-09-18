@@ -1,0 +1,127 @@
+.normal___3oFAB {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  font-size: 0.25rem;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+.loading___v2vtj {
+  position: absolute;
+}
+.bars___Tyis5 {
+  height: 1.2rem;
+  width: 2rem;
+  display: flex;
+  justify-content: center;
+}
+.bar___1O_Aa {
+  background: #cacbcd;
+  height: 0.32rem;
+  width: 0.06rem;
+  margin-right: 0.12rem;
+  animation: sound___3a313 0ms -800ms linear infinite alternate;
+}
+@keyframes sound___3a313 {
+  0% {
+    opacity: 0.35;
+    height: 0.2rem;
+    margin-top: 0.4rem;
+  }
+  100% {
+    opacity: 1;
+    height: 1.2rem;
+    margin-top: 0px;
+  }
+}
+.bar___1O_Aa:nth-child(1) {
+  animation-duration: 474ms;
+}
+.bar___1O_Aa:nth-child(2) {
+  animation-duration: 433ms;
+}
+.bar___1O_Aa:nth-child(3) {
+  animation-duration: 407ms;
+}
+.bar___1O_Aa:nth-child(4) {
+  animation-duration: 458ms;
+}
+.bar___1O_Aa:nth-child(5) {
+  animation-duration: 400ms;
+}
+.bar___1O_Aa:nth-child(6) {
+  animation-duration: 427ms;
+}
+.bar___1O_Aa:nth-child(7) {
+  animation-duration: 441ms;
+}
+.bar___1O_Aa:nth-child(8) {
+  animation-duration: 419ms;
+}
+.bar___1O_Aa:nth-child(9) {
+  animation-duration: 487ms;
+}
+.bar___1O_Aa:nth-child(10) {
+  animation-duration: 442ms;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: #000;
+  overflow: hidden;
+  color: white;
+  font-size: 0.25rem;
+  font-weight: 100;
+}
+
+/* 页面淡隐淡出 */
+.fade-enter {
+  opacity: 0;
+}
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 1000ms ease-in;
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 1000ms ease-in;
+}
+
+/* 右边推出页面 */
+.swipe-enter {
+  transform: translate3D(100%, 0, 0);
+  transition: all 300ms linear;
+}
+.swipe-enter-active {
+  transform: translate3D(0, 0, 0);
+}
+.swipe-exit {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 1;
+  transform: translate3D(0, 0, 0);
+  transition: all 300ms linear;
+}
+.swipe-exit-active {
+  opacity: 0.1;
+  transform: translate3D(-100%, 0, 0);
+}
+

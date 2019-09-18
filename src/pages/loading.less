@@ -31,21 +31,26 @@
   }
 }
 
-.start1,
-.start3 {
-  animation: movein1 8000ms ease 1000ms;
+.start1 {
+  animation: movein1 14000ms ease;
   margin-left: 2000px;
   width: 500px;
 }
 
 .start2 {
-  animation: movein2 8500ms ease 1000ms;
+  animation: movein2 16000ms ease 1000ms;
   margin-left: 2000px;
   width: 400px;
 }
 
+.start3 {
+  animation: movein3 18000ms ease 1000ms;
+  margin-left: 2000px;
+  width: 500px;
+}
+
 .start4 {
-  animation: movein3 12000ms ease 6000ms;
+  animation: movein4 18000ms ease 14000ms;
   position: absolute;
   left: 6000px;
   width: 500px;
@@ -55,7 +60,7 @@
     margin-left: -2000px;
   }
   20% {
-    margin-left: -2000px;
+    margin-left: 0px;
   }
   40% {
     margin-left: 0px;
@@ -86,6 +91,24 @@
 }
 
 @keyframes movein3 {
+  0% {
+    margin-left: -2000px;
+  }
+  20% {
+    margin-left: -2000px;
+  }
+  40% {
+    margin-left: -2000px;
+  }
+  80% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: 2000px;
+  }
+}
+
+@keyframes movein4 {
   0% {
     left: -2000px;
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 import router from 'umi/router';
-import styles from './index.less';
+import styles from './index.3.less';
 
 export default class Index extends React.PureComponent {
   componentDidMount() {

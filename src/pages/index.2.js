@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './index.less';
+import styles from './index.2.less';
 
 export default class Index extends React.PureComponent {
   componentDidMount() {

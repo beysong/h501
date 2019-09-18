@@ -2,6 +2,7 @@ import React from 'react';
 import router from 'umi/router';
 import styles from './make.less';
 import Loading from '../components/loading';
+import { wxConfig2 } from '../utils/index';
 
 import { uploadVoice } from '../services/index';
 
@@ -25,25 +26,29 @@ export default class Make extends React.PureComponent {
     };
   }
   componentDidMount() {
-    wx.onVoicePlayEnd({
-      success: res => {
-        this.setState({
-          playing: false,
+    wxConfig2().then(r => {
+      wx.ready(() => {
+        wx.onVoicePlayEnd({
+          success: res => {
+            this.setState({
+              playing: false,
+            });
+            // var localId = res.localId; // 返回音频的本地ID
+          },
         });
-        // var localId = res.localId; // 返回音频的本地ID
-      },
-    });
-    wx.onVoiceRecordEnd({
-      // 录音时间超过一分钟没有停止的时候会执行 complete 回调
-      complete: res => {
-        var sourceId = res.localId;
+        wx.onVoiceRecordEnd({
+          // 录音时间超过一分钟没有停止的时候会执行 complete 回调
+          complete: res => {
+            var sourceId = res.localId;
 
-        this.setState({
-          sourceId,
-          processing: false,
-          finished: true,
+            this.setState({
+              sourceId,
+              processing: false,
+              finished: true,
+            });
+          },
         });
-      },
+      });
     });
   }
 
@@ -92,15 +97,6 @@ export default class Make extends React.PureComponent {
         playing: false,
       });
     } else {
-      wx.downloadVoice({
-        serverId: serverId, // 需要下载的音频的服务器端ID，由uploadVoice接口获得
-        isShowProgressTips: 1, // 默认为1，显示进度提示
-        success: res => {
-          var localId = res.localId; // 返回音频的本地ID
-          console.log('localId in download', localId);
-        },
-      });
-
       wx.playVoice({
         localId: sourceId,
       });

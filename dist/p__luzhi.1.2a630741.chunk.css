@@ -1,0 +1,21 @@
+.normal___38tT8 {
+  height: 100%;
+  overflow: hidden;
+  text-align: center;
+}
+.normal___38tT8 .btnWrap___3RpFd {
+  display: flex;
+  justify-content: space-around;
+  margin: 0.4rem;
+}
+.normal___38tT8 .btnWrap___3RpFd .btn___3vO-6 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid white;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 0.6rem;
+  vertical-align: middle;
+}
+

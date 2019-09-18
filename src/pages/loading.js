@@ -1,22 +1,36 @@
 import React from 'react';
 import router from 'umi/router';
 import styles from './loading.less';
+import { wxConfig2 } from '../utils/index';
 const Label = require('../assets/Label.png');
 
 export default class Index extends React.PureComponent {
   componentDidMount() {
+    wxConfig2();
     const { match, location } = this.props;
     console.log('match', match, location);
     localStorage.token = location.query.token || '';
     localStorage.code = location.query.code || '';
     setTimeout(() => {
       router.push('make?code=' + location.query.code || '');
-    }, 12000);
+    }, 16000);
+
+    setTimeout(() => {
+      let x = document.createElement('AUDIO');
+      x.setAttribute('id', 'audioLabel2');
+      // x.setAttribute('loop', true);
+      x.setAttribute('src', window.routerBase + 'speak.mp3');
+      x.setAttribute('controls', 'controls');
+      document.body.appendChild(x);
+
+      let audioRef = document.getElementById('audioLabel2');
+      audioRef.play();
+    }, 0);
   }
   render() {
     return (
       <div className={styles.normal}>
-        <div className={styles.loading}>
+        {/* <div className={styles.loading}>
           <div className={styles.bars}>
             <div className={styles.bar}></div>
             <div className={styles.bar}></div>
@@ -35,7 +49,7 @@ export default class Index extends React.PureComponent {
           </div>
           <br />
           <br />
-        </div>
+        </div> */}
         <div className={styles.start1}>
           <div className={styles.bars}>
             <div className={styles.bar}></div>

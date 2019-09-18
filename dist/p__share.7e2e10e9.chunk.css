@@ -1,0 +1,136 @@
+.normal___1zGif {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  text-align: right;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.normal___1zGif img {
+  width: 4rem;
+}
+
+.normal___Nym1j {
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.normal___Nym1j .layer01___2QkP8 {
+  height: 0.8rem;
+}
+.normal___Nym1j .layer01___2QkP8 img {
+  width: 5rem;
+}
+.normal___Nym1j .layer02___B40c0 {
+  width: 5rem;
+  margin-top: 0.8rem;
+  text-align: left;
+}
+.normal___Nym1j .layer02___B40c0 img {
+  width: 4.5rem;
+}
+.normal___Nym1j .show12___3AnNe {
+  display: flex;
+  justify-content: space-around;
+  margin: 0.2rem 0;
+  opacity: 1;
+  animation: show12___3AnNe 3000ms ease;
+}
+.normal___Nym1j .show12___3AnNe .btn___1z9jm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.1rem;
+  border: 1px solid white;
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 0.55rem;
+  vertical-align: middle;
+}
+.normal___Nym1j .show12___3AnNe .btn___1z9jm .process___2WUmg {
+  width: 0.24rem;
+  height: 0.5rem;
+  border-left: 0.08rem solid #fff;
+  border-right: 0.08rem solid #fff;
+}
+.normal___Nym1j .show12___3AnNe .btn___1z9jm .try___DoKUM {
+  width: 0.9rem;
+  height: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.normal___Nym1j .show12___3AnNe .btn___1z9jm .try___DoKUM img {
+  width: 0.5rem;
+}
+.normal___Nym1j .show12___3AnNe .btn___1z9jm .restart___2Jtkr {
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 0.45rem;
+  background-color: #ac1818;
+}
+.normal___Nym1j .show12___3AnNe .btn___1z9jm .upload___3rXz5 {
+  width: 0.9rem;
+  height: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.normal___Nym1j .show12___3AnNe .btn___1z9jm .upload___3rXz5 img {
+  width: 0.5rem;
+}
+.normal___Nym1j .show10___2equm {
+  height: 0.56rem;
+  opacity: 1;
+  text-align: center;
+  animation: show10___2equm 2000ms ease;
+}
+.normal___Nym1j .show10___2equm img {
+  width: 2.9rem;
+}
+.normal___Nym1j .show11___2MiNQ {
+  height: 1.56rem;
+  margin-top: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  opacity: 1;
+  align-items: center;
+}
+.normal___Nym1j .inshow11___1bbGG {
+  width: 2rem;
+  text-align: justify;
+  line-height: 1;
+}
+.normal___Nym1j .inshow11___1bbGG::after {
+  content: '';
+  display: inline-block;
+  width: 100%;
+}
+@keyframes show10___2equm {
+  0% {
+    height: 0;
+    opacity: 0;
+  }
+  100% {
+    height: 0.56rem;
+    opacity: 1;
+  }
+}
+@keyframes show12___3AnNe {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+

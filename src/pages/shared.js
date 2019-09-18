@@ -2,8 +2,8 @@ import React from 'react';
 import router from 'umi/router';
 import Join from '../components/join';
 import { WEB_URL, WEB_HOST, WECHATOPTIONS } from '../utils/config';
-import { getVoice } from '../services/index';
 import styles from './shared.less';
+import { wxConfig2 } from '../utils/index';
 
 const QINGHUIDA = require('../assets/qinghuida.png');
 const Label = require('../assets/Label.png');
@@ -29,34 +29,28 @@ export default class Shared extends React.PureComponent {
     if (!location.query.code) {
       router.push('error');
     }
-    // getVoice({ code: location.query.code || '' }).then(r => {
-    //   console.log('r', r);
-    //   if (r.status === 200) {
-    //     this.setState({ dataInfo: r.body }, () => {
-    //       // this.createAudio();
-    //     });
-    //   }
-    // });
-    this.createAudio();
 
-    wx.ready(() => {
-      //需在用户可能点击分享按钮前就先调用
-      wx.updateAppMessageShareData({
-        title: WECHATOPTIONS.title || '加入远景', // 分享标题
-        desc: WECHATOPTIONS.desc || '加入远景2019', // 分享描述
-        link: WEB_URL + '/shared.html?code=' + this.state.code, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-        imgUrl: WECHATOPTIONS.img, // 分享图标
-        success: function() {
-          // 设置成功
-        },
-      });
-      wx.updateTimelineShareData({
-        title: WECHATOPTIONS.title || '加入远景', // 分享标题
-        link: WEB_URL + '/shared.html?code=' + this.state.code, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-        imgUrl: WECHATOPTIONS.img, // 分享图标
-        success: function() {
-          // 设置成功
-        },
+    this.createAudio();
+    wxConfig2().then(r => {
+      wx.ready(() => {
+        //需在用户可能点击分享按钮前就先调用
+        wx.updateAppMessageShareData({
+          title: WECHATOPTIONS.title || '加入远景', // 分享标题
+          desc: WECHATOPTIONS.desc || '加入远景2019', // 分享描述
+          link: WEB_URL + '/shared.html?code=' + this.state.code, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+          imgUrl: WECHATOPTIONS.img, // 分享图标
+          success: function() {
+            // 设置成功
+          },
+        });
+        wx.updateTimelineShareData({
+          title: WECHATOPTIONS.title || '加入远景', // 分享标题
+          link: WEB_URL + '/shared.html?code=' + this.state.code, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+          imgUrl: WECHATOPTIONS.img, // 分享图标
+          success: function() {
+            // 设置成功
+          },
+        });
       });
     });
   }
