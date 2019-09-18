@@ -15,14 +15,13 @@ export default class Index extends React.PureComponent {
       router.push('make?code=' + location.query.code || '');
     }, 16000);
 
+    let x = document.createElement('AUDIO');
+    x.setAttribute('id', 'audioLabel2');
+    // x.setAttribute('loop', true);
+    x.setAttribute('src', '/speak.mp3');
+    x.setAttribute('controls', 'controls');
+    document.body.appendChild(x);
     setTimeout(() => {
-      let x = document.createElement('AUDIO');
-      x.setAttribute('id', 'audioLabel2');
-      // x.setAttribute('loop', true);
-      x.setAttribute('src', window.routerBase + 'speak.mp3');
-      x.setAttribute('controls', 'controls');
-      document.body.appendChild(x);
-
       let audioRef = document.getElementById('audioLabel2');
       audioRef.play();
     }, 0);

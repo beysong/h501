@@ -28,7 +28,7 @@
   }
 }
 .start1___tJyhd {
-  animation: movein1___Qa3rN 14000ms ease;
+  animation: movein1___Qa3rN 16000ms ease;
   margin-left: 20rem;
   width: 5rem;
 }
@@ -38,12 +38,12 @@
   width: 4rem;
 }
 .start3___iwCG1 {
-  animation: movein3___bODOb 18000ms ease 1000ms;
+  animation: movein3___bODOb 21000ms ease 1000ms;
   margin-left: 20rem;
   width: 5rem;
 }
 .start4___2JrDi {
-  animation: movein4___3RUxX 18000ms ease 14000ms;
+  animation: movein4___3RUxX 21000ms ease 17000ms;
   position: absolute;
   left: 60rem;
   width: 5rem;
@@ -72,7 +72,10 @@
   20% {
     margin-left: -20rem;
   }
-  40% {
+  30% {
+    margin-left: -20rem;
+  }
+  60% {
     margin-left: 0px;
   }
   80% {
@@ -92,7 +95,13 @@
   40% {
     margin-left: -20rem;
   }
-  80% {
+  60% {
+    margin-left: -20rem;
+  }
+  70% {
+    margin-left: 0px;
+  }
+  93% {
     margin-left: 0px;
   }
   100% {
@@ -106,7 +115,7 @@
   10% {
     left: -20rem;
   }
-  30% {
+  50% {
     left: 2rem;
   }
   70% {

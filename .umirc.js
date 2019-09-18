@@ -21,7 +21,7 @@ export default {
         antd: false,
         dva: false,
         dynamicImport: { webpackChunkName: true, loadingComponent: './components/loading.js' },
-        title: '加入远景',
+        title: '未来源于你',
         dll: true,
 
         routes: {

@@ -2,7 +2,7 @@ import React from 'react';
 import ShareBg from '../components/share';
 import Join from '../components/join';
 import styles from './share.less';
-import { WEB_URL, WECHATOPTIONS } from '../utils/config';
+import { WEB_URL, WEB_HOST, WECHATOPTIONS } from '../utils/config';
 import { wxConfig2 } from '../utils/index';
 
 const QINGHUIDA = require('../assets/qinghuida.png');
@@ -25,6 +25,7 @@ export default class Share extends React.PureComponent {
   }
 
   componentDidMount() {
+    this.createAudio();
     wxConfig2().then(r => {
       let _this = this;
       wx.ready(() => {
@@ -48,15 +49,15 @@ export default class Share extends React.PureComponent {
         });
 
         console.log('0-0-0-0-1');
-        wx.onVoicePlayEnd({
-          success: res => {
-            console.log('0-0-0-0-2');
-            this.setState({
-              playing: false,
-            });
-            // var localId = res.localId; // 返回音频的本地ID
-          },
-        });
+        // wx.onVoicePlayEnd({
+        //   success: res => {
+        //     console.log('0-0-0-0-2');
+        //     this.setState({
+        //       playing: false,
+        //     });
+        //     // var localId = res.localId; // 返回音频的本地ID
+        //   },
+        // });
       });
     });
   }
@@ -65,17 +66,23 @@ export default class Share extends React.PureComponent {
   // 播放录音
   togglePlay = () => {
     const { playing, sourceId } = this.state;
+
+    let audioRef = document.getElementById('audioLabel3');
+
     if (playing) {
-      wx.pauseVoice({
-        localId: sourceId, // 需要暂停的音频的本地ID，由stopRecord接口获得
-      });
+      // wx.pauseVoice({
+      //   localId: sourceId, // 需要暂停的音频的本地ID，由stopRecord接口获得
+      // });
+
+      audioRef.pause();
       this.setState({
         playing: false,
       });
     } else {
-      wx.playVoice({
-        localId: sourceId,
-      });
+      // wx.playVoice({
+      //   localId: sourceId,
+      // });
+      audioRef.play();
       this.setState({
         playing: true,
       });
@@ -95,6 +102,29 @@ export default class Share extends React.PureComponent {
     });
 
     // window.location.href = 'http://www.baidu.com';
+  };
+
+  createAudio = () => {
+    const { location } = this.props;
+    let x = document.createElement('AUDIO');
+    x.setAttribute('id', 'audioLabel3');
+    x.setAttribute('src', `http:${WEB_HOST}/get/${location.query.code || ''}`);
+    x.setAttribute('controls', 'controls');
+    document.body.appendChild(x);
+
+    let audioRef = document.getElementById('audioLabel3');
+    audioRef.addEventListener('ended', () => {
+      //当播放完一首歌曲时也会触发
+      console.log('event ended: ' + new Date().getTime());
+      if (this.interval) {
+        clearInterval(this.interval);
+        this.interval = null;
+      }
+      this.setState({
+        playing: false,
+        lineWidth: 0,
+      });
+    });
   };
 
   render() {

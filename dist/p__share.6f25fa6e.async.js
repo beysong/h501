@@ -125,19 +125,21 @@ class share_Share extends react_default.a.PureComponent {
       var _this$state = this.state,
           playing = _this$state.playing,
           sourceId = _this$state.sourceId;
+      var audioRef = document.getElementById('audioLabel3');
 
       if (playing) {
-        wx.pauseVoice({
-          localId: sourceId // 需要暂停的音频的本地ID，由stopRecord接口获得
-
-        });
+        // wx.pauseVoice({
+        //   localId: sourceId, // 需要暂停的音频的本地ID，由stopRecord接口获得
+        // });
+        audioRef.pause();
         this.setState({
           playing: false
         });
       } else {
-        wx.playVoice({
-          localId: sourceId
-        });
+        // wx.playVoice({
+        //   localId: sourceId,
+        // });
+        audioRef.play();
         this.setState({
           playing: true
         });
@@ -157,6 +159,30 @@ class share_Share extends react_default.a.PureComponent {
       }); // window.location.href = 'http://www.baidu.com';
     };
 
+    this.createAudio = () => {
+      var location = this.props.location;
+      var x = document.createElement('AUDIO');
+      x.setAttribute('id', 'audioLabel3');
+      x.setAttribute('src', "http:".concat(config["b" /* WEB_HOST */], "/get/").concat(location.query.code || ''));
+      x.setAttribute('controls', 'controls');
+      document.body.appendChild(x);
+      var audioRef = document.getElementById('audioLabel3');
+      audioRef.addEventListener('ended', () => {
+        //当播放完一首歌曲时也会触发
+        console.log('event ended: ' + new Date().getTime());
+
+        if (this.interval) {
+          clearInterval(this.interval);
+          this.interval = null;
+        }
+
+        this.setState({
+          playing: false,
+          lineWidth: 0
+        });
+      });
+    };
+
     this.state = {
       sourceId: localStorage.sourceId || props.location.query.localId || '',
       isshow: false,
@@ -169,6 +195,7 @@ class share_Share extends react_default.a.PureComponent {
   }
 
   componentDidMount() {
+    this.createAudio();
     Object(utils["a" /* wxConfig2 */])().then(r => {
       var _this = this;
 
@@ -196,15 +223,15 @@ class share_Share extends react_default.a.PureComponent {
           success: () => {// 设置成功
           }
         });
-        console.log('0-0-0-0-1');
-        wx.onVoicePlayEnd({
-          success: res => {
-            console.log('0-0-0-0-2');
-            this.setState({
-              playing: false
-            }); // var localId = res.localId; // 返回音频的本地ID
-          }
-        });
+        console.log('0-0-0-0-1'); // wx.onVoicePlayEnd({
+        //   success: res => {
+        //     console.log('0-0-0-0-2');
+        //     this.setState({
+        //       playing: false,
+        //     });
+        //     // var localId = res.localId; // 返回音频的本地ID
+        //   },
+        // });
       });
     });
   }

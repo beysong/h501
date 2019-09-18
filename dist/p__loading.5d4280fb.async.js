@@ -38,13 +38,13 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
     setTimeout(() => {
       umi_router__WEBPACK_IMPORTED_MODULE_1___default.a.push('make?code=' + location.query.code || false);
     }, 16000);
-    setTimeout(() => {
-      var x = document.createElement('AUDIO');
-      x.setAttribute('id', 'audioLabel2'); // x.setAttribute('loop', true);
+    var x = document.createElement('AUDIO');
+    x.setAttribute('id', 'audioLabel2'); // x.setAttribute('loop', true);
 
-      x.setAttribute('src', window.routerBase + 'speak.mp3');
-      x.setAttribute('controls', 'controls');
-      document.body.appendChild(x);
+    x.setAttribute('src', '/speak.mp3');
+    x.setAttribute('controls', 'controls');
+    document.body.appendChild(x);
+    setTimeout(() => {
       var audioRef = document.getElementById('audioLabel2');
       audioRef.play();
     }, 0);

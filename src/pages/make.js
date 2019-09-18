@@ -162,10 +162,15 @@ export default class Make extends React.PureComponent {
             <img src={wenzi2} alt="向现在 说未来" />
           </div>
 
-          <div className={styles.show11}>
+          {/* <div className={styles.show11}>
             <div className={styles.inshow11}>说出你的2029</div>
             <div className={styles.inshow11}>未来想象力</div>
             <div className={styles.inshow11}>生成专属唱片</div>
+          </div> */}
+          <div className={styles.show11}>
+            <div className={styles.inshow11}>现在，向未来发声，</div>
+            <div className={styles.inshow11}>2029，让未来发生。</div>
+            <div className={styles.inshow11}>&nbsp;</div>
           </div>
 
           {sourceId ? (
