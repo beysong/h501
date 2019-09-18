@@ -96,7 +96,7 @@ export default class Shared extends React.PureComponent {
         this.setState((state, props) => ({
           lineWidth: state.lineWidth + 400 / audioRef.duration,
         }));
-      }, 1000);
+      }, 1500);
     }
 
     if (playing) {

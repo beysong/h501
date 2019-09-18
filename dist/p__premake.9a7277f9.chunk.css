@@ -17,7 +17,7 @@
 }
 .normal___3RukW .layer02___k8jd2 {
   width: 5rem;
-  margin-top: 0.8rem;
+  margin-top: 2.8rem;
   text-align: left;
 }
 .normal___3RukW .layer02___k8jd2 img {
@@ -117,16 +117,11 @@
   line-height: 1.6;
   font-size: 23;
   font-weight: 100;
-  opacity: 0;
-  animation: show20___2oLIP 3000ms ease;
 }
 .normal___3RukW .show21___19jIx {
   text-align: center;
-  opacity: 0;
   height: 1rem;
-  margin-top: 0px;
-  animation: show21___19jIx 3000ms ease;
-  height: 0;
+  margin-top: 1.4rem;
 }
 .normal___3RukW .show21___19jIx img {
   width: 2.6rem;
@@ -224,6 +219,52 @@
   100% {
     height: 0;
     opacity: 1;
+  }
+}
+.normal___3RukW .arrow___2_ZRt {
+  display: block;
+  width: 0.2rem;
+  height: 0.2rem;
+  position: absolute;
+  bottom: 0.25rem;
+  left: 50%;
+  margin-left: -0.11rem;
+  border: 0.03rem solid transparent;
+  border-top: 0.03rem solid #fff;
+  border-left: 0.03rem solid #fff;
+  z-index: 99;
+  opacity: 0.8;
+  transform: rotate(45deg);
+  animation: arrow___2_ZRt 1.5s infinite ease-in-out;
+}
+.normal___3RukW .arrow2___1Y4m2 {
+  display: block;
+  width: 0.2rem;
+  height: 0.2rem;
+  position: absolute;
+  bottom: 0.35rem;
+  left: 50%;
+  margin-left: -0.11rem;
+  border: 0.03rem solid transparent;
+  border-top: 0.03rem solid #fff;
+  border-left: 0.03rem solid #fff;
+  z-index: 99;
+  opacity: 0.8;
+  transform: rotate(45deg);
+  animation: arrow___2_ZRt 1.5s infinite ease-in-out;
+}
+@keyframes arrow___2_ZRt {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0px) rotate(45deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(0, -0.05rem) rotate(45deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0, -0.1rem) rotate(45deg);
   }
 }
 

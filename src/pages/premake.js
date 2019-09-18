@@ -27,6 +27,7 @@ export default class Make extends React.PureComponent {
     };
   }
   componentDidMount() {
+    const { match, location } = this.props;
     if (isAndroid() && !weixinVersion()) {
       wx.ready(() => {
         wx.onVoicePlayEnd({
@@ -76,6 +77,62 @@ export default class Make extends React.PureComponent {
         });
       });
     }
+
+    let ele = document.getElementById('touchid');
+    let beginX, beginY, endX, endY, swipeLeft, swipeRight;
+    ele.addEventListener('touchstart', function(event) {
+      event.stopPropagation();
+      event.preventDefault();
+      beginX = event.targetTouches[0].screenX;
+      beginY = event.targetTouches[0].screenY;
+      swipeLeft = false;
+      swipeRight = false;
+    });
+
+    ele.addEventListener('touchmove', function(event) {
+      event.stopPropagation();
+      event.preventDefault();
+      endX = event.targetTouches[0].screenX;
+      endY = event.targetTouches[0].screenY;
+      // 左右滑动
+      if (Math.abs(endX - beginX) - Math.abs(endY - beginY) > 0) {
+        /*向右滑动*/
+        // if (endX - beginX > 0) {
+        //   swipeRight = true;
+        //   swipeLeft = false;
+        // } else {
+        //   /*向左滑动*/
+        //   swipeLeft = true;
+        //   swipeRight = false;
+        // }
+      } else if (Math.abs(endX - beginX) - Math.abs(endY - beginY) < 0) {
+        // 上下滑动
+        console.log('11111');
+      }
+    });
+    ele.addEventListener('touchend', function(event) {
+      event.stopPropagation();
+      event.preventDefault();
+
+      if (Math.abs(endX - beginX) - Math.abs(endY - beginY) > 0) {
+        event.stopPropagation();
+        event.preventDefault();
+        if (swipeRight) {
+          swipeRight = !swipeRight;
+          /*向右滑动*/
+        }
+        if (swipeLeft) {
+          swipeLeft = !swipeLeft;
+          /*向左滑动*/
+        }
+      } else {
+        console.log('222', endY - beginY);
+        if (endY - beginY < 0) {
+          // router.push('make?code=' + location.query.code || '');
+          window.location.href = './make.html?code=' + location.query.code || '';
+        }
+      }
+    });
   }
 
   /* global wx */
@@ -183,14 +240,11 @@ export default class Make extends React.PureComponent {
   render() {
     const { sourceId, processing, uploading, playing, timer, finished } = this.state;
     return (
-      <div className={styles.normal}>
+      <div className={styles.normal} id="touchid">
         {uploading ? <Loading text="正在接收未来信号..." /> : false}
         <div className={styles.contentWrap}>
           <div className={styles.layer01}>
             <img src={QINGHUIDA} alt="请回答2029" />
-          </div>
-          <div className={styles.show10}>
-            <img src={wenzi} alt="向现在 说未来" />
           </div>
           <div className={styles.show20}>
             <div>对人、物、网的想象是无限趋近自己的过程</div>
@@ -203,64 +257,9 @@ export default class Make extends React.PureComponent {
           <div className={styles.show21}>
             <img src={wenzi2} alt="向现在 说未来" />
           </div>
-
-          {/* <div className={styles.show11}>
-            <div className={styles.inshow11}>说出你的2029</div>
-            <div className={styles.inshow11}>未来想象力</div>
-            <div className={styles.inshow11}>生成专属唱片</div>
-          </div> */}
-          <div className={styles.show11}>
-            <div className={styles.inshow11}>现在，向未来发声，</div>
-            <div className={styles.inshow11}>2029，让未来发生。</div>
-            <div className={styles.inshow11}>&nbsp;</div>
-            {processing ? (
-              <div className={styles.timer} style={{ textAlign: 'center' }}>
-                00 : 00 : {timer > 9 ? timer : `0${timer}`}
-              </div>
-            ) : (
-              false
-            )}
-          </div>
-          {sourceId ? (
-            <>
-              <div className={styles.show12}>
-                <div className={styles.btn} onClick={this.togglePlay}>
-                  <div className={styles.try}>
-                    {playing ? (
-                      <div className={styles.process}></div>
-                    ) : (
-                      <img src={tryImg} alt="试听" />
-                    )}
-                  </div>
-                </div>
-                <div className={styles.btn} onClick={this.toggleStart}>
-                  <div className={processing ? styles.process : styles.restart}></div>
-                </div>
-                <div className={styles.btn} onClick={this.upload}>
-                  <div className={styles.upload}>
-                    <img src={uploadImg} alt="上传" />
-                  </div>
-                </div>
-              </div>
-              <div className={styles.show12}>
-                <div onClick={this.togglePlay}>试听</div>
-                <div onClick={this.toggleStart}>{finished ? '完成' : '重录'}</div>
-                <div onClick={this.upload}>上传</div>
-              </div>
-            </>
-          ) : (
-            <>
-              <div className={styles.show12} onClick={this.toggleStart}>
-                <div className={styles.btn}>
-                  <div className={processing ? styles.process : styles.start}></div>
-                </div>
-              </div>
-              <div className={styles.show12} onClick={this.toggleStart}>
-                <div>录制</div>
-              </div>
-            </>
-          )}
         </div>
+        <div className={styles.arrow}></div>
+        <div className={styles.arrow2}></div>
       </div>
     );
   }

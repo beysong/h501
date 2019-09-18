@@ -11,6 +11,7 @@
 }
 .normal___2womO .layer01___3QKRi {
   height: 0.8rem;
+  animation: show12___2Bqfs 2000ms ease-in-out;
 }
 .normal___2womO .layer01___3QKRi img {
   width: 5rem;
@@ -19,6 +20,7 @@
   width: 5rem;
   margin-top: 0.8rem;
   text-align: left;
+  animation: show12___2Bqfs 2000ms ease-in-out;
 }
 .normal___2womO .layer02___DJAYW img {
   width: 4.5rem;
@@ -28,7 +30,7 @@
   justify-content: space-around;
   margin: 0.2rem 0;
   opacity: 1;
-  animation: show12___2Bqfs 6000ms ease;
+  animation: show12___2Bqfs 2000ms ease;
 }
 .normal___2womO .show12___2Bqfs .btn___3skna {
   display: flex;
@@ -85,19 +87,19 @@
   height: 0.56rem;
   opacity: 1;
   text-align: center;
-  animation: show10___3ZpM7 6000ms ease;
+  animation: show10___3ZpM7 3000ms ease;
 }
 .normal___2womO .show10___3ZpM7 img {
   width: 2.9rem;
 }
 .normal___2womO .show11___1xBKt {
-  height: 1.56rem;
+  height: 1.66rem;
   margin-top: 0.3rem;
   display: flex;
   flex-direction: column;
   opacity: 1;
   align-items: center;
-  animation: show11___1xBKt 6000ms ease-in-out;
+  animation: show11___1xBKt 2000ms ease-in-out;
 }
 .normal___2womO .inshow11___AuVkl {
   width: 2.62rem;
@@ -133,19 +135,15 @@
 }
 @keyframes show10___3ZpM7 {
   0% {
-    height: 0;
     opacity: 0;
   }
   30% {
-    height: 0;
     opacity: 0;
   }
   60% {
-    height: 0.56rem;
     opacity: 1;
   }
   100% {
-    height: 0.56rem;
     opacity: 1;
   }
 }
@@ -159,11 +157,11 @@
     opacity: 0;
   }
   50% {
-    height: 1.56rem;
+    height: 1.66rem;
     opacity: 1;
   }
   100% {
-    height: 1.56rem;
+    height: 1.66rem;
     opacity: 1;
   }
 }
@@ -214,7 +212,7 @@
 }
 .normal___2womO .timer___ifSiu {
   text-align: center;
-  margin-bottom: 10;
+  padding-bottom: 10;
   animation: fadeinout___CylBp 1000ms ease;
 }
 @keyframes fadeinout___CylBp {

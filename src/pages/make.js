@@ -192,17 +192,17 @@ export default class Make extends React.PureComponent {
           <div className={styles.show10}>
             <img src={wenzi} alt="向现在 说未来" />
           </div>
-          <div className={styles.show20}>
+          {/* <div className={styles.show20}>
             <div>对人、物、网的想象是无限趋近自己的过程</div>
             <div>多想象一点 </div>
             <div>就离未来更近一点</div>
-          </div>
+          </div> */}
           <div className={styles.layer02}>
             <img src={Label} alt="黑胶唱片" />
           </div>
-          <div className={styles.show21}>
+          {/* <div className={styles.show21}>
             <img src={wenzi2} alt="向现在 说未来" />
-          </div>
+          </div> */}
 
           {/* <div className={styles.show11}>
             <div className={styles.inshow11}>说出你的2029</div>

@@ -49,7 +49,7 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
     localStorage.code = location.query.code || '';
     setTimeout(() => {
       // router.push('make?code=' + location.query.code || '');
-      window.location.href = './make.html?code=' + location.query.code || false;
+      window.location.href = './premake.html?code=' + location.query.code || false;
     }, 29000); // let x = document.createElement('AUDIO');
     // x.setAttribute('id', 'audioLabel2');
     // x.setAttribute('style', 'z-index: -1;');
@@ -69,8 +69,9 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
         this.setState({
           audioLoading: false
         });
-      }, 1000);
+      }, 1000); // audioRef.play();
     });
+    audioRef.play();
     /* global wx */
 
     wx.ready(() => {
@@ -131,7 +132,7 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
 
         if (endY - beginY < 0) {
           // router.push('make?code=' + location.query.code || '');
-          window.location.href = './make.html?code=' + location.query.code || false;
+          window.location.href = './premake.html?code=' + location.query.code || false;
         }
       }
     });

@@ -11,6 +11,7 @@
   }
   .layer01 {
     height: 80px;
+    animation: show12 2000ms ease-in-out;
     img {
       width: 500px;
     }
@@ -19,6 +20,7 @@
     width: 500px;
     margin-top: 80px;
     text-align: left;
+    animation: show12 2000ms ease-in-out;
     img {
       width: 450px;
     }
@@ -29,7 +31,7 @@
     justify-content: space-around;
     margin: 20px 0;
     opacity: 1;
-    animation: show12 6000ms ease;
+    animation: show12 2000ms ease;
     .btn {
       display: flex;
       align-items: center;
@@ -87,19 +89,19 @@
     height: 56px;
     opacity: 1;
     text-align: center;
-    animation: show10 6000ms ease;
+    animation: show10 3000ms ease;
     img {
       width: 290px;
     }
   }
   .show11 {
-    height: 156px;
+    height: 166px;
     margin-top: 30px;
     display: flex;
     flex-direction: column;
     opacity: 1;
     align-items: center;
-    animation: show11 6000ms ease-in-out;
+    animation: show11 2000ms ease-in-out;
   }
   .inshow11 {
     width: 262px;
@@ -135,19 +137,15 @@
   }
   @keyframes show10 {
     0% {
-      height: 0;
       opacity: 0;
     }
     30% {
-      height: 0;
       opacity: 0;
     }
     60% {
-      height: 56px;
       opacity: 1;
     }
     100% {
-      height: 56px;
       opacity: 1;
     }
   }
@@ -161,11 +159,11 @@
       opacity: 0;
     }
     50% {
-      height: 156px;
+      height: 166px;
       opacity: 1;
     }
     100% {
-      height: 156px;
+      height: 166px;
       opacity: 1;
     }
   }
@@ -217,7 +215,7 @@
 
   .timer {
     text-align: center;
-    margin-bottom: 10;
+    padding-bottom: 10;
     animation: fadeinout 1000ms ease;
   }
 

@@ -25,7 +25,7 @@ export default class Index extends React.PureComponent {
     setTimeout(() => {
       // router.push('make?code=' + location.query.code || '');
 
-      window.location.href = './make.html?code=' + location.query.code || '';
+      window.location.href = './premake.html?code=' + location.query.code || '';
     }, 29000);
 
     // let x = document.createElement('AUDIO');
@@ -49,7 +49,9 @@ export default class Index extends React.PureComponent {
           audioLoading: false,
         });
       }, 1000);
+      // audioRef.play();
     });
+    audioRef.play();
 
     /* global wx */
     wx.ready(() => {
@@ -58,8 +60,8 @@ export default class Index extends React.PureComponent {
       } catch (error) {}
     });
 
-    var ele = document.getElementById('touchid');
-    var beginX, beginY, endX, endY, swipeLeft, swipeRight;
+    let ele = document.getElementById('touchid');
+    let beginX, beginY, endX, endY, swipeLeft, swipeRight;
     ele.addEventListener('touchstart', function(event) {
       event.stopPropagation();
       event.preventDefault();
@@ -109,7 +111,7 @@ export default class Index extends React.PureComponent {
         console.log('222', endY - beginY);
         if (endY - beginY < 0) {
           // router.push('make?code=' + location.query.code || '');
-          window.location.href = './make.html?code=' + location.query.code || '';
+          window.location.href = './premake.html?code=' + location.query.code || '';
         }
       }
     });

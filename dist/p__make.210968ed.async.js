@@ -242,17 +242,10 @@ class Make extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
       src: wenzi,
       alt: "\u5411\u73B0\u5728 \u8BF4\u672A\u6765"
     })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _make_less__WEBPACK_IMPORTED_MODULE_2___default.a.show20
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "\u5BF9\u4EBA\u3001\u7269\u3001\u7F51\u7684\u60F3\u8C61\u662F\u65E0\u9650\u8D8B\u8FD1\u81EA\u5DF1\u7684\u8FC7\u7A0B"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "\u591A\u60F3\u8C61\u4E00\u70B9 "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "\u5C31\u79BB\u672A\u6765\u66F4\u8FD1\u4E00\u70B9")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: _make_less__WEBPACK_IMPORTED_MODULE_2___default.a.layer02
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
       src: Label,
       alt: "\u9ED1\u80F6\u5531\u7247"
-    })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _make_less__WEBPACK_IMPORTED_MODULE_2___default.a.show21
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-      src: wenzi2,
-      alt: "\u5411\u73B0\u5728 \u8BF4\u672A\u6765"
     })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: _make_less__WEBPACK_IMPORTED_MODULE_2___default.a.show11
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -326,7 +319,7 @@ class Make extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"normal":"normal___2womO","contentWrap":"contentWrap___3QzY7","layer01":"layer01___3QKRi","layer02":"layer02___DJAYW","show12":"show12___2Bqfs","btn":"btn___3skna","start":"start___23zRv","process":"process___BQRQ_","try":"try___3PG7g","restart":"restart___iVaGE","upload":"upload___1cowR","show10":"show10___3ZpM7","show11":"show11___1xBKt","inshow11":"inshow11___AuVkl","show20":"show20___3z8ig","show21":"show21___b-3qz","timer":"timer___ifSiu","fadeinout":"fadeinout___CylBp"};
+module.exports = {"normal":"normal___2womO","contentWrap":"contentWrap___3QzY7","layer01":"layer01___3QKRi","show12":"show12___2Bqfs","layer02":"layer02___DJAYW","btn":"btn___3skna","start":"start___23zRv","process":"process___BQRQ_","try":"try___3PG7g","restart":"restart___iVaGE","upload":"upload___1cowR","show10":"show10___3ZpM7","show11":"show11___1xBKt","inshow11":"inshow11___AuVkl","show20":"show20___3z8ig","show21":"show21___b-3qz","timer":"timer___ifSiu","fadeinout":"fadeinout___CylBp"};
 
 /***/ })
 
