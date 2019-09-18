@@ -124,6 +124,7 @@ export default class Shared extends React.PureComponent {
     const { dataInfo } = this.state;
     let x = document.createElement('AUDIO');
     x.setAttribute('id', 'audioLabel');
+    x.setAttribute('style', 'z-index: -1;');
     // x.setAttribute('loop', true);
     x.setAttribute('src', `http:${WEB_HOST}/get/${location.query.code || ''}`);
     x.setAttribute('controls', 'controls');

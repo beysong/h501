@@ -42,7 +42,8 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
       umi_router__WEBPACK_IMPORTED_MODULE_1___default.a.push('make?code=' + location.query.code || false);
     }, 27000);
     var x = document.createElement('AUDIO');
-    x.setAttribute('id', 'audioLabel2'); // x.setAttribute('loop', true);
+    x.setAttribute('id', 'audioLabel2');
+    x.setAttribute('style', 'z-index: -1;'); // x.setAttribute('loop', true);
 
     x.setAttribute('src', '/future/web/speak.mp3');
     x.setAttribute('controls', 'controls');
@@ -51,11 +52,68 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
       var audioRef = document.getElementById('audioLabel2');
       audioRef.play();
     }, 0);
+    var ele = document.getElementById('touchid');
+    var beginX, beginY, endX, endY, swipeLeft, swipeRight;
+    ele.addEventListener('touchstart', function (event) {
+      event.stopPropagation();
+      event.preventDefault();
+      beginX = event.targetTouches[0].screenX;
+      beginY = event.targetTouches[0].screenY;
+      swipeLeft = false;
+      swipeRight = false;
+    });
+    ele.addEventListener('touchmove', function (event) {
+      event.stopPropagation();
+      event.preventDefault();
+      endX = event.targetTouches[0].screenX;
+      endY = event.targetTouches[0].screenY; // 左右滑动
+
+      if (Math.abs(endX - beginX) - Math.abs(endY - beginY) > 0) {
+        /*向右滑动*/
+        // if (endX - beginX > 0) {
+        //   swipeRight = true;
+        //   swipeLeft = false;
+        // } else {
+        //   /*向左滑动*/
+        //   swipeLeft = true;
+        //   swipeRight = false;
+        // }
+      } else if (Math.abs(endX - beginX) - Math.abs(endY - beginY) < 0) {
+        // 上下滑动
+        console.log('11111');
+      }
+    });
+    ele.addEventListener('touchend', function (event) {
+      event.stopPropagation();
+      event.preventDefault();
+
+      if (Math.abs(endX - beginX) - Math.abs(endY - beginY) > 0) {
+        event.stopPropagation();
+        event.preventDefault();
+
+        if (swipeRight) {
+          swipeRight = !swipeRight;
+          /*向右滑动*/
+        }
+
+        if (swipeLeft) {
+          swipeLeft = !swipeLeft;
+          /*向左滑动*/
+        }
+      } else {
+        console.log('222', endY - beginY);
+
+        if (endY - beginY < 0) {
+          umi_router__WEBPACK_IMPORTED_MODULE_1___default.a.push('make?code=' + location.query.code || false);
+        }
+      }
+    });
   }
 
   render() {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.normal
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.normal,
+      id: "touchid"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.start1
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -176,7 +234,11 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
       className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.fontSize30
     }, "\u60F3\u8C61\u529B"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "\u624D\u662F\u6700\u597D\u7684", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.fontSize30
-    }, "\u9A71\u52A8\u529B"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    }, "\u9A71\u52A8\u529B"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.arrow
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_2___default.a.arrow2
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
       style: {
         width: 0
       },
@@ -199,7 +261,7 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"normal":"normal___2vJoQ","loading":"loading___1roU7","disapear":"disapear___2E8NW","fontSize30":"fontSize30___2aBm6","start1":"start1___tJyhd","movein1":"movein1___Qa3rN","start2":"start2___2F6_s","movein2":"movein2___1Ngly","start3":"start3___iwCG1","movein3":"movein3___bODOb","start4":"start4___2JrDi","movein4":"movein4___3RUxX","bars":"bars___1h-GG","bar":"bar___1lLg1","sound":"sound___3U-Y0"};
+module.exports = {"normal":"normal___2vJoQ","loading":"loading___1roU7","disapear":"disapear___2E8NW","fontSize30":"fontSize30___2aBm6","start1":"start1___tJyhd","movein1":"movein1___Qa3rN","start2":"start2___2F6_s","movein2":"movein2___1Ngly","start3":"start3___iwCG1","movein3":"movein3___bODOb","start4":"start4___2JrDi","movein4":"movein4___3RUxX","bars":"bars___1h-GG","bar":"bar___1lLg1","sound":"sound___3U-Y0","arrow":"arrow___1Q9j_","arrow2":"arrow2___H4tbq"};
 
 /***/ })
 

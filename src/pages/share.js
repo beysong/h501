@@ -144,6 +144,7 @@ export default class Share extends React.PureComponent {
     const { location } = this.props;
     let x = document.createElement('AUDIO');
     x.setAttribute('id', 'audioLabel3');
+    x.setAttribute('style', 'z-index: -1;');
     x.setAttribute('src', `http:${WEB_HOST}/get/${location.query.code || ''}`);
     x.setAttribute('controls', 'controls');
     document.body.appendChild(x);

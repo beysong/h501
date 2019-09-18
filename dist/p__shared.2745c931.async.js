@@ -81,7 +81,8 @@ class Shared extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
       var location = this.props.location;
       var dataInfo = this.state.dataInfo;
       var x = document.createElement('AUDIO');
-      x.setAttribute('id', 'audioLabel'); // x.setAttribute('loop', true);
+      x.setAttribute('id', 'audioLabel');
+      x.setAttribute('style', 'z-index: -1;'); // x.setAttribute('loop', true);
 
       x.setAttribute('src', "http:".concat(_utils_config__WEBPACK_IMPORTED_MODULE_3__[/* WEB_HOST */ "b"], "/get/").concat(location.query.code || ''));
       x.setAttribute('controls', 'controls');

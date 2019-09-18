@@ -115,7 +115,7 @@
   10% {
     left: -20rem;
   }
-  50% {
+  40% {
     left: 2rem;
   }
   70% {
@@ -182,5 +182,51 @@
 }
 .bar___1lLg1:nth-child(10) {
   animation-duration: 442ms;
+}
+.arrow___1Q9j_ {
+  display: block;
+  width: 0.2rem;
+  height: 0.2rem;
+  position: absolute;
+  bottom: 0.25rem;
+  left: 50%;
+  margin-left: -0.11rem;
+  border: 0.03rem solid transparent;
+  border-top: 0.03rem solid #fff;
+  border-left: 0.03rem solid #fff;
+  z-index: 99;
+  opacity: 0.8;
+  transform: rotate(45deg);
+  animation: arrow___1Q9j_ 1.5s infinite ease-in-out;
+}
+.arrow2___H4tbq {
+  display: block;
+  width: 0.2rem;
+  height: 0.2rem;
+  position: absolute;
+  bottom: 0.35rem;
+  left: 50%;
+  margin-left: -0.11rem;
+  border: 0.03rem solid transparent;
+  border-top: 0.03rem solid #fff;
+  border-left: 0.03rem solid #fff;
+  z-index: 99;
+  opacity: 0.8;
+  transform: rotate(45deg);
+  animation: arrow___1Q9j_ 1.5s infinite ease-in-out;
+}
+@keyframes arrow___1Q9j_ {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0px) rotate(45deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(0, -0.05rem) rotate(45deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0, -0.1rem) rotate(45deg);
+  }
 }
 

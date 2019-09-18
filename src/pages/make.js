@@ -87,6 +87,7 @@ export default class Make extends React.PureComponent {
     if (processing) {
       wx.stopRecord({
         success: res => {
+          console.log('res', res);
           let sourceId = res.localId;
           this.setState({
             sourceId,

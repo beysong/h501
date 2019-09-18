@@ -124,7 +124,7 @@
   10% {
     left: -2000px;
   }
-  50% {
+  40% {
     left: 200px;
   }
   70% {
@@ -196,4 +196,52 @@
 }
 .bar:nth-child(10) {
   animation-duration: 442ms;
+}
+
+.arrow {
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  margin-left: -11px;
+  border: 3px solid transparent;
+  border-top: 3px solid #fff;
+  border-left: 3px solid #fff;
+  z-index: 99;
+  opacity: 0.8;
+  transform: rotate(45deg);
+  animation: arrow 1.5s infinite ease-in-out;
+}
+.arrow2 {
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  bottom: 35px;
+  left: 50%;
+  margin-left: -11px;
+  border: 3px solid transparent;
+  border-top: 3px solid #fff;
+  border-left: 3px solid #fff;
+  z-index: 99;
+  opacity: 0.8;
+  transform: rotate(45deg);
+  animation: arrow 1.5s infinite ease-in-out;
+}
+
+@keyframes arrow {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0px) rotate(45deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(0, -5px) rotate(45deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0, -10px) rotate(45deg);
+  }
 }

@@ -19,6 +19,7 @@ export default class Index extends React.PureComponent {
 
     let x = document.createElement('AUDIO');
     x.setAttribute('id', 'audioLabel2');
+    x.setAttribute('style', 'z-index: -1;');
     // x.setAttribute('loop', true);
     x.setAttribute('src', '/future/web/speak.mp3');
     x.setAttribute('controls', 'controls');
@@ -27,10 +28,65 @@ export default class Index extends React.PureComponent {
       let audioRef = document.getElementById('audioLabel2');
       audioRef.play();
     }, 0);
+
+    var ele = document.getElementById('touchid');
+    var beginX, beginY, endX, endY, swipeLeft, swipeRight;
+    ele.addEventListener('touchstart', function(event) {
+      event.stopPropagation();
+      event.preventDefault();
+      beginX = event.targetTouches[0].screenX;
+      beginY = event.targetTouches[0].screenY;
+      swipeLeft = false;
+      swipeRight = false;
+    });
+
+    ele.addEventListener('touchmove', function(event) {
+      event.stopPropagation();
+      event.preventDefault();
+      endX = event.targetTouches[0].screenX;
+      endY = event.targetTouches[0].screenY;
+      // 左右滑动
+      if (Math.abs(endX - beginX) - Math.abs(endY - beginY) > 0) {
+        /*向右滑动*/
+        // if (endX - beginX > 0) {
+        //   swipeRight = true;
+        //   swipeLeft = false;
+        // } else {
+        //   /*向左滑动*/
+        //   swipeLeft = true;
+        //   swipeRight = false;
+        // }
+      } else if (Math.abs(endX - beginX) - Math.abs(endY - beginY) < 0) {
+        // 上下滑动
+        console.log('11111');
+      }
+    });
+    ele.addEventListener('touchend', function(event) {
+      event.stopPropagation();
+      event.preventDefault();
+
+      if (Math.abs(endX - beginX) - Math.abs(endY - beginY) > 0) {
+        event.stopPropagation();
+        event.preventDefault();
+        if (swipeRight) {
+          swipeRight = !swipeRight;
+          /*向右滑动*/
+        }
+        if (swipeLeft) {
+          swipeLeft = !swipeLeft;
+          /*向左滑动*/
+        }
+      } else {
+        console.log('222', endY - beginY);
+        if (endY - beginY < 0) {
+          router.push('make?code=' + location.query.code || '');
+        }
+      }
+    });
   }
   render() {
     return (
-      <div className={styles.normal}>
+      <div className={styles.normal} id="touchid">
         {/* <div className={styles.loading}>
           <div className={styles.bars}>
             <div className={styles.bar}></div>
@@ -137,6 +193,9 @@ export default class Index extends React.PureComponent {
             才是最好的<span className={styles.fontSize30}>驱动力</span>
           </div>
         </div>
+        <div className={styles.arrow}></div>
+        <div className={styles.arrow2}></div>
+
         <img style={{ width: 0 }} src={Label} alt="黑胶唱片" />
       </div>
     );

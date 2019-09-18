@@ -69,6 +69,7 @@ class Make extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
       if (processing) {
         wx.stopRecord({
           success: res => {
+            console.log('res', res);
             var sourceId = res.localId;
             this.setState({
               sourceId,

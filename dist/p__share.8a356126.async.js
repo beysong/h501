@@ -164,6 +164,7 @@ class share_Share extends react_default.a.PureComponent {
       var location = this.props.location;
       var x = document.createElement('AUDIO');
       x.setAttribute('id', 'audioLabel3');
+      x.setAttribute('style', 'z-index: -1;');
       x.setAttribute('src', "http:".concat(config["b" /* WEB_HOST */], "/get/").concat(location.query.code || ''));
       x.setAttribute('controls', 'controls');
       document.body.appendChild(x);
