@@ -48,7 +48,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"p__error":"p__error","p__index.2":"p__index.2","p__index.3":"p__index.3","vendors":"vendors","layouts__index":"layouts__index","p__index.1":"p__index.1","p__loading":"p__loading","p__luzhi.1":"p__luzhi.1","p__make":"p__make","p__share":"p__share","p__shared":"p__shared"}[chunkId]||chunkId) + "." + {"p__error":"cb5f1ab3","p__index.2":"ee75a9e9","p__index.3":"8c9bf2c5","vendors":"c49a5cd7","layouts__index":"75eaeab3","p__index.1":"5f3bea5a","p__loading":"b58d5e4a","p__luzhi.1":"09d27bb3","p__make":"5d5a8801","p__share":"8a356126","p__shared":"2745c931"}[chunkId] + ".async.js"
+/******/ 		return __webpack_require__.p + "" + ({"p__error":"p__error","p__index.2":"p__index.2","p__index.3":"p__index.3","vendors":"vendors","layouts__index":"layouts__index","p__index.1":"p__index.1","p__loading":"p__loading","p__luzhi.1":"p__luzhi.1","p__make":"p__make","p__share":"p__share","p__shared":"p__shared"}[chunkId]||chunkId) + "." + {"p__error":"cb5f1ab3","p__index.2":"ee75a9e9","p__index.3":"8c9bf2c5","vendors":"99f5bca7","layouts__index":"68159cd3","p__index.1":"5f3bea5a","p__loading":"eb491416","p__luzhi.1":"09d27bb3","p__make":"5d5a8801","p__share":"8a356126","p__shared":"2745c931"}[chunkId] + ".async.js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -21515,45 +21515,6 @@ Object(services["b" /* wxConfig */])({
     });
   }
 });
-
-function isAndroid() {
-  var u = window.navigator.userAgent;
-  return u.indexOf('Android') > -1 || u.indexOf('Linux') > -1;
-}
-
-function weixinVersion() {
-  var str = window.navigator.userAgent;
-  var v0 = [6, 3, 31];
-  var regExp = /MicroMessenger\/([\d|\.]+)/;
-
-  if (regExp.exec(str) === null) {
-    return;
-  }
-
-  var v1 = regExp.exec(str)[1].split('.');
-
-  if (v1.length >= 4) {
-    v1 = v1.slice(0, 3);
-  }
-
-  v1 = v1.map(function (v) {
-    return parseInt(v, 10);
-  });
-
-  if (v1[0] > v0[0]) {
-    return true;
-  }
-
-  if (v1[0] === v0[0] && v1[1] > v0[1]) {
-    return true;
-  }
-
-  if (v1[0] === v0[0] && v1[1] === v0[1] && v1[2] >= v0[2]) {
-    return true;
-  }
-
-  return false;
-}
 // EXTERNAL MODULE: ./node_modules/react/index.js
 var react = __webpack_require__("./node_modules/react/index.js");
 var react_default = /*#__PURE__*/__webpack_require__.n(react);

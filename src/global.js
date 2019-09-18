@@ -29,34 +29,3 @@ wxConfig({
     });
   }
 });
-
-function isAndroid() {
-  var u = window.navigator.userAgent;
-  return u.indexOf('Android') > -1 || u.indexOf('Linux') > -1;
-}
-
-function weixinVersion() {
-  var str = window.navigator.userAgent;
-  var v0 = [6, 3, 31];
-  var regExp = /MicroMessenger\/([\d|\.]+)/;
-  if (regExp.exec(str) === null) {
-    return;
-  }
-  var v1 = regExp.exec(str)[1].split('.');
-  if (v1.length >= 4) {
-    v1 = v1.slice(0, 3);
-  }
-  v1 = v1.map(function(v) {
-    return parseInt(v, 10);
-  });
-  if (v1[0] > v0[0]) {
-    return true;
-  }
-  if (v1[0] === v0[0] && v1[1] > v0[1]) {
-    return true;
-  }
-  if (v1[0] === v0[0] && v1[1] === v0[1] && v1[2] >= v0[2]) {
-    return true;
-  }
-  return false;
-}

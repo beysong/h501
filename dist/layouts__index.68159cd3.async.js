@@ -22,9 +22,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
- // function BasicLayout(props) {
+
+
+var audioSource = __webpack_require__(/*! ../assets/speak.mp3 */ "./src/assets/speak.mp3"); // function BasicLayout(props) {
 //   return <div className={styles.normal}>{props.children}</div>;
 // }
+
 
 var BasicLayout = umi_withRouter__WEBPACK_IMPORTED_MODULE_2___default()((_ref) => {
   var location = _ref.location,

@@ -1179,6 +1179,19 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAABRCAYAAAAO
 
 /***/ }),
 
+/***/ "./src/assets/speak.mp3":
+/*!******************************!*\
+  !*** ./src/assets/speak.mp3 ***!
+  \******************************/
+/*! no static exports found */
+/*! all exports used */
+/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/speak.3b4d7a93.mp3";
+
+/***/ }),
+
 /***/ "./src/assets/start.png":
 /*!******************************!*\
   !*** ./src/assets/start.png ***!

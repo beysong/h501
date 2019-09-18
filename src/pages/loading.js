@@ -1,12 +1,19 @@
 import React from 'react';
 import router from 'umi/router';
 import styles from './loading.less';
+import Loading from '../components/loading';
 import { wxConfig2, isAndroid, weixinVersion } from '../utils/index';
 const Label = require('../assets/Label.png');
 
 const audioSource = require('../assets/speak.mp3');
 
 export default class Index extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      audioLoading: true,
+    };
+  }
   componentDidMount() {
     if (isAndroid() && !weixinVersion()) {
       wxConfig2();
@@ -21,17 +28,26 @@ export default class Index extends React.PureComponent {
       window.location.href = './make.html?code=' + location.query.code || '';
     }, 29000);
 
-    let x = document.createElement('AUDIO');
-    x.setAttribute('id', 'audioLabel2');
-    x.setAttribute('style', 'z-index: -1;');
-    x.setAttribute('preload', 'load');
-    // x.setAttribute('loop', true);
-    x.setAttribute('src', audioSource);
-    x.setAttribute('controls', 'controls');
-    document.body.appendChild(x);
-    let audioRef = document.getElementById('audioLabel2');
+    // let x = document.createElement('AUDIO');
+    // x.setAttribute('id', 'audioLabel2');
+    // x.setAttribute('style', 'z-index: -1;');
+    // x.setAttribute('preload', 'load');
+    // // x.setAttribute('loop', true);
+    // x.setAttribute('src', audioSource);
+    // x.setAttribute('controls', 'controls');
+    // document.body.appendChild(x);
+    // let audioRef = document.getElementById('audioLabel2');
 
-    audioRef.play();
+    // audioRef.play();
+
+    let audioRef = new Audio();
+    audioRef.src = audioSource;
+    audioRef.preload = 'auto';
+    audioRef.addEventListener('loadeddata', event => {
+      this.setState({
+        audioLoading: false,
+      });
+    });
 
     /* global wx */
     wx.ready(() => {
@@ -97,7 +113,12 @@ export default class Index extends React.PureComponent {
     });
   }
   render() {
-    return (
+    const { audioLoading } = this.state;
+    return audioLoading ? (
+      <div className={styles.normal} id="touchid">
+        <Loading />
+      </div>
+    ) : (
       <div className={styles.normal} id="touchid">
         {/* <div className={styles.loading}>
           <div className={styles.bars}>

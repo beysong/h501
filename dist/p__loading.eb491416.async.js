@@ -1,18 +1,5 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["p__loading"],{
 
-/***/ "./src/assets/speak.mp3":
-/*!******************************!*\
-  !*** ./src/assets/speak.mp3 ***!
-  \******************************/
-/*! no static exports found */
-/*! all exports used */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "static/speak.3b4d7a93.mp3";
-
-/***/ }),
-
 /***/ "./src/pages/loading.js":
 /*!******************************!*\
   !*** ./src/pages/loading.js ***!
@@ -29,7 +16,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _loading_less__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./loading.less */ "./src/pages/loading.less");
 /* harmony import */ var _loading_less__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_loading_less__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _utils_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/index */ "./src/utils/index.js");
+/* harmony import */ var _components_loading__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/loading */ "./src/components/loading.js");
+/* harmony import */ var _utils_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/index */ "./src/utils/index.js");
+
 
 
 
@@ -40,9 +29,16 @@ var Label = __webpack_require__(/*! ../assets/Label.png */ "./src/assets/Label.p
 var audioSource = __webpack_require__(/*! ../assets/speak.mp3 */ "./src/assets/speak.mp3");
 
 class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      audioLoading: true
+    };
+  }
+
   componentDidMount() {
-    if (Object(_utils_index__WEBPACK_IMPORTED_MODULE_2__[/* isAndroid */ "a"])() && !Object(_utils_index__WEBPACK_IMPORTED_MODULE_2__[/* weixinVersion */ "b"])()) {
-      Object(_utils_index__WEBPACK_IMPORTED_MODULE_2__[/* wxConfig2 */ "c"])();
+    if (Object(_utils_index__WEBPACK_IMPORTED_MODULE_3__[/* isAndroid */ "a"])() && !Object(_utils_index__WEBPACK_IMPORTED_MODULE_3__[/* weixinVersion */ "b"])()) {
+      Object(_utils_index__WEBPACK_IMPORTED_MODULE_3__[/* wxConfig2 */ "c"])();
     }
 
     var _this$props = this.props,
@@ -54,17 +50,25 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
     setTimeout(() => {
       // router.push('make?code=' + location.query.code || '');
       window.location.href = './make.html?code=' + location.query.code || false;
-    }, 29000);
-    var x = document.createElement('AUDIO');
-    x.setAttribute('id', 'audioLabel2');
-    x.setAttribute('style', 'z-index: -1;');
-    x.setAttribute('preload', 'load'); // x.setAttribute('loop', true);
+    }, 29000); // let x = document.createElement('AUDIO');
+    // x.setAttribute('id', 'audioLabel2');
+    // x.setAttribute('style', 'z-index: -1;');
+    // x.setAttribute('preload', 'load');
+    // // x.setAttribute('loop', true);
+    // x.setAttribute('src', audioSource);
+    // x.setAttribute('controls', 'controls');
+    // document.body.appendChild(x);
+    // let audioRef = document.getElementById('audioLabel2');
+    // audioRef.play();
 
-    x.setAttribute('src', audioSource);
-    x.setAttribute('controls', 'controls');
-    document.body.appendChild(x);
-    var audioRef = document.getElementById('audioLabel2');
-    audioRef.play();
+    var audioRef = new Audio();
+    audioRef.src = audioSource;
+    audioRef.preload = 'auto';
+    audioRef.addEventListener('loadeddata', event => {
+      this.setState({
+        audioLoading: false
+      });
+    });
     /* global wx */
 
     wx.ready(() => {
@@ -132,7 +136,11 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
   }
 
   render() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    var audioLoading = this.state.audioLoading;
+    return audioLoading ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.normal,
+      id: "touchid"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_loading__WEBPACK_IMPORTED_MODULE_2__["default"], null)) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: _loading_less__WEBPACK_IMPORTED_MODULE_1___default.a.normal,
       id: "touchid"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
