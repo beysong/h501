@@ -16,14 +16,14 @@ export default class Index extends React.PureComponent {
     setTimeout(() => {
       // router.push('make?code=' + location.query.code || '');
 
-      location.href = 'make?code=' + location.query.code || '';
-    }, 27000);
+      window.location.href = './make.html?code=' + location.query.code || '';
+    }, 29000);
 
     let x = document.createElement('AUDIO');
     x.setAttribute('id', 'audioLabel2');
     x.setAttribute('style', 'z-index: -1;');
     // x.setAttribute('loop', true);
-    x.setAttribute('src', '/future/web/speak.mp3');
+    x.setAttribute('src', '/speak.mp3');
     x.setAttribute('controls', 'controls');
     document.body.appendChild(x);
     setTimeout(() => {

@@ -23,6 +23,7 @@ export default class Make extends React.PureComponent {
       finished: false, // 录制完成
       uploading: false, // 上传中
       playing: false, // 播放中
+      timer: 0,
     };
   }
   componentDidMount() {
@@ -80,11 +81,14 @@ export default class Make extends React.PureComponent {
   /* global wx */
   // 开始录音
   toggleStart = () => {
-    const { processing, playing } = this.state;
+    const { processing, playing, timer } = this.state;
     if (playing) {
       return;
     }
     if (processing) {
+      if (this.timeroutRef) {
+        clearInterval(this.timeroutRef);
+      }
       wx.stopRecord({
         success: res => {
           console.log('res', res);
@@ -93,6 +97,7 @@ export default class Make extends React.PureComponent {
             sourceId,
             processing: false,
             finished: true,
+            timer: 0,
           });
         },
       });
@@ -106,9 +111,20 @@ export default class Make extends React.PureComponent {
       this.setState({
         processing: true,
       });
+      this.timeroutRef = setInterval(() => {
+        this.setState((state, props) => ({
+          timer: state.timer + 1,
+        }));
+      }, 1000);
     }
   };
-
+  // timeCount = () => {
+  //   setTimeout(() => {
+  //     this.setState((state, props) => ({
+  //       timer: state.timer + 1,
+  //     }));
+  //   }, 1000);
+  // };
   // 播放录音
   togglePlay = () => {
     const { playing, processing, sourceId, serverId } = this.state;
@@ -165,7 +181,7 @@ export default class Make extends React.PureComponent {
   };
 
   render() {
-    const { sourceId, processing, uploading, playing } = this.state;
+    const { sourceId, processing, uploading, playing, timer, finished } = this.state;
     return (
       <div className={styles.normal}>
         {uploading ? <Loading text="正在接收未来信号..." /> : false}
@@ -197,8 +213,14 @@ export default class Make extends React.PureComponent {
             <div className={styles.inshow11}>现在，向未来发声，</div>
             <div className={styles.inshow11}>2029，让未来发生。</div>
             <div className={styles.inshow11}>&nbsp;</div>
+            {processing ? (
+              <div className={styles.timer} style={{ textAlign: 'center' }}>
+                00 : 00 : {timer > 9 ? timer : `0${timer}`}
+              </div>
+            ) : (
+              false
+            )}
           </div>
-
           {sourceId ? (
             <>
               <div className={styles.show12}>
@@ -234,7 +256,7 @@ export default class Make extends React.PureComponent {
                 </div>
               </div>
               <div className={styles.show12} onClick={this.toggleStart}>
-                <div>录制</div>
+                <div>{finished ? '完成' : '录制'}</div>
               </div>
             </>
           )}

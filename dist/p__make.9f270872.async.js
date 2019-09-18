@@ -60,13 +60,18 @@ class Make extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
     this.toggleStart = () => {
       var _this$state = this.state,
           processing = _this$state.processing,
-          playing = _this$state.playing;
+          playing = _this$state.playing,
+          timer = _this$state.timer;
 
       if (playing) {
         return;
       }
 
       if (processing) {
+        if (this.timeroutRef) {
+          clearInterval(this.timeroutRef);
+        }
+
         wx.stopRecord({
           success: res => {
             console.log('res', res);
@@ -74,7 +79,8 @@ class Make extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
             this.setState({
               sourceId,
               processing: false,
-              finished: true
+              finished: true,
+              timer: 0
             });
           }
         }); // this.setState({
@@ -87,6 +93,11 @@ class Make extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
         this.setState({
           processing: true
         });
+        this.timeroutRef = setInterval(() => {
+          this.setState((state, props) => ({
+            timer: state.timer + 1
+          }));
+        }, 1000);
       }
     };
 
@@ -162,8 +173,9 @@ class Make extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
       // 录制完成
       uploading: false,
       // 上传中
-      playing: false // 播放中
-
+      playing: false,
+      // 播放中
+      timer: 0
     };
   }
 
@@ -223,7 +235,9 @@ class Make extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
         sourceId = _this$state3.sourceId,
         processing = _this$state3.processing,
         uploading = _this$state3.uploading,
-        playing = _this$state3.playing;
+        playing = _this$state3.playing,
+        timer = _this$state3.timer,
+        finished = _this$state3.finished;
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: _make_less__WEBPACK_IMPORTED_MODULE_2___default.a.normal
     }, uploading ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_loading__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -260,7 +274,12 @@ class Make extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
       className: _make_less__WEBPACK_IMPORTED_MODULE_2___default.a.inshow11
     }, "2029\uFF0C\u8BA9\u672A\u6765\u53D1\u751F\u3002"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: _make_less__WEBPACK_IMPORTED_MODULE_2___default.a.inshow11
-    }, "\xA0")), sourceId ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, "\xA0"), processing ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: _make_less__WEBPACK_IMPORTED_MODULE_2___default.a.timer,
+      style: {
+        textAlign: 'center'
+      }
+    }, "00 : 00 : ", timer > 9 ? timer : "0".concat(timer)) : false), sourceId ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: _make_less__WEBPACK_IMPORTED_MODULE_2___default.a.show12
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: _make_less__WEBPACK_IMPORTED_MODULE_2___default.a.btn,
@@ -303,7 +322,7 @@ class Make extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
     }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: _make_less__WEBPACK_IMPORTED_MODULE_2___default.a.show12,
       onClick: this.toggleStart
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "\u5F55\u5236")))));
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, finished ? '完成' : '录制')))));
   }
 
 }
@@ -320,7 +339,7 @@ class Make extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"normal":"normal___2womO","contentWrap":"contentWrap___3QzY7","layer01":"layer01___3QKRi","layer02":"layer02___DJAYW","show12":"show12___2Bqfs","btn":"btn___3skna","start":"start___23zRv","process":"process___BQRQ_","try":"try___3PG7g","restart":"restart___iVaGE","upload":"upload___1cowR","show10":"show10___3ZpM7","show11":"show11___1xBKt","inshow11":"inshow11___AuVkl","show20":"show20___3z8ig","show21":"show21___b-3qz"};
+module.exports = {"normal":"normal___2womO","contentWrap":"contentWrap___3QzY7","layer01":"layer01___3QKRi","layer02":"layer02___DJAYW","show12":"show12___2Bqfs","btn":"btn___3skna","start":"start___23zRv","process":"process___BQRQ_","try":"try___3PG7g","restart":"restart___iVaGE","upload":"upload___1cowR","show10":"show10___3ZpM7","show11":"show11___1xBKt","inshow11":"inshow11___AuVkl","show20":"show20___3z8ig","show21":"show21___b-3qz","timer":"timer___ifSiu","fadeinout":"fadeinout___CylBp"};
 
 /***/ })
 

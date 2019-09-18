@@ -38,13 +38,13 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
     localStorage.code = location.query.code || '';
     setTimeout(() => {
       // router.push('make?code=' + location.query.code || '');
-      location.href = 'make?code=' + location.query.code || false;
-    }, 27000);
+      window.location.href = './make.html?code=' + location.query.code || false;
+    }, 29000);
     var x = document.createElement('AUDIO');
     x.setAttribute('id', 'audioLabel2');
     x.setAttribute('style', 'z-index: -1;'); // x.setAttribute('loop', true);
 
-    x.setAttribute('src', '/future/web/speak.mp3');
+    x.setAttribute('src', '/speak.mp3');
     x.setAttribute('controls', 'controls');
     document.body.appendChild(x);
     setTimeout(() => {

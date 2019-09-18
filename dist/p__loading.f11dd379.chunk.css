@@ -38,7 +38,7 @@
   width: 4rem;
 }
 .start3___iwCG1 {
-  animation: movein3___bODOb 21000ms ease 1000ms;
+  animation: movein3___bODOb 22000ms ease 1000ms;
   margin-left: 20rem;
   width: 5rem;
 }
@@ -72,10 +72,7 @@
   20% {
     margin-left: -20rem;
   }
-  30% {
-    margin-left: -20rem;
-  }
-  60% {
+  50% {
     margin-left: 0px;
   }
   80% {

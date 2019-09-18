@@ -212,4 +212,17 @@
     margin-top: 0;
   }
 }
+.normal___2womO .timer___ifSiu {
+  text-align: center;
+  animation: fadeinout___CylBp 1000ms ease;
+}
+@keyframes fadeinout___CylBp {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    height: 0;
+    opacity: 1;
+  }
+}
 
