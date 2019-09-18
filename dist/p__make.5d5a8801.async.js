@@ -310,7 +310,7 @@ class Make extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
       onClick: this.togglePlay
     }, "\u8BD5\u542C"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       onClick: this.toggleStart
-    }, "\u91CD\u5F55"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, finished ? '完成' : '重录'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       onClick: this.upload
     }, "\u4E0A\u4F20"))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: _make_less__WEBPACK_IMPORTED_MODULE_2___default.a.show12,
@@ -322,7 +322,7 @@ class Make extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
     }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: _make_less__WEBPACK_IMPORTED_MODULE_2___default.a.show12,
       onClick: this.toggleStart
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, finished ? '完成' : '录制')))));
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "\u5F55\u5236")))));
   }
 
 }

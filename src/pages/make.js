@@ -244,7 +244,7 @@ export default class Make extends React.PureComponent {
               </div>
               <div className={styles.show12}>
                 <div onClick={this.togglePlay}>试听</div>
-                <div onClick={this.toggleStart}>重录</div>
+                <div onClick={this.toggleStart}>{finished ? '完成' : '重录'}</div>
                 <div onClick={this.upload}>上传</div>
               </div>
             </>
@@ -256,7 +256,7 @@ export default class Make extends React.PureComponent {
                 </div>
               </div>
               <div className={styles.show12} onClick={this.toggleStart}>
-                <div>{finished ? '完成' : '录制'}</div>
+                <div>录制</div>
               </div>
             </>
           )}
