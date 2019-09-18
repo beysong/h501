@@ -18,7 +18,7 @@ export default class Index extends React.PureComponent {
     let x = document.createElement('AUDIO');
     x.setAttribute('id', 'audioLabel2');
     // x.setAttribute('loop', true);
-    x.setAttribute('src', '/speak.mp3');
+    x.setAttribute('src', '/future/web/speak.mp3');
     x.setAttribute('controls', 'controls');
     document.body.appendChild(x);
     setTimeout(() => {

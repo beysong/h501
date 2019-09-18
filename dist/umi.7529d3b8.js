@@ -48,7 +48,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"p__error":"p__error","p__index.2":"p__index.2","p__index.3":"p__index.3","vendors":"vendors","layouts__index":"layouts__index","p__index.1":"p__index.1","p__loading":"p__loading","p__luzhi.1":"p__luzhi.1","p__make":"p__make","p__share":"p__share","p__shared":"p__shared"}[chunkId]||chunkId) + "." + {"p__error":"cb5f1ab3","p__index.2":"ee75a9e9","p__index.3":"8c9bf2c5","vendors":"8be59c37","layouts__index":"75eaeab3","p__index.1":"5f3bea5a","p__loading":"d34dd865","p__luzhi.1":"09d27bb3","p__make":"abb94ba8","p__share":"6d4fc5ec","p__shared":"4290fb95"}[chunkId] + ".async.js"
+/******/ 		return __webpack_require__.p + "" + ({"p__error":"p__error","p__index.2":"p__index.2","p__index.3":"p__index.3","vendors":"vendors","layouts__index":"layouts__index","p__index.1":"p__index.1","p__loading":"p__loading","p__luzhi.1":"p__luzhi.1","p__make":"p__make","p__share":"p__share","p__shared":"p__shared"}[chunkId]||chunkId) + "." + {"p__error":"cb5f1ab3","p__index.2":"ee75a9e9","p__index.3":"8c9bf2c5","vendors":"8be59c37","layouts__index":"75eaeab3","p__index.1":"5f3bea5a","p__loading":"482bd783","p__luzhi.1":"09d27bb3","p__make":"abb94ba8","p__share":"6d4fc5ec","p__shared":"4290fb95"}[chunkId] + ".async.js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -21729,7 +21729,7 @@ if (false) {}
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js because of ./node_modules/react-transition-group/esm/TransitionGroup.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/extends.js because of ./node_modules/react-transition-group/esm/TransitionGroup.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js because of ./node_modules/react-transition-group/esm/TransitionGroup.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./src/utils/config.js because of ./src/pages/share.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./src/utils/config.js because of ./src/pages/shared.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/babel-preset-umi/node_modules/@babel/runtime/helpers/asyncToGenerator.js (<- Module is not an ECMAScript module) */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/babel-preset-umi/node_modules/@babel/runtime/helpers/objectSpread.js (<- Module is not an ECMAScript module) */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/babel-preset-umi/node_modules/@babel/runtime/helpers/objectWithoutProperties.js (<- Module is not an ECMAScript module) */
@@ -24145,12 +24145,12 @@ function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return WEB_HOST; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return WEB_URL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return WECHATOPTIONS; });
-var IMG_HOST = Object({"NODE_ENV":"production"}).TEST ? '//baidu.img-cn-shanghai.aliyuncs.com' : '//baidu.img-cn-hangzhou.aliyuncs.com';
-var WEB_HOST = Object({"NODE_ENV":"production"}).TEST ? '//yuanjing.icuch.com/future' : '//recruit.envisioncn.com/future';
-var API_HOST = Object({"NODE_ENV":"production"}).TEST ? '//yuanjing.icuch.com/future' : '//recruit.envisioncn.com/future'; // console.log('111', process.env);
+var IMG_HOST =  true ? '//baidu.img-cn-shanghai.aliyuncs.com' : undefined;
+var WEB_HOST =  true ? '//yuanjing.icuch.com/future' : undefined;
+var API_HOST =  true ? '//yuanjing.icuch.com/future' : undefined; // console.log('111', process.env);
 // const WEB_URL = 'http://recruit.envisioncn.com/future/';
 
-var WEB_URL = Object({"NODE_ENV":"production"}).TEST ? 'http://yuanjing.icuch.com/future/web' : 'http://recruit.envisioncn.com/future/web';
+var WEB_URL =  true ? 'http://yuanjing.icuch.com/future/web' : undefined;
 var WECHATOPTIONS = {
   title: '请回答2029',
   desc: '现在，向未来发声；2029，让未来发生。',
