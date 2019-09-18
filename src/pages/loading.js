@@ -44,9 +44,11 @@ export default class Index extends React.PureComponent {
     audioRef.src = audioSource;
     audioRef.preload = 'auto';
     audioRef.addEventListener('loadeddata', event => {
-      this.setState({
-        audioLoading: false,
-      });
+      setTimeout(() => {
+        this.setState({
+          audioLoading: false,
+        });
+      }, 1000);
     });
 
     /* global wx */

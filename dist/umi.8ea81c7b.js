@@ -48,7 +48,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"p__error":"p__error","p__index.2":"p__index.2","p__index.3":"p__index.3","vendors":"vendors","layouts__index":"layouts__index","p__index.1":"p__index.1","p__loading":"p__loading","p__luzhi.1":"p__luzhi.1","p__make":"p__make","p__share":"p__share","p__shared":"p__shared"}[chunkId]||chunkId) + "." + {"p__error":"cb5f1ab3","p__index.2":"ee75a9e9","p__index.3":"8c9bf2c5","vendors":"c9b41369","layouts__index":"68159cd3","p__index.1":"5f3bea5a","p__loading":"eb491416","p__luzhi.1":"09d27bb3","p__make":"5d5a8801","p__share":"8a356126","p__shared":"2745c931"}[chunkId] + ".async.js"
+/******/ 		return __webpack_require__.p + "" + ({"p__error":"p__error","p__index.2":"p__index.2","p__index.3":"p__index.3","vendors":"vendors","layouts__index":"layouts__index","p__index.1":"p__index.1","p__loading":"p__loading","p__luzhi.1":"p__luzhi.1","p__make":"p__make","p__premake":"p__premake","p__share":"p__share","p__shared":"p__shared"}[chunkId]||chunkId) + "." + {"p__error":"cb5f1ab3","p__index.2":"ee75a9e9","p__index.3":"8c9bf2c5","vendors":"0f609c1a","layouts__index":"68159cd3","p__index.1":"5f3bea5a","p__loading":"4e720dc0","p__luzhi.1":"09d27bb3","p__make":"08dbbb92","p__premake":"e43b7e17","p__share":"8a356126","p__shared":"2745c931"}[chunkId] + ".async.js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -82,11 +82,11 @@
 /******/
 /******/
 /******/ 		// mini-css-extract-plugin CSS loading
-/******/ 		var cssChunks = {"p__error":1,"p__index.2":1,"p__index.3":1,"vendors":1,"layouts__index":1,"p__index.1":1,"p__loading":1,"p__luzhi.1":1,"p__make":1,"p__share":1,"p__shared":1};
+/******/ 		var cssChunks = {"p__error":1,"p__index.2":1,"p__index.3":1,"vendors":1,"layouts__index":1,"p__index.1":1,"p__loading":1,"p__luzhi.1":1,"p__make":1,"p__premake":1,"p__share":1,"p__shared":1};
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({"p__error":"p__error","p__index.2":"p__index.2","p__index.3":"p__index.3","vendors":"vendors","layouts__index":"layouts__index","p__index.1":"p__index.1","p__loading":"p__loading","p__luzhi.1":"p__luzhi.1","p__make":"p__make","p__share":"p__share","p__shared":"p__shared"}[chunkId]||chunkId) + "." + {"p__error":"427988fa","p__index.2":"8b86492e","p__index.3":"0d0803dc","vendors":"1dd2cb31","layouts__index":"d50393a9","p__index.1":"ebd095f3","p__loading":"f11dd379","p__luzhi.1":"2a630741","p__make":"6f1ec551","p__share":"7e2e10e9","p__shared":"29f6c8ce"}[chunkId] + ".chunk.css";
+/******/ 				var href = "" + ({"p__error":"p__error","p__index.2":"p__index.2","p__index.3":"p__index.3","vendors":"vendors","layouts__index":"layouts__index","p__index.1":"p__index.1","p__loading":"p__loading","p__luzhi.1":"p__luzhi.1","p__make":"p__make","p__premake":"p__premake","p__share":"p__share","p__shared":"p__shared"}[chunkId]||chunkId) + "." + {"p__error":"427988fa","p__index.2":"8b86492e","p__index.3":"0d0803dc","vendors":"1dd2cb31","layouts__index":"d50393a9","p__index.1":"ebd095f3","p__loading":"f11dd379","p__luzhi.1":"2a630741","p__make":"6f1ec551","p__premake":"5509ec40","p__share":"7e2e10e9","p__shared":"29f6c8ce"}[chunkId] + ".chunk.css";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {
@@ -21179,6 +21179,15 @@ var routes = [{
     exact: true,
     component:  true ? umi_dynamic__WEBPACK_IMPORTED_MODULE_2___default()({
       loader: () => Promise.all(/*! import() | p__make */[__webpack_require__.e("vendors"), __webpack_require__.e("p__make")]).then(__webpack_require__.bind(null, /*! ../make.js */ "./src/pages/make.js")),
+      loading: __webpack_require__(/*! ./src/components/loading.js */ "./src/components/loading.js").default
+    }) : undefined,
+    _title: '未来源于你',
+    _title_default: '未来源于你'
+  }, {
+    path: '/premake.html',
+    exact: true,
+    component:  true ? umi_dynamic__WEBPACK_IMPORTED_MODULE_2___default()({
+      loader: () => Promise.all(/*! import() | p__premake */[__webpack_require__.e("vendors"), __webpack_require__.e("p__premake")]).then(__webpack_require__.bind(null, /*! ../premake.js */ "./src/pages/premake.js")),
       loading: __webpack_require__(/*! ./src/components/loading.js */ "./src/components/loading.js").default
     }) : undefined,
     _title: '未来源于你',

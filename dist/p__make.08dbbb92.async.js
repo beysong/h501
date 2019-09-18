@@ -1,18 +1,5 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["p__make"],{
 
-/***/ "./src/assets/duihao.png":
-/*!*******************************!*\
-  !*** ./src/assets/duihao.png ***!
-  \*******************************/
-/*! no static exports found */
-/*! all exports used */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
-/***/ (function(module, exports) {
-
-module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABHCAMAAADGBBL+AAAAAXNSR0IB2cksfwAAAAlwSFlzAAAXEgAAFxIBZ5/SUgAAAVxQTFRFAAAA////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Y2H17gAAAHR0Uk5TAAceKiIGIJ3d6eGuNzTK/+UjLMS6DNzxMrv9PfU24CH8ZgHujwnLdg4LHavvOzWsrcz7Fgq8iZyym2uCdQRiwv752oQtM5MQ8JL233omGgWUqtl7CBUpuI7bD1zGwcjkd7M5G/dU0BRJhp/FVuMvw+y5EkoPxICqAAACfklEQVR4nNXYa1PTQBQG4KVIUQEXi5USUJAWUKymEgFRAblVixWslyr1hvVW5aLI/5+RJbU9J8HNbjcnM74facI7TzfZ01nGCNMWaz/VQVlwlHjn6TNnu7pJO3rOcZHe84QdiT7u5kKSruNivYP3p8g6Bv52cGuQqqPh4HzoElFH08H55WGaDuDgI1dGKTp6+kBHOjNG0ZEYh46JqxQdHsc1io7JKBzXQUc2CkeGxHEDdqQn/lvHTbzmJI6YDTtyNI5bETumaBwOdtym6EhMw46ZNooO7JglcTjYQdNxB3RYUThyNGsO12OKZm+PwhGLwjGn6ojdvXd/cL6VDuyQ7O2jC4tDD5aWVyb1O1bhfpXNSP7DWtq15h/qduA9UTajxrrqVz0qaP7EX7XXwXrIHCz+uHFdUcuis7c/6W1+q3kNi8cRl168sQyuVbcghxU0ozafwidEdV0c5CjJHUfZeAbfp+cvlBzwHbRyL4PvKL+Cd7xWsLQyo8pb8DkpBloq2o7jFmwJaGl1RmHLG2kLdrxVdBy3vIMtMovHodHBWOo9vLf4z9U3m1FqlgpylLQcIioWz4wKfAf9KX+Alu0TLJWPZg6RKrRk/RZzh8gn2DJS8OyW6jNKHo8FfebMfQYf2i06RLAF7vzYYRv99qnC1U83LR6H4ZFfGVvqzxieUWYOEWz54v4ROb6GcHTp3/nxjLK/mXcwVoM7THY76djAoTBr1YIt33+E7xBBlvUl0BGWQwRZQMdOaA6R2vhJHaWQz5FrfkvIDhE0xVxH6B0+i7VDcuaOphiJQ2R3i9oh0rCQOUSqe26JyYwKzv7Pfs5/Hfym7GAsmTo8TBie9f0BKUihDqzFbJ8AAAAASUVORK5CYII="
-
-/***/ }),
-
 /***/ "./src/pages/make.js":
 /*!***************************!*\
   !*** ./src/pages/make.js ***!

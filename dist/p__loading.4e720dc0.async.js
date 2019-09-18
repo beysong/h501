@@ -65,9 +65,11 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
     audioRef.src = audioSource;
     audioRef.preload = 'auto';
     audioRef.addEventListener('loadeddata', event => {
-      this.setState({
-        audioLoading: false
-      });
+      setTimeout(() => {
+        this.setState({
+          audioLoading: false
+        });
+      }, 1000);
     });
     /* global wx */
 
