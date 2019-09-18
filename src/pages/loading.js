@@ -29,9 +29,13 @@ export default class Index extends React.PureComponent {
     document.body.appendChild(x);
     let audioRef = document.getElementById('audioLabel2');
 
+    audioRef.play();
+
     /* global wx */
     wx.ready(() => {
-      audioRef.play();
+      try {
+        audioRef.play();
+      } catch (error) {}
     });
 
     var ele = document.getElementById('touchid');

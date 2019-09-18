@@ -49,10 +49,13 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
     x.setAttribute('controls', 'controls');
     document.body.appendChild(x);
     var audioRef = document.getElementById('audioLabel2');
+    audioRef.play();
     /* global wx */
 
     wx.ready(() => {
-      audioRef.play();
+      try {
+        audioRef.play();
+      } catch (error) {}
     });
     var ele = document.getElementById('touchid');
     var beginX, beginY, endX, endY, swipeLeft, swipeRight;
