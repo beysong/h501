@@ -28,7 +28,7 @@ export default class Shared extends React.PureComponent {
       lineWidth: 0,
       speaking: false,
       loading: false,
-      name: '',
+      localId: '',
     };
   }
 
@@ -94,7 +94,15 @@ export default class Shared extends React.PureComponent {
     }).then(r => {
       if (r.status === 200) {
         this.setState({
-          name: r.body.name || '',
+          dataInfo: r.body || {},
+        });
+        wx.downloadVoice({
+          serverId: r.body.media_id, // 需要下载的音频的服务器端ID，由uploadVoice接口获得
+          isShowProgressTips: 1, // 默认为1，显示进度提示
+          success: res => {
+            let localId = res.localId; // 返回音频的本地ID
+            this.setState({ localId });
+          },
         });
       }
       this.setState({
@@ -110,42 +118,72 @@ export default class Shared extends React.PureComponent {
   /* global wx */
   // 播放录音
   togglePlay = () => {
-    const { playing, speaking } = this.state;
-    const { location } = this.props;
-    let audioRef = document.getElementById('audioLabel');
+    const { playing, speaking, localId } = this.state;
     let speakRef = document.getElementById('speakAudio');
-    if (speaking) {
-      speakRef.pause();
-      this.setState({
-        speaking: false,
-      });
-    }
-    if (this.interval) {
-      clearInterval(this.interval);
-      this.interval = null;
-    } else {
-      if (audioRef.duration) {
+    if (localId) {
+      if (speaking) {
+        speakRef.pause();
+        this.setState({
+          speaking: false,
+        });
+      }
+      if (this.interval) {
+        clearInterval(this.interval);
+        this.interval = null;
+      } else {
         this.interval = setInterval(() => {
           this.setState((state, props) => ({
-            lineWidth: state.lineWidth + 400 / audioRef.duration,
+            lineWidth: state.lineWidth + 400 / 30,
           }));
         }, 1000);
       }
-    }
 
-    if (playing) {
-      audioRef.pause();
-      this.setState({
-        playing: false,
-      });
+      if (playing) {
+        wx.pauseVoice({
+          localId, // 需要播放的音频的本地ID，由stopRecord接口获得
+        });
+        this.setState({
+          playing: false,
+        });
+      } else {
+        wx.playVoice({
+          localId, // 需要播放的音频的本地ID，由stopRecord接口获得
+        });
+        this.setState({
+          playing: true,
+        });
+      }
     } else {
-      if (audioRef.duration) {
+      let audioRef = document.getElementById('audioLabel');
+      if (speaking) {
+        speakRef.pause();
+        this.setState({
+          speaking: false,
+        });
+      }
+      if (this.interval) {
+        clearInterval(this.interval);
+        this.interval = null;
+      } else {
+        if (audioRef.duration) {
+          this.interval = setInterval(() => {
+            this.setState((state, props) => ({
+              lineWidth: state.lineWidth + 400 / audioRef.duration,
+            }));
+          }, 1000);
+        }
+      }
+
+      if (playing) {
+        audioRef.pause();
+        this.setState({
+          playing: false,
+        });
+      } else {
         audioRef.play();
         this.setState({
           playing: true,
         });
-      } else {
-        alert('音频加载失败');
       }
     }
   };
@@ -204,30 +242,50 @@ export default class Shared extends React.PureComponent {
   };
 
   toggleSpeak = () => {
-    const { speaking, playing } = this.state;
-    let audioRef = document.getElementById('audioLabel');
+    const { speaking, playing, localId } = this.state;
     let speakRef = document.getElementById('speakAudio');
-    if (playing) {
-      audioRef.pause();
-      this.setState({
-        playing: false,
-      });
-    }
-    if (speaking) {
-      speakRef.pause();
-      this.setState({
-        speaking: false,
-      });
+    if (localId) {
+      if (playing) {
+        wx.pauseVoice({ localId });
+        this.setState({
+          playing: false,
+        });
+      }
+      if (speaking) {
+        speakRef.pause();
+        this.setState({
+          speaking: false,
+        });
+      } else {
+        speakRef.play();
+        this.setState({
+          speaking: true,
+        });
+      }
     } else {
-      speakRef.play();
-      this.setState({
-        speaking: true,
-      });
+      let audioRef = document.getElementById('audioLabel');
+      if (playing) {
+        audioRef.pause();
+        this.setState({
+          playing: false,
+        });
+      }
+      if (speaking) {
+        speakRef.pause();
+        this.setState({
+          speaking: false,
+        });
+      } else {
+        speakRef.play();
+        this.setState({
+          speaking: true,
+        });
+      }
     }
   };
 
   render() {
-    const { playing, dataInfo, lineWidth, joinShow, loading, name } = this.state;
+    const { playing, dataInfo, lineWidth, joinShow, loading } = this.state;
     return (
       <div className={styles.normal}>
         {joinShow ? (
@@ -267,7 +325,7 @@ export default class Shared extends React.PureComponent {
                 <div className={styles.circle}></div>
               </div>
             </div>
-            <div className={styles.inshow11}>听到{name || ''}的未来想象力</div>
+            <div className={styles.inshow11}>听到{dataInfo.name || ''}的未来想象力</div>
           </div>
 
           <div className={styles.show12}>

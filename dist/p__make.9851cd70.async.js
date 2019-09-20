@@ -161,6 +161,16 @@ class Make extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
               uploading: false
             });
           });
+          wx.downloadVoice({
+            serverId,
+            // 需要下载的音频的服务器端ID，由uploadVoice接口获得
+            isShowProgressTips: 1,
+            // 默认为1，显示进度提示
+            success: function success(res) {
+              console.log('9999999999:', res);
+              var localId = res.localId; // 返回音频的本地ID
+            }
+          });
         }
       });
     };

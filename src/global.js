@@ -25,6 +25,7 @@ wxConfig({
         'stopVoice', // 停止播放接口
         'onVoicePlayEnd', // 监听语音播放完毕接口
         'uploadVoice', // 上传语音接口
+        'downloadVoice',
       ], // 必填，需要使用的JS接口列表
     });
   }

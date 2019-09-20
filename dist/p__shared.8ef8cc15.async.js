@@ -55,44 +55,79 @@ class Shared extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
     this.togglePlay = () => {
       var _this$state = this.state,
           playing = _this$state.playing,
-          speaking = _this$state.speaking;
-      var location = this.props.location;
-      var audioRef = document.getElementById('audioLabel');
+          speaking = _this$state.speaking,
+          localId = _this$state.localId;
       var speakRef = document.getElementById('speakAudio');
 
-      if (speaking) {
-        speakRef.pause();
-        this.setState({
-          speaking: false
-        });
-      }
+      if (localId) {
+        if (speaking) {
+          speakRef.pause();
+          this.setState({
+            speaking: false
+          });
+        }
 
-      if (this.interval) {
-        clearInterval(this.interval);
-        this.interval = null;
-      } else {
-        if (audioRef.duration) {
+        if (this.interval) {
+          clearInterval(this.interval);
+          this.interval = null;
+        } else {
           this.interval = setInterval(() => {
             this.setState((state, props) => ({
-              lineWidth: state.lineWidth + 400 / audioRef.duration
+              lineWidth: state.lineWidth + 400 / 30
             }));
           }, 1000);
         }
-      }
 
-      if (playing) {
-        audioRef.pause();
-        this.setState({
-          playing: false
-        });
+        if (playing) {
+          wx.pauseVoice({
+            localId // 需要播放的音频的本地ID，由stopRecord接口获得
+
+          });
+          this.setState({
+            playing: false
+          });
+        } else {
+          wx.playVoice({
+            localId // 需要播放的音频的本地ID，由stopRecord接口获得
+
+          });
+          this.setState({
+            playing: true
+          });
+        }
       } else {
-        if (audioRef.duration) {
+        var audioRef = document.getElementById('audioLabel');
+
+        if (speaking) {
+          speakRef.pause();
+          this.setState({
+            speaking: false
+          });
+        }
+
+        if (this.interval) {
+          clearInterval(this.interval);
+          this.interval = null;
+        } else {
+          if (audioRef.duration) {
+            this.interval = setInterval(() => {
+              this.setState((state, props) => ({
+                lineWidth: state.lineWidth + 400 / audioRef.duration
+              }));
+            }, 1000);
+          }
+        }
+
+        if (playing) {
+          audioRef.pause();
+          this.setState({
+            playing: false
+          });
+        } else {
           audioRef.play();
           this.setState({
             playing: true
           });
-        } else {
-          alert('音频加载失败');
         }
       }
     };
@@ -151,27 +186,52 @@ class Shared extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
     this.toggleSpeak = () => {
       var _this$state2 = this.state,
           speaking = _this$state2.speaking,
-          playing = _this$state2.playing;
-      var audioRef = document.getElementById('audioLabel');
+          playing = _this$state2.playing,
+          localId = _this$state2.localId;
       var speakRef = document.getElementById('speakAudio');
 
-      if (playing) {
-        audioRef.pause();
-        this.setState({
-          playing: false
-        });
-      }
+      if (localId) {
+        if (playing) {
+          wx.pauseVoice({
+            localId
+          });
+          this.setState({
+            playing: false
+          });
+        }
 
-      if (speaking) {
-        speakRef.pause();
-        this.setState({
-          speaking: false
-        });
+        if (speaking) {
+          speakRef.pause();
+          this.setState({
+            speaking: false
+          });
+        } else {
+          speakRef.play();
+          this.setState({
+            speaking: true
+          });
+        }
       } else {
-        speakRef.play();
-        this.setState({
-          speaking: true
-        });
+        var audioRef = document.getElementById('audioLabel');
+
+        if (playing) {
+          audioRef.pause();
+          this.setState({
+            playing: false
+          });
+        }
+
+        if (speaking) {
+          speakRef.pause();
+          this.setState({
+            speaking: false
+          });
+        } else {
+          speakRef.play();
+          this.setState({
+            speaking: true
+          });
+        }
       }
     };
 
@@ -185,7 +245,7 @@ class Shared extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
       lineWidth: 0,
       speaking: false,
       loading: false,
-      name: ''
+      localId: ''
     };
   }
 
@@ -264,7 +324,20 @@ class Shared extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
     }).then(r => {
       if (r.status === 200) {
         this.setState({
-          name: r.body.name || ''
+          dataInfo: r.body || {}
+        });
+        wx.downloadVoice({
+          serverId: r.body.media_id,
+          // 需要下载的音频的服务器端ID，由uploadVoice接口获得
+          isShowProgressTips: 1,
+          // 默认为1，显示进度提示
+          success: res => {
+            var localId = res.localId; // 返回音频的本地ID
+
+            this.setState({
+              localId
+            });
+          }
         });
       }
 
@@ -289,8 +362,7 @@ class Shared extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
         dataInfo = _this$state3.dataInfo,
         lineWidth = _this$state3.lineWidth,
         joinShow = _this$state3.joinShow,
-        loading = _this$state3.loading,
-        name = _this$state3.name;
+        loading = _this$state3.loading;
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: _shared_less__WEBPACK_IMPORTED_MODULE_4___default.a.normal
     }, joinShow ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_join__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"], {
@@ -340,7 +412,7 @@ class Shared extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
       className: _shared_less__WEBPACK_IMPORTED_MODULE_4___default.a.circle
     }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: _shared_less__WEBPACK_IMPORTED_MODULE_4___default.a.inshow11
-    }, "\u542C\u5230", name || '', "\u7684\u672A\u6765\u60F3\u8C61\u529B")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, "\u542C\u5230", dataInfo.name || '', "\u7684\u672A\u6765\u60F3\u8C61\u529B")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: _shared_less__WEBPACK_IMPORTED_MODULE_4___default.a.show12
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       onClick: this.togglePlay,
