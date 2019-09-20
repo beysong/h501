@@ -28,53 +28,33 @@ export default class Make extends React.PureComponent {
     };
   }
   componentDidMount() {
-    if (isAndroid() && !weixinVersion()) {
-      wx.ready(() => {
-        wx.onVoicePlayEnd({
-          success: res => {
-            this.setState({
-              playing: false,
-            });
-            // var localId = res.localId; // 返回音频的本地ID
-          },
+    wx.onVoicePlayEnd({
+      success: res => {
+        this.setState({
+          playing: false,
         });
-        wx.onVoiceRecordEnd({
-          // 录音时间超过一分钟没有停止的时候会执行 complete 回调
-          complete: res => {
-            var sourceId = res.localId;
+        // var localId = res.localId; // 返回音频的本地ID
+      },
+    });
 
-            this.setState({
-              sourceId,
-              processing: false,
-              finished: true,
-            });
-          },
+    wx.onVoiceRecordEnd({
+      // 录音时间超过一分钟没有停止的时候会执行 complete 回调
+      complete: res => {
+        let sourceId = res.localId;
+
+        this.setState({
+          sourceId,
+          processing: false,
+          finished: true,
         });
-      });
+      },
+    });
+
+    if (isAndroid() && !weixinVersion()) {
+      wx.ready(() => {});
     } else {
       wxConfig2().then(r => {
-        wx.ready(() => {
-          wx.onVoicePlayEnd({
-            success: res => {
-              this.setState({
-                playing: false,
-              });
-              // var localId = res.localId; // 返回音频的本地ID
-            },
-          });
-          wx.onVoiceRecordEnd({
-            // 录音时间超过一分钟没有停止的时候会执行 complete 回调
-            complete: res => {
-              var sourceId = res.localId;
-
-              this.setState({
-                sourceId,
-                processing: false,
-                finished: true,
-              });
-            },
-          });
-        });
+        wx.ready(() => {});
       });
     }
   }
