@@ -4,6 +4,7 @@ import Join from '../components/join';
 import { WEB_URL, WEB_HOST, WECHATOPTIONS } from '../utils/config';
 import styles from './shared.less';
 import { wxConfig2, isAndroid, weixinVersion } from '../utils/index';
+import { getName } from '../services/index';
 
 const QINGHUIDA = require('../assets/qinghuida.png');
 const Label = require('../assets/Label.png');
@@ -26,6 +27,8 @@ export default class Shared extends React.PureComponent {
       dataInfo: {},
       lineWidth: 0,
       speaking: false,
+      loading: false,
+      name: '',
     };
   }
 
@@ -83,6 +86,21 @@ export default class Shared extends React.PureComponent {
         });
       });
     }
+    this.setState({
+      loading: true,
+    });
+    getName({
+      code: location.query.code || '',
+    }).then(r => {
+      if (r.status === 200) {
+        this.setState({
+          name: r.body.name || '',
+        });
+      }
+      this.setState({
+        loading: false,
+      });
+    });
   }
   componentWillUnmount() {
     if (this.interval) {
@@ -187,7 +205,7 @@ export default class Shared extends React.PureComponent {
 
   toggleSpeak = () => {
     const { speaking, playing } = this.state;
-    let audioRef = document.getElementById('audioLabel3');
+    let audioRef = document.getElementById('audioLabel');
     let speakRef = document.getElementById('speakAudio');
     if (playing) {
       audioRef.pause();
@@ -209,7 +227,7 @@ export default class Shared extends React.PureComponent {
   };
 
   render() {
-    const { playing, dataInfo, lineWidth, joinShow } = this.state;
+    const { playing, dataInfo, lineWidth, joinShow, loading, name } = this.state;
     return (
       <div className={styles.normal}>
         {joinShow ? (
@@ -249,7 +267,7 @@ export default class Shared extends React.PureComponent {
                 <div className={styles.circle}></div>
               </div>
             </div>
-            <div className={styles.inshow11}>听到{dataInfo.name || ''}的未来想象力</div>
+            <div className={styles.inshow11}>听到{name || ''}的未来想象力</div>
           </div>
 
           <div className={styles.show12}>

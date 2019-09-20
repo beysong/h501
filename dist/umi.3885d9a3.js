@@ -48,7 +48,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"p__error":"p__error","p__index.2":"p__index.2","p__index.3":"p__index.3","vendors":"vendors","layouts__index":"layouts__index","p__index.1":"p__index.1","p__loading":"p__loading","p__luzhi.1":"p__luzhi.1","p__make":"p__make","p__premake":"p__premake","p__share":"p__share","p__shared":"p__shared"}[chunkId]||chunkId) + "." + {"p__error":"cb5f1ab3","p__index.2":"ee75a9e9","p__index.3":"8c9bf2c5","vendors":"2c84391f","layouts__index":"e34166f1","p__index.1":"5f3bea5a","p__loading":"e5cc27f2","p__luzhi.1":"09d27bb3","p__make":"8bb1eb93","p__premake":"3d3b5422","p__share":"90eec2a0","p__shared":"35f48cc8"}[chunkId] + ".async.js"
+/******/ 		return __webpack_require__.p + "" + ({"p__error":"p__error","p__index.2":"p__index.2","p__index.3":"p__index.3","vendors":"vendors","layouts__index":"layouts__index","p__index.1":"p__index.1","p__loading":"p__loading","p__luzhi.1":"p__luzhi.1","p__make":"p__make","p__premake":"p__premake","p__share":"p__share","p__shared":"p__shared"}[chunkId]||chunkId) + "." + {"p__error":"cb5f1ab3","p__index.2":"ee75a9e9","p__index.3":"8c9bf2c5","vendors":"83d0920d","layouts__index":"e34166f1","p__index.1":"5f3bea5a","p__loading":"c76ab0ea","p__luzhi.1":"09d27bb3","p__make":"4be459be","p__premake":"394a1ec8","p__share":"90eec2a0","p__shared":"7c983bd5"}[chunkId] + ".async.js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -21495,7 +21495,7 @@ var services = __webpack_require__("./src/services/index.js");
 
 // CONCATENATED MODULE: ./src/global.js
 
-Object(services["b" /* wxConfig */])({
+Object(services["c" /* wxConfig */])({
   url: window.location.href.split('#')[0]
 }).then(res => {
   if (res) {
@@ -21694,8 +21694,8 @@ if (false) {}
 /*!********************************************!*\
   !*** ./src/services/index.js + 46 modules ***!
   \********************************************/
-/*! exports provided: wxConfig, uploadVoice, getVoice */
-/*! exports used: uploadVoice, wxConfig */
+/*! exports provided: wxConfig, uploadVoice, getVoice, getName */
+/*! exports used: getName, uploadVoice, wxConfig */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js because of ./node_modules/react-transition-group/esm/TransitionGroup.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/extends.js because of ./node_modules/react-transition-group/esm/TransitionGroup.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js because of ./node_modules/react-transition-group/esm/TransitionGroup.js */
@@ -24009,9 +24009,10 @@ function request(api, _ref) {
   });
 }
 // CONCATENATED MODULE: ./src/services/index.js
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return wxConfig; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return uploadVoice; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return wxConfig; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return uploadVoice; });
 /* unused harmony export getVoice */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return getName; });
 
 
 
@@ -24096,6 +24097,32 @@ function () {
 
   return function getVoice(_x3) {
     return _ref3.apply(this, arguments);
+  };
+}();
+/* get name */
+
+var getName =
+/*#__PURE__*/
+function () {
+  var _ref4 = asyncToGenerator_default()(
+  /*#__PURE__*/
+  regenerator_default.a.mark(function _callee4(params) {
+    return regenerator_default.a.wrap(function _callee4$(_context4) {
+      while (1) {
+        switch (_context4.prev = _context4.next) {
+          case 0:
+            return _context4.abrupt("return", request("/get_name/".concat(params.code), {}));
+
+          case 1:
+          case "end":
+            return _context4.stop();
+        }
+      }
+    }, _callee4);
+  }));
+
+  return function getName(_x4) {
+    return _ref4.apply(this, arguments);
   };
 }();
 

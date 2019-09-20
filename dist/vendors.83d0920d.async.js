@@ -1411,7 +1411,7 @@ var weixinVersion = () => {
 };
 var wxConfig2 = () => {
   return new Promise(function (resolve, reject) {
-    Object(_services_index__WEBPACK_IMPORTED_MODULE_0__[/* wxConfig */ "b"])({
+    Object(_services_index__WEBPACK_IMPORTED_MODULE_0__[/* wxConfig */ "c"])({
       url: window.location.href.split('#')[0]
     }).then(res => {
       if (res) {

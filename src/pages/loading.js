@@ -48,7 +48,7 @@ export default class Index extends React.PureComponent {
         this.setState({
           audioLoading: false,
         });
-      }, 1000);
+      }, 100);
       // audioRef.play();
     });
     audioRef.play();

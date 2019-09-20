@@ -69,7 +69,7 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
         this.setState({
           audioLoading: false
         });
-      }, 1000); // audioRef.play();
+      }, 100); // audioRef.play();
     });
     audioRef.play();
     /* global wx */

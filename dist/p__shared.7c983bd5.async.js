@@ -21,6 +21,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_less__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./shared.less */ "./src/pages/shared.less");
 /* harmony import */ var _shared_less__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_shared_less__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _utils_index__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/index */ "./src/utils/index.js");
+/* harmony import */ var _services_index__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../services/index */ "./src/services/index.js");
+
 
 
 
@@ -150,7 +152,7 @@ class Shared extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
       var _this$state2 = this.state,
           speaking = _this$state2.speaking,
           playing = _this$state2.playing;
-      var audioRef = document.getElementById('audioLabel3');
+      var audioRef = document.getElementById('audioLabel');
       var speakRef = document.getElementById('speakAudio');
 
       if (playing) {
@@ -181,7 +183,9 @@ class Shared extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
       // 播放中
       dataInfo: {},
       lineWidth: 0,
-      speaking: false
+      speaking: false,
+      loading: false,
+      name: ''
     };
   }
 
@@ -251,6 +255,23 @@ class Shared extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
         });
       });
     }
+
+    this.setState({
+      loading: true
+    });
+    Object(_services_index__WEBPACK_IMPORTED_MODULE_6__[/* getName */ "a"])({
+      code: location.query.code || ''
+    }).then(r => {
+      if (r.status === 200) {
+        this.setState({
+          name: r.body.name || ''
+        });
+      }
+
+      this.setState({
+        loading: false
+      });
+    });
   }
 
   componentWillUnmount() {
@@ -267,7 +288,9 @@ class Shared extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
         playing = _this$state3.playing,
         dataInfo = _this$state3.dataInfo,
         lineWidth = _this$state3.lineWidth,
-        joinShow = _this$state3.joinShow;
+        joinShow = _this$state3.joinShow,
+        loading = _this$state3.loading,
+        name = _this$state3.name;
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: _shared_less__WEBPACK_IMPORTED_MODULE_4___default.a.normal
     }, joinShow ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_join__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"], {
@@ -317,7 +340,7 @@ class Shared extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
       className: _shared_less__WEBPACK_IMPORTED_MODULE_4___default.a.circle
     }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: _shared_less__WEBPACK_IMPORTED_MODULE_4___default.a.inshow11
-    }, "\u542C\u5230", dataInfo.name || '', "\u7684\u672A\u6765\u60F3\u8C61\u529B")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, "\u542C\u5230", name || '', "\u7684\u672A\u6765\u60F3\u8C61\u529B")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: _shared_less__WEBPACK_IMPORTED_MODULE_4___default.a.show12
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       onClick: this.togglePlay,

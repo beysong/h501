@@ -18,3 +18,7 @@ export const uploadVoice = async params => {
 export const getVoice = async params => {
   return request(`/get/${params.code}`, {});
 };
+/* get name */
+export const getName = async params => {
+  return request(`/get_name/${params.code}`, {});
+};
