@@ -189,7 +189,6 @@ export default class Share extends React.PureComponent {
 
       this.setState({
         playing: false,
-        lineWidth: 0,
       });
     });
   };

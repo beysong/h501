@@ -207,8 +207,7 @@ class share_Share extends react_default.a.PureComponent {
         //当播放完一首歌曲时也会触发
         console.log('event ended: ' + new Date().getTime());
         this.setState({
-          playing: false,
-          lineWidth: 0
+          playing: false
         });
       });
     };
