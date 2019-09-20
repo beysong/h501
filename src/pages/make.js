@@ -103,6 +103,7 @@ export default class Make extends React.PureComponent {
             sourceId,
             processing: false,
             finished: true,
+            et,
           });
         },
       });
