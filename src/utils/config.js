@@ -1,12 +1,12 @@
-const WEB_HOST = process.env.TEST ? '//yuanjing.icuch.com' : '//envisioncn.gobrand.top';
-const API_HOST = process.env.TEST ? '//yuanjing.icuch.com' : '//envisioncn.gobrand.top';
+const WEB_HOST = process.env.TEST ? '//yuanjing.icuch.com' : '//recruit.gobrand.top';
+const API_HOST = process.env.TEST ? '//yuanjing.icuch.com' : '//recruit.gobrand.top';
 
 // console.log('111', process.env);
 // const WEB_URL = 'http://recruit.gobrand.top/';
 
 const WEB_URL = process.env.TEST
   ? 'http://yuanjing.icuch.com/web'
-  : 'http://envisioncn.gobrand.top/web';
+  : 'http://recruit.gobrand.top/web';
 
 const WECHATOPTIONS = {
   title: '请回答2029',
