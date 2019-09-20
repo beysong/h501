@@ -21700,7 +21700,7 @@ if (false) {}
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js because of ./node_modules/react-transition-group/esm/TransitionGroup.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/extends.js because of ./node_modules/react-transition-group/esm/TransitionGroup.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js because of ./node_modules/react-transition-group/esm/TransitionGroup.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./src/utils/config.js because of ./src/pages/share.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./src/utils/config.js because of ./src/pages/shared.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/babel-preset-umi/node_modules/@babel/runtime/helpers/asyncToGenerator.js (<- Module is not an ECMAScript module) */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/babel-preset-umi/node_modules/@babel/runtime/helpers/objectSpread.js (<- Module is not an ECMAScript module) */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/babel-preset-umi/node_modules/@babel/runtime/helpers/objectWithoutProperties.js (<- Module is not an ECMAScript module) */
@@ -24142,11 +24142,11 @@ function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return WEB_HOST; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return WEB_URL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return WECHATOPTIONS; });
-var WEB_HOST = Object({"NODE_ENV":"production"}).TEST ? '//yuanjing.icuch.com' : '//recruit.gobrand.top';
-var API_HOST = Object({"NODE_ENV":"production"}).TEST ? '//yuanjing.icuch.com' : '//recruit.gobrand.top'; // console.log('111', process.env);
+var WEB_HOST = Object({"NODE_ENV":"production"}).TEST ? '//yuanjing.icuch.com' : '//envisioncn.gobrand.top';
+var API_HOST = Object({"NODE_ENV":"production"}).TEST ? '//yuanjing.icuch.com' : '//envisioncn.gobrand.top'; // console.log('111', process.env);
 // const WEB_URL = 'http://recruit.gobrand.top/';
 
-var WEB_URL = Object({"NODE_ENV":"production"}).TEST ? 'http://yuanjing.icuch.com/web' : 'http://recruit.gobrand.top/web';
+var WEB_URL = Object({"NODE_ENV":"production"}).TEST ? 'http://yuanjing.icuch.com/web' : 'http://envisioncn.gobrand.top/web';
 var WECHATOPTIONS = {
   title: '请回答2029',
   desc: '“未来源于你”远景2020届校园招聘',
