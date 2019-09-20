@@ -100,6 +100,7 @@ export default class Shared extends React.PureComponent {
           serverId: r.body.media_id, // 需要下载的音频的服务器端ID，由uploadVoice接口获得
           isShowProgressTips: 1, // 默认为1，显示进度提示
           success: res => {
+            console.log('888888', res);
             let localId = res.localId; // 返回音频的本地ID
             this.setState({ localId });
           },
@@ -165,13 +166,11 @@ export default class Shared extends React.PureComponent {
         clearInterval(this.interval);
         this.interval = null;
       } else {
-        if (audioRef.duration) {
-          this.interval = setInterval(() => {
-            this.setState((state, props) => ({
-              lineWidth: state.lineWidth + 400 / audioRef.duration,
-            }));
-          }, 1000);
-        }
+        this.interval = setInterval(() => {
+          this.setState((state, props) => ({
+            lineWidth: state.lineWidth + 400 / audioRef.duration,
+          }));
+        }, 1000);
       }
 
       if (playing) {

@@ -109,13 +109,11 @@ class Shared extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
           clearInterval(this.interval);
           this.interval = null;
         } else {
-          if (audioRef.duration) {
-            this.interval = setInterval(() => {
-              this.setState((state, props) => ({
-                lineWidth: state.lineWidth + 400 / audioRef.duration
-              }));
-            }, 1000);
-          }
+          this.interval = setInterval(() => {
+            this.setState((state, props) => ({
+              lineWidth: state.lineWidth + 400 / audioRef.duration
+            }));
+          }, 1000);
         }
 
         if (playing) {
@@ -332,6 +330,7 @@ class Shared extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
           isShowProgressTips: 1,
           // 默认为1，显示进度提示
           success: res => {
+            console.log('888888', res);
             var localId = res.localId; // 返回音频的本地ID
 
             this.setState({
