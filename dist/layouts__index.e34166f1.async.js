@@ -24,7 +24,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var audioSource = __webpack_require__(/*! ../assets/speak.mp3 */ "./src/assets/speak.mp3"); // function BasicLayout(props) {
+var audioSource = __webpack_require__(/*! ../assets/speak2.mp3 */ "./src/assets/speak2.mp3"); // function BasicLayout(props) {
 //   return <div className={styles.normal}>{props.children}</div>;
 // }
 

@@ -9,6 +9,17 @@
 .normal___3RukW .contentWrap___3vmde {
   height: 10rem;
 }
+.normal___3RukW .contentWrap___3vmde .logowrap___2AePM {
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+.normal___3RukW .contentWrap___3vmde .logowrap___2AePM :first-child {
+  margin-left: -0.5rem;
+}
+.normal___3RukW .contentWrap___3vmde .logowrap___2AePM :last-child {
+  margin-right: -0.5rem;
+}
 .normal___3RukW .layer01___-ZvqO {
   height: 0.8rem;
 }
@@ -17,7 +28,7 @@
 }
 .normal___3RukW .layer02___k8jd2 {
   width: 5rem;
-  margin-top: 2.8rem;
+  margin-top: 2rem;
   text-align: left;
 }
 .normal___3RukW .layer02___k8jd2 img {
@@ -121,7 +132,7 @@
 .normal___3RukW .show21___19jIx {
   text-align: center;
   height: 1rem;
-  margin-top: 1.4rem;
+  margin-top: 0.8rem;
 }
 .normal___3RukW .show21___19jIx img {
   width: 2.6rem;

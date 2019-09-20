@@ -11,6 +11,11 @@ const wenzi = require('../assets/wenzi.png');
 const tryImg = require('../assets/start.png');
 const shareImg = require('../assets/share.png');
 const joinImg = require('../assets/join.png');
+const LOGO = require('../assets/logo.png');
+const SOLOGN = require('../assets/sologn.png');
+const TING = require('../assets/ting.png');
+
+const speakSource = require('../assets/speak2.mp3');
 
 export default class Share extends React.PureComponent {
   constructor(props) {
@@ -21,11 +26,13 @@ export default class Share extends React.PureComponent {
       playing: false, // 播放中
       code: props.location.query.code || '',
       joinShow: false,
+      speaking: false,
     };
   }
 
   componentDidMount() {
     this.createAudio();
+    this.createSpeakAutio();
     if (isAndroid() && !weixinVersion()) {
       wxConfig2().then(r => {
         let _this = this;
@@ -97,13 +104,38 @@ export default class Share extends React.PureComponent {
     }
   }
 
+  createSpeakAutio = () => {
+    let x = document.createElement('AUDIO');
+    x.setAttribute('id', 'speakAudio');
+    x.setAttribute('style', 'z-index: -1;');
+    x.setAttribute('src', speakSource);
+    x.setAttribute('controls', 'controls');
+    document.body.appendChild(x);
+
+    let speakRef = document.getElementById('speakAudio');
+    speakRef.addEventListener('ended', () => {
+      //当播放完一首歌曲时也会触发
+      console.log('event ended: ' + new Date().getTime());
+
+      this.setState({
+        speaking: false,
+      });
+    });
+  };
+
   /* global wx */
   // 播放录音
   togglePlay = () => {
-    const { playing, sourceId } = this.state;
+    const { playing, speaking } = this.state;
 
     let audioRef = document.getElementById('audioLabel3');
-
+    let speakRef = document.getElementById('speakAudio');
+    if (speaking) {
+      speakRef.pause();
+      this.setState({
+        speaking: false,
+      });
+    }
     if (playing) {
       // wx.pauseVoice({
       //   localId: sourceId, // 需要暂停的音频的本地ID，由stopRecord接口获得
@@ -133,11 +165,12 @@ export default class Share extends React.PureComponent {
   };
 
   toJoin = () => {
-    this.setState({
-      joinShow: true,
-    });
+    // this.setState({
+    //   joinShow: true,
+    // });
 
-    // window.location.href = 'http://www.baidu.com';
+    window.location.href =
+      'https://campus.envisioncn.com/dream_par_stu_mob/html/get_post_postLis.html';
   };
 
   createAudio = () => {
@@ -153,15 +186,34 @@ export default class Share extends React.PureComponent {
     audioRef.addEventListener('ended', () => {
       //当播放完一首歌曲时也会触发
       console.log('event ended: ' + new Date().getTime());
-      if (this.interval) {
-        clearInterval(this.interval);
-        this.interval = null;
-      }
+
       this.setState({
         playing: false,
         lineWidth: 0,
       });
     });
+  };
+  toggleSpeak = () => {
+    const { speaking, playing } = this.state;
+    let audioRef = document.getElementById('audioLabel3');
+    let speakRef = document.getElementById('speakAudio');
+    if (playing) {
+      audioRef.pause();
+      this.setState({
+        playing: false,
+      });
+    }
+    if (speaking) {
+      speakRef.pause();
+      this.setState({
+        speaking: false,
+      });
+    } else {
+      speakRef.play();
+      this.setState({
+        speaking: true,
+      });
+    }
   };
 
   render() {
@@ -187,6 +239,10 @@ export default class Share extends React.PureComponent {
           false
         )}
         <div>
+          <div className={styles.logowrap}>
+            <img src={LOGO} alt="远景" />
+            <img src={SOLOGN} alt="2020年校园招聘" />
+          </div>
           <div className={styles.layer01}>
             <img src={QINGHUIDA} alt="请回答2029" />
           </div>
@@ -199,7 +255,6 @@ export default class Share extends React.PureComponent {
           </div>
 
           <div className={styles.show11}>
-            <div className={styles.inshow11}>&nbsp;</div>
             <div className={styles.inshow11}>&nbsp;</div>
             <div className={styles.inshow11}>&nbsp;</div>
           </div>
@@ -220,6 +275,11 @@ export default class Share extends React.PureComponent {
                 <img src={joinImg} alt="加入远景" />
               </div>
             </div>
+            <div onClick={this.toggleSpeak} className={styles.btn}>
+              <div className={styles.upload}>
+                <img src={TING} alt="聆听远景" />
+              </div>
+            </div>
           </div>
           <div className={styles.show12}>
             <div onClick={this.toggleShare} style={{ flex: 1, textAlign: 'center' }}>
@@ -230,6 +290,9 @@ export default class Share extends React.PureComponent {
             </div>
             <div onClick={this.toJoin} style={{ flex: 1, textAlign: 'center' }}>
               加入远景
+            </div>
+            <div onClick={this.toggleSpeak} style={{ flex: 1, textAlign: 'center' }}>
+              聆听远景
             </div>
           </div>
         </div>

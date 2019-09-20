@@ -9,9 +9,10 @@ import { uploadVoice } from '../services/index';
 const QINGHUIDA = require('../assets/qinghuida.png');
 const Label = require('../assets/Label.png');
 const wenzi = require('../assets/wenzi.png');
-const wenzi2 = require('../assets/wenzi2.png');
 const tryImg = require('../assets/start.png');
 const uploadImg = require('../assets/duihao.png');
+const LOGO = require('../assets/logo.png');
+const SOLOGN = require('../assets/sologn.png');
 
 export default class Make extends React.PureComponent {
   constructor(props) {
@@ -81,7 +82,7 @@ export default class Make extends React.PureComponent {
   /* global wx */
   // 开始录音
   toggleStart = () => {
-    const { processing, playing, timer } = this.state;
+    const { processing, playing } = this.state;
     if (playing) {
       return;
     }
@@ -186,6 +187,10 @@ export default class Make extends React.PureComponent {
       <div className={styles.normal}>
         {uploading ? <Loading text="正在接收未来信号..." /> : false}
         <div className={styles.contentWrap}>
+          <div className={styles.logowrap}>
+            <img src={LOGO} alt="远景" />
+            <img src={SOLOGN} alt="2020年校园招聘" />
+          </div>
           <div className={styles.layer01}>
             <img src={QINGHUIDA} alt="请回答2029" />
           </div>

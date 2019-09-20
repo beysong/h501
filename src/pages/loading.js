@@ -5,7 +5,7 @@ import Loading from '../components/loading';
 import { wxConfig2, isAndroid, weixinVersion } from '../utils/index';
 const Label = require('../assets/Label.png');
 
-const audioSource = require('../assets/speak.mp3');
+const audioSource = require('../assets/speak2.mp3');
 
 export default class Index extends React.PureComponent {
   constructor(props) {

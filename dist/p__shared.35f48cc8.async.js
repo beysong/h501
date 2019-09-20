@@ -38,24 +38,44 @@ var tryImg = __webpack_require__(/*! ../assets/start.png */ "./src/assets/start.
 
 var joinImg = __webpack_require__(/*! ../assets/join.png */ "./src/assets/join.png");
 
+var LOGO = __webpack_require__(/*! ../assets/logo.png */ "./src/assets/logo.png");
+
+var SOLOGN = __webpack_require__(/*! ../assets/sologn.png */ "./src/assets/sologn.png");
+
+var TING = __webpack_require__(/*! ../assets/ting.png */ "./src/assets/ting.png");
+
+var speakSource = __webpack_require__(/*! ../assets/speak2.mp3 */ "./src/assets/speak2.mp3");
+
 class Shared extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
   constructor(props) {
     super(props);
 
     this.togglePlay = () => {
-      var playing = this.state.playing;
+      var _this$state = this.state,
+          playing = _this$state.playing,
+          speaking = _this$state.speaking;
       var location = this.props.location;
       var audioRef = document.getElementById('audioLabel');
+      var speakRef = document.getElementById('speakAudio');
+
+      if (speaking) {
+        speakRef.pause();
+        this.setState({
+          speaking: false
+        });
+      }
 
       if (this.interval) {
         clearInterval(this.interval);
         this.interval = null;
       } else {
-        this.interval = setInterval(() => {
-          this.setState((state, props) => ({
-            lineWidth: state.lineWidth + 400 / audioRef.duration
-          }));
-        }, 1500);
+        if (audioRef.duration) {
+          this.interval = setInterval(() => {
+            this.setState((state, props) => ({
+              lineWidth: state.lineWidth + 400 / audioRef.duration
+            }));
+          }, 1000);
+        }
       }
 
       if (playing) {
@@ -64,17 +84,22 @@ class Shared extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
           playing: false
         });
       } else {
-        audioRef.play();
-        this.setState({
-          playing: true
-        });
+        if (audioRef.duration) {
+          audioRef.play();
+          this.setState({
+            playing: true
+          });
+        } else {
+          alert('音频加载失败');
+        }
       }
     };
 
     this.toJoin = () => {
-      this.setState({
-        joinShow: true
-      }); // window.location.href = 'http://www.baidu.com';
+      // this.setState({
+      //   joinShow: true,
+      // });
+      window.location.href = 'https://campus.envisioncn.com/dream_par_stu_mob/html/get_post_postLis.html';
     };
 
     this.createAudio = () => {
@@ -104,6 +129,50 @@ class Shared extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
       });
     };
 
+    this.createSpeakAutio = () => {
+      var x = document.createElement('AUDIO');
+      x.setAttribute('id', 'speakAudio');
+      x.setAttribute('style', 'z-index: -1;');
+      x.setAttribute('src', speakSource);
+      x.setAttribute('controls', 'controls');
+      document.body.appendChild(x);
+      var speakRef = document.getElementById('speakAudio');
+      speakRef.addEventListener('ended', () => {
+        //当播放完一首歌曲时也会触发
+        console.log('event ended: ' + new Date().getTime());
+        this.setState({
+          speaking: false
+        });
+      });
+    };
+
+    this.toggleSpeak = () => {
+      var _this$state2 = this.state,
+          speaking = _this$state2.speaking,
+          playing = _this$state2.playing;
+      var audioRef = document.getElementById('audioLabel3');
+      var speakRef = document.getElementById('speakAudio');
+
+      if (playing) {
+        audioRef.pause();
+        this.setState({
+          playing: false
+        });
+      }
+
+      if (speaking) {
+        speakRef.pause();
+        this.setState({
+          speaking: false
+        });
+      } else {
+        speakRef.play();
+        this.setState({
+          speaking: true
+        });
+      }
+    };
+
     this.state = {
       code: props.location.query.code || '',
       isshow: false,
@@ -111,7 +180,8 @@ class Shared extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
       playing: false,
       // 播放中
       dataInfo: {},
-      lineWidth: 0
+      lineWidth: 0,
+      speaking: false
     };
   }
 
@@ -124,6 +194,7 @@ class Shared extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
     }
 
     this.createAudio();
+    this.createSpeakAutio();
 
     if (Object(_utils_index__WEBPACK_IMPORTED_MODULE_5__[/* isAndroid */ "a"])() && !Object(_utils_index__WEBPACK_IMPORTED_MODULE_5__[/* weixinVersion */ "b"])()) {
       Object(_utils_index__WEBPACK_IMPORTED_MODULE_5__[/* wxConfig2 */ "c"])().then(r => {
@@ -192,11 +263,11 @@ class Shared extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
 
 
   render() {
-    var _this$state = this.state,
-        playing = _this$state.playing,
-        dataInfo = _this$state.dataInfo,
-        lineWidth = _this$state.lineWidth,
-        joinShow = _this$state.joinShow;
+    var _this$state3 = this.state,
+        playing = _this$state3.playing,
+        dataInfo = _this$state3.dataInfo,
+        lineWidth = _this$state3.lineWidth,
+        joinShow = _this$state3.joinShow;
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: _shared_less__WEBPACK_IMPORTED_MODULE_4___default.a.normal
     }, joinShow ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_join__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"], {
@@ -206,6 +277,14 @@ class Shared extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
         });
       }
     }) : false, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: _shared_less__WEBPACK_IMPORTED_MODULE_4___default.a.logowrap
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      src: LOGO,
+      alt: "\u8FDC\u666F"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      src: SOLOGN,
+      alt: "2020\u5E74\u6821\u56ED\u62DB\u8058"
+    })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: _shared_less__WEBPACK_IMPORTED_MODULE_4___default.a.layer01
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
       src: QINGHUIDA,
@@ -258,9 +337,18 @@ class Shared extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
       src: joinImg,
       alt: "\u52A0\u5165\u8FDC\u666F"
+    }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      onClick: this.toggleSpeak,
+      className: _shared_less__WEBPACK_IMPORTED_MODULE_4___default.a.btn
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: _shared_less__WEBPACK_IMPORTED_MODULE_4___default.a.upload
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      src: TING,
+      alt: "\u8046\u542C\u8FDC\u666F"
     })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: _shared_less__WEBPACK_IMPORTED_MODULE_4___default.a.show12
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      onClick: this.togglePlay,
       style: {
         flex: 1,
         textAlign: 'center'
@@ -271,7 +359,13 @@ class Shared extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
         flex: 1,
         textAlign: 'center'
       }
-    }, "\u52A0\u5165\u8FDC\u666F"))));
+    }, "\u52A0\u5165\u8FDC\u666F"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      onClick: this.toggleSpeak,
+      style: {
+        flex: 1,
+        textAlign: 'center'
+      }
+    }, "\u8046\u542C\u8FDC\u666F"))));
   }
 
 }
@@ -288,7 +382,7 @@ class Shared extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"normal":"normal___1NOLf","layer01":"layer01___2Mb5Z","layer02":"layer02___1-X8d","show12":"show12___21CKd","btn":"btn___24jaP","start":"start___fENL1","process":"process___2YJs3","try":"try___3xotJ","restart":"restart___s9NJi","upload":"upload___3rhJ4","progressWrap":"progressWrap___2-c53","line":"line___12LUW","whiteLine":"whiteLine___3-NcO","circle":"circle___2c76j","show10":"show10___16F5j","show11":"show11___10z88","inshow11":"inshow11___28-DE"};
+module.exports = {"normal":"normal___1NOLf","logowrap":"logowrap___s_5GO","layer01":"layer01___2Mb5Z","layer02":"layer02___1-X8d","show12":"show12___21CKd","btn":"btn___24jaP","start":"start___fENL1","process":"process___2YJs3","try":"try___3xotJ","restart":"restart___s9NJi","upload":"upload___3rhJ4","progressWrap":"progressWrap___2-c53","line":"line___12LUW","whiteLine":"whiteLine___3-NcO","circle":"circle___2c76j","show10":"show10___16F5j","show11":"show11___10z88","inshow11":"inshow11___28-DE"};
 
 /***/ })
 

@@ -48,7 +48,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"p__error":"p__error","p__index.2":"p__index.2","p__index.3":"p__index.3","vendors":"vendors","layouts__index":"layouts__index","p__index.1":"p__index.1","p__loading":"p__loading","p__luzhi.1":"p__luzhi.1","p__make":"p__make","p__premake":"p__premake","p__share":"p__share","p__shared":"p__shared"}[chunkId]||chunkId) + "." + {"p__error":"cb5f1ab3","p__index.2":"ee75a9e9","p__index.3":"8c9bf2c5","vendors":"0f609c1a","layouts__index":"68159cd3","p__index.1":"5f3bea5a","p__loading":"f6ba6dd0","p__luzhi.1":"09d27bb3","p__make":"95c51272","p__premake":"ccd19f1a","p__share":"8a356126","p__shared":"ab83bea6"}[chunkId] + ".async.js"
+/******/ 		return __webpack_require__.p + "" + ({"p__error":"p__error","p__index.2":"p__index.2","p__index.3":"p__index.3","vendors":"vendors","layouts__index":"layouts__index","p__index.1":"p__index.1","p__loading":"p__loading","p__luzhi.1":"p__luzhi.1","p__make":"p__make","p__premake":"p__premake","p__share":"p__share","p__shared":"p__shared"}[chunkId]||chunkId) + "." + {"p__error":"cb5f1ab3","p__index.2":"ee75a9e9","p__index.3":"8c9bf2c5","vendors":"2c84391f","layouts__index":"e34166f1","p__index.1":"5f3bea5a","p__loading":"e5cc27f2","p__luzhi.1":"09d27bb3","p__make":"8bb1eb93","p__premake":"3d3b5422","p__share":"90eec2a0","p__shared":"35f48cc8"}[chunkId] + ".async.js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -86,7 +86,7 @@
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({"p__error":"p__error","p__index.2":"p__index.2","p__index.3":"p__index.3","vendors":"vendors","layouts__index":"layouts__index","p__index.1":"p__index.1","p__loading":"p__loading","p__luzhi.1":"p__luzhi.1","p__make":"p__make","p__premake":"p__premake","p__share":"p__share","p__shared":"p__shared"}[chunkId]||chunkId) + "." + {"p__error":"427988fa","p__index.2":"8b86492e","p__index.3":"0d0803dc","vendors":"1dd2cb31","layouts__index":"d50393a9","p__index.1":"ebd095f3","p__loading":"e6a329d6","p__luzhi.1":"2a630741","p__make":"9f6a90a1","p__premake":"9a7277f9","p__share":"7e2e10e9","p__shared":"29f6c8ce"}[chunkId] + ".chunk.css";
+/******/ 				var href = "" + ({"p__error":"p__error","p__index.2":"p__index.2","p__index.3":"p__index.3","vendors":"vendors","layouts__index":"layouts__index","p__index.1":"p__index.1","p__loading":"p__loading","p__luzhi.1":"p__luzhi.1","p__make":"p__make","p__premake":"p__premake","p__share":"p__share","p__shared":"p__shared"}[chunkId]||chunkId) + "." + {"p__error":"427988fa","p__index.2":"8b86492e","p__index.3":"0d0803dc","vendors":"1dd2cb31","layouts__index":"d50393a9","p__index.1":"ebd095f3","p__loading":"e6a329d6","p__luzhi.1":"2a630741","p__make":"b7037f00","p__premake":"867c29b9","p__share":"f4d48241","p__shared":"bec506ae"}[chunkId] + ".chunk.css";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {
@@ -228,7 +228,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/future/web/";
+/******/ 	__webpack_require__.p = "/web/";
 /******/
 /******/ 	// on error function for async loading
 /******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
@@ -21264,7 +21264,7 @@ class RouterWrapper extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compone
 /*! exports provided: ReactDOMServer, default */
 /*! all exports used */
 /*! ModuleConcatenation bailout: Cannot concat with ./src/pages/.umi-production/history.js (<- Module is referenced from these modules with unsupported syntax: ./node_modules/umi/lib/router.js (referenced with cjs require)) */
-/*! ModuleConcatenation bailout: Cannot concat with ./src/services/index.js because of ./src/pages/make.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./src/services/index.js because of ./src/pages/premake.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/babel-preset-umi/node_modules/@babel/runtime/helpers/asyncToGenerator.js (<- Module is not an ECMAScript module) */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/babel-preset-umi/node_modules/@babel/runtime/helpers/objectSpread.js (<- Module is not an ECMAScript module) */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/babel-preset-umi/node_modules/@babel/runtime/regenerator/index.js (<- Module is not an ECMAScript module) */
@@ -24105,25 +24105,23 @@ function () {
 /*!*****************************!*\
   !*** ./src/utils/config.js ***!
   \*****************************/
-/*! exports provided: IMG_HOST, API_HOST, WEB_HOST, WEB_URL, WECHATOPTIONS */
+/*! exports provided: API_HOST, WEB_HOST, WEB_URL, WECHATOPTIONS */
 /*! exports used: API_HOST, WEB_HOST, WEB_URL, WECHATOPTIONS */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* unused harmony export IMG_HOST */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return API_HOST; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return WEB_HOST; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return WEB_URL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return WECHATOPTIONS; });
-var IMG_HOST = Object({"NODE_ENV":"production"}).TEST ? '//baidu.img-cn-shanghai.aliyuncs.com' : '//baidu.img-cn-hangzhou.aliyuncs.com';
-var WEB_HOST = Object({"NODE_ENV":"production"}).TEST ? '//yuanjing.icuch.com/future' : '//recruit.envisioncn.com/future';
-var API_HOST = Object({"NODE_ENV":"production"}).TEST ? '//yuanjing.icuch.com/future' : '//recruit.envisioncn.com/future'; // console.log('111', process.env);
-// const WEB_URL = 'http://recruit.envisioncn.com/future/';
+var WEB_HOST = Object({"NODE_ENV":"production"}).TEST ? '//yuanjing.icuch.com' : '//recruit.gobrand.top';
+var API_HOST = Object({"NODE_ENV":"production"}).TEST ? '//yuanjing.icuch.com' : '//recruit.gobrand.top'; // console.log('111', process.env);
+// const WEB_URL = 'http://recruit.gobrand.top/';
 
-var WEB_URL = Object({"NODE_ENV":"production"}).TEST ? 'http://yuanjing.icuch.com/future/web' : 'http://recruit.envisioncn.com/future/web';
+var WEB_URL = Object({"NODE_ENV":"production"}).TEST ? 'http://yuanjing.icuch.com/web' : 'http://recruit.gobrand.top/web';
 var WECHATOPTIONS = {
   title: '请回答2029',
-  desc: '现在，向未来发声；2029，让未来发生。',
+  desc: '“未来源于你”远景2020届校园招聘',
   img: WEB_URL + '/shareicon.png',
   link: window.location.href
 };

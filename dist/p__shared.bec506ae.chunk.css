@@ -6,6 +6,17 @@
   justify-content: center;
   align-items: center;
 }
+.normal___1NOLf .logowrap___s_5GO {
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+.normal___1NOLf .logowrap___s_5GO :first-child {
+  margin-left: -0.5rem;
+}
+.normal___1NOLf .logowrap___s_5GO :last-child {
+  margin-right: -0.5rem;
+}
 .normal___1NOLf .layer01___2Mb5Z {
   height: 0.8rem;
 }
@@ -14,7 +25,7 @@
 }
 .normal___1NOLf .layer02___1-X8d {
   width: 5rem;
-  margin-top: 0.8rem;
+  margin-top: 0px;
   text-align: left;
 }
 .normal___1NOLf .layer02___1-X8d img {

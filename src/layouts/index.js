@@ -1,7 +1,7 @@
 import styles from './index.less';
 import withRouter from 'umi/withRouter';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
-const audioSource = require('../assets/speak.mp3');
+const audioSource = require('../assets/speak2.mp3');
 
 // function BasicLayout(props) {
 //   return <div className={styles.normal}>{props.children}</div>;

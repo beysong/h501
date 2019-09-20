@@ -7,7 +7,19 @@
   align-items: center;
 }
 .normal___2womO .contentWrap___3QzY7 {
-  height: 10rem;
+  height: 10.5rem;
+}
+.normal___2womO .contentWrap___3QzY7 .logowrap___1FEIA {
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  animation: show12___2Bqfs 2000ms ease-in-out;
+}
+.normal___2womO .contentWrap___3QzY7 .logowrap___1FEIA :first-child {
+  margin-left: -0.5rem;
+}
+.normal___2womO .contentWrap___3QzY7 .logowrap___1FEIA :last-child {
+  margin-right: -0.5rem;
 }
 .normal___2womO .layer01___3QKRi {
   height: 0.8rem;
@@ -18,7 +30,7 @@
 }
 .normal___2womO .layer02___DJAYW {
   width: 5rem;
-  margin-top: 0.8rem;
+  margin-top: 0px;
   text-align: left;
   animation: show12___2Bqfs 2000ms ease-in-out;
 }

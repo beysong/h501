@@ -117,15 +117,48 @@ var shareImg = __webpack_require__(/*! ../assets/share.png */ "./src/assets/shar
 
 var joinImg = __webpack_require__(/*! ../assets/join.png */ "./src/assets/join.png");
 
+var LOGO = __webpack_require__(/*! ../assets/logo.png */ "./src/assets/logo.png");
+
+var SOLOGN = __webpack_require__(/*! ../assets/sologn.png */ "./src/assets/sologn.png");
+
+var TING = __webpack_require__(/*! ../assets/ting.png */ "./src/assets/ting.png");
+
+var speakSource = __webpack_require__(/*! ../assets/speak2.mp3 */ "./src/assets/speak2.mp3");
+
 class share_Share extends react_default.a.PureComponent {
   constructor(props) {
     super(props);
 
+    this.createSpeakAutio = () => {
+      var x = document.createElement('AUDIO');
+      x.setAttribute('id', 'speakAudio');
+      x.setAttribute('style', 'z-index: -1;');
+      x.setAttribute('src', speakSource);
+      x.setAttribute('controls', 'controls');
+      document.body.appendChild(x);
+      var speakRef = document.getElementById('speakAudio');
+      speakRef.addEventListener('ended', () => {
+        //当播放完一首歌曲时也会触发
+        console.log('event ended: ' + new Date().getTime());
+        this.setState({
+          speaking: false
+        });
+      });
+    };
+
     this.togglePlay = () => {
       var _this$state = this.state,
           playing = _this$state.playing,
-          sourceId = _this$state.sourceId;
+          speaking = _this$state.speaking;
       var audioRef = document.getElementById('audioLabel3');
+      var speakRef = document.getElementById('speakAudio');
+
+      if (speaking) {
+        speakRef.pause();
+        this.setState({
+          speaking: false
+        });
+      }
 
       if (playing) {
         // wx.pauseVoice({
@@ -155,9 +188,10 @@ class share_Share extends react_default.a.PureComponent {
     };
 
     this.toJoin = () => {
-      this.setState({
-        joinShow: true
-      }); // window.location.href = 'http://www.baidu.com';
+      // this.setState({
+      //   joinShow: true,
+      // });
+      window.location.href = 'https://campus.envisioncn.com/dream_par_stu_mob/html/get_post_postLis.html';
     };
 
     this.createAudio = () => {
@@ -172,17 +206,38 @@ class share_Share extends react_default.a.PureComponent {
       audioRef.addEventListener('ended', () => {
         //当播放完一首歌曲时也会触发
         console.log('event ended: ' + new Date().getTime());
-
-        if (this.interval) {
-          clearInterval(this.interval);
-          this.interval = null;
-        }
-
         this.setState({
           playing: false,
           lineWidth: 0
         });
       });
+    };
+
+    this.toggleSpeak = () => {
+      var _this$state2 = this.state,
+          speaking = _this$state2.speaking,
+          playing = _this$state2.playing;
+      var audioRef = document.getElementById('audioLabel3');
+      var speakRef = document.getElementById('speakAudio');
+
+      if (playing) {
+        audioRef.pause();
+        this.setState({
+          playing: false
+        });
+      }
+
+      if (speaking) {
+        speakRef.pause();
+        this.setState({
+          speaking: false
+        });
+      } else {
+        speakRef.play();
+        this.setState({
+          speaking: true
+        });
+      }
     };
 
     this.state = {
@@ -192,12 +247,14 @@ class share_Share extends react_default.a.PureComponent {
       playing: false,
       // 播放中
       code: props.location.query.code || '',
-      joinShow: false
+      joinShow: false,
+      speaking: false
     };
   }
 
   componentDidMount() {
     this.createAudio();
+    this.createSpeakAutio();
 
     if (Object(utils["a" /* isAndroid */])() && !Object(utils["b" /* weixinVersion */])()) {
       Object(utils["c" /* wxConfig2 */])().then(r => {
@@ -277,16 +334,13 @@ class share_Share extends react_default.a.PureComponent {
       });
     }
   }
-  /* global wx */
-  // 播放录音
-
 
   render() {
-    var _this$state2 = this.state,
-        sourceId = _this$state2.sourceId,
-        isshow = _this$state2.isshow,
-        joinShow = _this$state2.joinShow,
-        playing = _this$state2.playing;
+    var _this$state3 = this.state,
+        sourceId = _this$state3.sourceId,
+        isshow = _this$state3.isshow,
+        joinShow = _this$state3.joinShow,
+        playing = _this$state3.playing;
     return react_default.a.createElement("div", {
       className: pages_share_default.a.normal
     }, isshow ? react_default.a.createElement(share_Index, {
@@ -302,6 +356,14 @@ class share_Share extends react_default.a.PureComponent {
         });
       }
     }) : false, react_default.a.createElement("div", null, react_default.a.createElement("div", {
+      className: pages_share_default.a.logowrap
+    }, react_default.a.createElement("img", {
+      src: LOGO,
+      alt: "\u8FDC\u666F"
+    }), react_default.a.createElement("img", {
+      src: SOLOGN,
+      alt: "2020\u5E74\u6821\u56ED\u62DB\u8058"
+    })), react_default.a.createElement("div", {
       className: pages_share_default.a.layer01
     }, react_default.a.createElement("img", {
       src: QINGHUIDA,
@@ -319,8 +381,6 @@ class share_Share extends react_default.a.PureComponent {
     })), react_default.a.createElement("div", {
       className: pages_share_default.a.show11
     }, react_default.a.createElement("div", {
-      className: pages_share_default.a.inshow11
-    }, "\xA0"), react_default.a.createElement("div", {
       className: pages_share_default.a.inshow11
     }, "\xA0"), react_default.a.createElement("div", {
       className: pages_share_default.a.inshow11
@@ -352,6 +412,14 @@ class share_Share extends react_default.a.PureComponent {
     }, react_default.a.createElement("img", {
       src: joinImg,
       alt: "\u52A0\u5165\u8FDC\u666F"
+    }))), react_default.a.createElement("div", {
+      onClick: this.toggleSpeak,
+      className: pages_share_default.a.btn
+    }, react_default.a.createElement("div", {
+      className: pages_share_default.a.upload
+    }, react_default.a.createElement("img", {
+      src: TING,
+      alt: "\u8046\u542C\u8FDC\u666F"
     })))), react_default.a.createElement("div", {
       className: pages_share_default.a.show12
     }, react_default.a.createElement("div", {
@@ -372,7 +440,13 @@ class share_Share extends react_default.a.PureComponent {
         flex: 1,
         textAlign: 'center'
       }
-    }, "\u52A0\u5165\u8FDC\u666F"))));
+    }, "\u52A0\u5165\u8FDC\u666F"), react_default.a.createElement("div", {
+      onClick: this.toggleSpeak,
+      style: {
+        flex: 1,
+        textAlign: 'center'
+      }
+    }, "\u8046\u542C\u8FDC\u666F"))));
   }
 
 }
@@ -389,7 +463,7 @@ class share_Share extends react_default.a.PureComponent {
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"normal":"normal___Nym1j","layer01":"layer01___2QkP8","layer02":"layer02___B40c0","show12":"show12___3AnNe","btn":"btn___1z9jm","process":"process___2WUmg","try":"try___DoKUM","restart":"restart___2Jtkr","upload":"upload___3rXz5","show10":"show10___2equm","show11":"show11___2MiNQ","inshow11":"inshow11___1bbGG"};
+module.exports = {"normal":"normal___Nym1j","logowrap":"logowrap___Dd-Mf","layer01":"layer01___2QkP8","layer02":"layer02___B40c0","show12":"show12___3AnNe","btn":"btn___1z9jm","process":"process___2WUmg","try":"try___DoKUM","restart":"restart___2Jtkr","upload":"upload___3rXz5","show10":"show10___2equm","show11":"show11___2MiNQ","inshow11":"inshow11___1bbGG"};
 
 /***/ })
 

@@ -6,6 +6,17 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  .logowrap {
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .logowrap :first-child {
+    margin-left: -50px;
+  }
+  .logowrap :last-child {
+    margin-right: -50px;
+  }
   .layer01 {
     height: 80px;
     img {
@@ -14,7 +25,7 @@
   }
   .layer02 {
     width: 500px;
-    margin-top: 80px;
+    margin-top: 0px;
     text-align: left;
     img {
       width: 450px;
@@ -33,9 +44,9 @@
       padding: 10px;
 
       border: 1px solid white;
-      width: 90px;
-      height: 90px;
-      border-radius: 55px;
+      width: 80px;
+      height: 80px;
+      border-radius: 50px;
       vertical-align: middle;
       .process {
         width: 24px;
@@ -51,7 +62,7 @@
         align-items: center;
         justify-content: center;
         img {
-          width: 50px;
+          width: 45px;
         }
       }
       .restart {
@@ -83,7 +94,6 @@
     }
   }
   .show11 {
-    height: 156px;
     margin-top: 30px;
     display: flex;
     flex-direction: column;

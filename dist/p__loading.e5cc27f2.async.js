@@ -26,7 +26,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var Label = __webpack_require__(/*! ../assets/Label.png */ "./src/assets/Label.png");
 
-var audioSource = __webpack_require__(/*! ../assets/speak.mp3 */ "./src/assets/speak.mp3");
+var audioSource = __webpack_require__(/*! ../assets/speak2.mp3 */ "./src/assets/speak2.mp3");
 
 class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
   constructor(props) {
