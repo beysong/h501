@@ -21264,7 +21264,7 @@ class RouterWrapper extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compone
 /*! exports provided: ReactDOMServer, default */
 /*! all exports used */
 /*! ModuleConcatenation bailout: Cannot concat with ./src/pages/.umi-production/history.js (<- Module is referenced from these modules with unsupported syntax: ./node_modules/umi/lib/router.js (referenced with cjs require)) */
-/*! ModuleConcatenation bailout: Cannot concat with ./src/services/index.js because of ./src/pages/premake.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./src/services/index.js because of ./src/pages/make.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/babel-preset-umi/node_modules/@babel/runtime/helpers/asyncToGenerator.js (<- Module is not an ECMAScript module) */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/babel-preset-umi/node_modules/@babel/runtime/helpers/objectSpread.js (<- Module is not an ECMAScript module) */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/babel-preset-umi/node_modules/@babel/runtime/regenerator/index.js (<- Module is not an ECMAScript module) */
@@ -21699,7 +21699,7 @@ if (false) {}
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js because of ./node_modules/react-transition-group/esm/TransitionGroup.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/extends.js because of ./node_modules/react-transition-group/esm/TransitionGroup.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js because of ./node_modules/react-transition-group/esm/TransitionGroup.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./src/utils/config.js because of ./src/pages/share.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./src/utils/config.js because of ./src/pages/shared.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/babel-preset-umi/node_modules/@babel/runtime/helpers/asyncToGenerator.js (<- Module is not an ECMAScript module) */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/babel-preset-umi/node_modules/@babel/runtime/helpers/objectSpread.js (<- Module is not an ECMAScript module) */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/babel-preset-umi/node_modules/@babel/runtime/helpers/objectWithoutProperties.js (<- Module is not an ECMAScript module) */
@@ -24115,12 +24115,12 @@ function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return WEB_HOST; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return WEB_URL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return WECHATOPTIONS; });
-var IMG_HOST =  true ? '//baidu.img-cn-shanghai.aliyuncs.com' : undefined;
-var WEB_HOST =  true ? '//yuanjing.icuch.com/future' : undefined;
-var API_HOST =  true ? '//yuanjing.icuch.com/future' : undefined; // console.log('111', process.env);
+var IMG_HOST = Object({"NODE_ENV":"production"}).TEST ? '//baidu.img-cn-shanghai.aliyuncs.com' : '//baidu.img-cn-hangzhou.aliyuncs.com';
+var WEB_HOST = Object({"NODE_ENV":"production"}).TEST ? '//yuanjing.icuch.com/future' : '//recruit.envisioncn.com/future';
+var API_HOST = Object({"NODE_ENV":"production"}).TEST ? '//yuanjing.icuch.com/future' : '//recruit.envisioncn.com/future'; // console.log('111', process.env);
 // const WEB_URL = 'http://recruit.envisioncn.com/future/';
 
-var WEB_URL =  true ? 'http://yuanjing.icuch.com/future/web' : undefined;
+var WEB_URL = Object({"NODE_ENV":"production"}).TEST ? 'http://yuanjing.icuch.com/future/web' : 'http://recruit.envisioncn.com/future/web';
 var WECHATOPTIONS = {
   title: '请回答2029',
   desc: '现在，向未来发声；2029，让未来发生。',
