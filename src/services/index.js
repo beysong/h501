@@ -11,7 +11,7 @@ export const wxConfig = async params => {
 
 /* upload voice */
 export const uploadVoice = async params => {
-  return request(`/voice/${params.code}/${params.serverId}`, {});
+  return request(`/voice/${params.code}/${params.serverId}/${params.sec || 0}`, {});
 };
 
 /* get voice */

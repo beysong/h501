@@ -346,7 +346,7 @@ class Shared extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
         wx.downloadVoice({
           serverId: r.body.media_id,
           // 需要下载的音频的服务器端ID，由uploadVoice接口获得
-          isShowProgressTips: 1,
+          isShowProgressTips: 0,
           // 默认为1，显示进度提示
           success: res => {
             console.log('888888', res);
