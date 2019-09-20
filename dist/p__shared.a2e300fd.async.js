@@ -256,22 +256,22 @@ class Shared extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
       umi_router__WEBPACK_IMPORTED_MODULE_1___default.a.push('error');
     }
 
-    wx.onVoicePlayEnd({
-      success: res => {
-        var localId = res.localId; // 返回音频的本地ID
-
-        this.setState({
-          playing: false
-        });
-      }
-    });
     this.createAudio();
     this.createSpeakAutio();
 
     if (Object(_utils_index__WEBPACK_IMPORTED_MODULE_5__[/* isAndroid */ "a"])() && !Object(_utils_index__WEBPACK_IMPORTED_MODULE_5__[/* weixinVersion */ "b"])()) {
       Object(_utils_index__WEBPACK_IMPORTED_MODULE_5__[/* wxConfig2 */ "c"])().then(r => {
         wx.ready(() => {
-          //需在用户可能点击分享按钮前就先调用
+          wx.onVoicePlayEnd({
+            success: res => {
+              var localId = res.localId; // 返回音频的本地ID
+
+              this.setState({
+                playing: false
+              });
+            }
+          }); //需在用户可能点击分享按钮前就先调用
+
           wx.updateAppMessageShareData({
             title: _utils_config__WEBPACK_IMPORTED_MODULE_3__[/* WECHATOPTIONS */ "d"].title || '加入远景',
             // 分享标题
@@ -298,7 +298,16 @@ class Shared extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
       });
     } else {
       wx.ready(() => {
-        //需在用户可能点击分享按钮前就先调用
+        wx.onVoicePlayEnd({
+          success: res => {
+            var localId = res.localId; // 返回音频的本地ID
+
+            this.setState({
+              playing: false
+            });
+          }
+        }); //需在用户可能点击分享按钮前就先调用
+
         wx.updateAppMessageShareData({
           title: _utils_config__WEBPACK_IMPORTED_MODULE_3__[/* WECHATOPTIONS */ "d"].title || '加入远景',
           // 分享标题

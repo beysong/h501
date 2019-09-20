@@ -39,20 +39,20 @@ export default class Shared extends React.PureComponent {
       router.push('error');
     }
 
-    wx.onVoicePlayEnd({
-      success: res => {
-        var localId = res.localId; // 返回音频的本地ID
-        this.setState({
-          playing: false,
-        });
-      },
-    });
-
     this.createAudio();
     this.createSpeakAutio();
     if (isAndroid() && !weixinVersion()) {
       wxConfig2().then(r => {
         wx.ready(() => {
+          wx.onVoicePlayEnd({
+            success: res => {
+              var localId = res.localId; // 返回音频的本地ID
+              this.setState({
+                playing: false,
+              });
+            },
+          });
+
           //需在用户可能点击分享按钮前就先调用
           wx.updateAppMessageShareData({
             title: WECHATOPTIONS.title || '加入远景', // 分享标题
@@ -75,6 +75,14 @@ export default class Shared extends React.PureComponent {
       });
     } else {
       wx.ready(() => {
+        wx.onVoicePlayEnd({
+          success: res => {
+            var localId = res.localId; // 返回音频的本地ID
+            this.setState({
+              playing: false,
+            });
+          },
+        });
         //需在用户可能点击分享按钮前就先调用
         wx.updateAppMessageShareData({
           title: WECHATOPTIONS.title || '加入远景', // 分享标题

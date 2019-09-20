@@ -80,8 +80,7 @@ class Make extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
             this.setState({
               sourceId,
               processing: false,
-              finished: true,
-              timer: 0
+              finished: true
             });
           }
         }); // this.setState({
@@ -92,7 +91,8 @@ class Make extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
       } else {
         wx.startRecord();
         this.setState({
-          processing: true
+          processing: true,
+          timer: 0
         });
         this.timeroutRef = setInterval(() => {
           this.setState((state, props) => ({
@@ -194,30 +194,49 @@ class Make extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
   }
 
   componentDidMount() {
-    wx.onVoicePlayEnd({
-      success: res => {
-        this.setState({
-          playing: false
-        }); // var localId = res.localId; // 返回音频的本地ID
-      }
-    });
-    wx.onVoiceRecordEnd({
-      // 录音时间超过一分钟没有停止的时候会执行 complete 回调
-      complete: res => {
-        var sourceId = res.localId;
-        this.setState({
-          sourceId,
-          processing: false,
-          finished: true
-        });
-      }
-    });
-
     if (Object(_utils_index__WEBPACK_IMPORTED_MODULE_4__[/* isAndroid */ "a"])() && !Object(_utils_index__WEBPACK_IMPORTED_MODULE_4__[/* weixinVersion */ "b"])()) {
-      wx.ready(() => {});
+      wx.ready(() => {
+        wx.onVoicePlayEnd({
+          success: res => {
+            this.setState({
+              playing: false
+            }); // var localId = res.localId; // 返回音频的本地ID
+          }
+        });
+        wx.onVoiceRecordEnd({
+          // 录音时间超过一分钟没有停止的时候会执行 complete 回调
+          complete: res => {
+            var sourceId = res.localId;
+            this.setState({
+              sourceId,
+              processing: false,
+              finished: true
+            });
+          }
+        });
+      });
     } else {
       Object(_utils_index__WEBPACK_IMPORTED_MODULE_4__[/* wxConfig2 */ "c"])().then(r => {
-        wx.ready(() => {});
+        wx.ready(() => {
+          wx.onVoicePlayEnd({
+            success: res => {
+              this.setState({
+                playing: false
+              }); // var localId = res.localId; // 返回音频的本地ID
+            }
+          });
+          wx.onVoiceRecordEnd({
+            // 录音时间超过一分钟没有停止的时候会执行 complete 回调
+            complete: res => {
+              var sourceId = res.localId;
+              this.setState({
+                sourceId,
+                processing: false,
+                finished: true
+              });
+            }
+          });
+        });
       });
     }
   }

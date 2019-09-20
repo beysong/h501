@@ -28,33 +28,55 @@ export default class Make extends React.PureComponent {
     };
   }
   componentDidMount() {
-    wx.onVoicePlayEnd({
-      success: res => {
-        this.setState({
-          playing: false,
-        });
-        // var localId = res.localId; // 返回音频的本地ID
-      },
-    });
-
-    wx.onVoiceRecordEnd({
-      // 录音时间超过一分钟没有停止的时候会执行 complete 回调
-      complete: res => {
-        let sourceId = res.localId;
-
-        this.setState({
-          sourceId,
-          processing: false,
-          finished: true,
-        });
-      },
-    });
-
     if (isAndroid() && !weixinVersion()) {
-      wx.ready(() => {});
+      wx.ready(() => {
+        wx.onVoicePlayEnd({
+          success: res => {
+            this.setState({
+              playing: false,
+            });
+            // var localId = res.localId; // 返回音频的本地ID
+          },
+        });
+
+        wx.onVoiceRecordEnd({
+          // 录音时间超过一分钟没有停止的时候会执行 complete 回调
+          complete: res => {
+            let sourceId = res.localId;
+
+            this.setState({
+              sourceId,
+              processing: false,
+              finished: true,
+            });
+          },
+        });
+      });
     } else {
       wxConfig2().then(r => {
-        wx.ready(() => {});
+        wx.ready(() => {
+          wx.onVoicePlayEnd({
+            success: res => {
+              this.setState({
+                playing: false,
+              });
+              // var localId = res.localId; // 返回音频的本地ID
+            },
+          });
+
+          wx.onVoiceRecordEnd({
+            // 录音时间超过一分钟没有停止的时候会执行 complete 回调
+            complete: res => {
+              let sourceId = res.localId;
+
+              this.setState({
+                sourceId,
+                processing: false,
+                finished: true,
+              });
+            },
+          });
+        });
       });
     }
   }
@@ -78,7 +100,6 @@ export default class Make extends React.PureComponent {
             sourceId,
             processing: false,
             finished: true,
-            timer: 0,
           });
         },
       });
@@ -91,6 +112,7 @@ export default class Make extends React.PureComponent {
       wx.startRecord();
       this.setState({
         processing: true,
+        timer: 0,
       });
       this.timeroutRef = setInterval(() => {
         this.setState((state, props) => ({
