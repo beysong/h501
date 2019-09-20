@@ -25,6 +25,8 @@ export default class Make extends React.PureComponent {
       uploading: false, // 上传中
       playing: false, // 播放中
       timer: 0,
+      st: 0,
+      et: 0,
     };
   }
   componentDidMount() {
@@ -92,6 +94,7 @@ export default class Make extends React.PureComponent {
       if (this.timeroutRef) {
         clearInterval(this.timeroutRef);
       }
+      let et = new Date().getTime();
       wx.stopRecord({
         success: res => {
           console.log('res', res);
@@ -109,10 +112,12 @@ export default class Make extends React.PureComponent {
       //   finished: true,
       // });
     } else {
+      let st = new Date().getTime();
       wx.startRecord();
       this.setState({
         processing: true,
         timer: 0,
+        st,
       });
       this.timeroutRef = setInterval(() => {
         this.setState((state, props) => ({
@@ -153,7 +158,7 @@ export default class Make extends React.PureComponent {
 
   // 上传录音
   upload = () => {
-    const { sourceId, timer } = this.state;
+    const { sourceId, timer, st, et } = this.state;
     const { location } = this.props;
 
     this.setState({
@@ -170,7 +175,7 @@ export default class Make extends React.PureComponent {
         uploadVoice({
           serverId,
           code: location.query.code || '',
-          sec: timer,
+          sec: Math.round((et - st) / 1000),
         }).then(r => {
           if (r.status === 200) {
             localStorage.sourceId = sourceId;

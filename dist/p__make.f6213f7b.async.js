@@ -73,6 +73,7 @@ class Make extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
           clearInterval(this.timeroutRef);
         }
 
+        var et = new Date().getTime();
         wx.stopRecord({
           success: res => {
             console.log('res', res);
@@ -89,10 +90,12 @@ class Make extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
         //   finished: true,
         // });
       } else {
+        var st = new Date().getTime();
         wx.startRecord();
         this.setState({
           processing: true,
-          timer: 0
+          timer: 0,
+          st
         });
         this.timeroutRef = setInterval(() => {
           this.setState((state, props) => ({
@@ -134,7 +137,9 @@ class Make extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
     this.upload = () => {
       var _this$state3 = this.state,
           sourceId = _this$state3.sourceId,
-          timer = _this$state3.timer;
+          timer = _this$state3.timer,
+          st = _this$state3.st,
+          et = _this$state3.et;
       var location = this.props.location;
       this.setState({
         uploading: true
@@ -153,7 +158,7 @@ class Make extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
           Object(_services_index__WEBPACK_IMPORTED_MODULE_5__[/* uploadVoice */ "b"])({
             serverId,
             code: location.query.code || '',
-            sec: timer
+            sec: Math.round((et - st) / 1000)
           }).then(r => {
             if (r.status === 200) {
               localStorage.sourceId = sourceId;
@@ -189,7 +194,9 @@ class Make extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
       // 上传中
       playing: false,
       // 播放中
-      timer: 0
+      timer: 0,
+      st: 0,
+      et: 0
     };
   }
 
