@@ -39,6 +39,15 @@ export default class Shared extends React.PureComponent {
       router.push('error');
     }
 
+    wx.onVoicePlayEnd({
+      success: res => {
+        var localId = res.localId; // 返回音频的本地ID
+        this.setState({
+          playing: false,
+        });
+      },
+    });
+
     this.createAudio();
     this.createSpeakAutio();
     if (isAndroid() && !weixinVersion()) {
@@ -119,7 +128,7 @@ export default class Shared extends React.PureComponent {
   /* global wx */
   // 播放录音
   togglePlay = () => {
-    const { playing, speaking, localId } = this.state;
+    const { playing, speaking, localId, dataInfo } = this.state;
     let speakRef = document.getElementById('speakAudio');
     if (localId) {
       if (speaking) {
@@ -134,7 +143,7 @@ export default class Shared extends React.PureComponent {
       } else {
         this.interval = setInterval(() => {
           this.setState((state, props) => ({
-            lineWidth: state.lineWidth + 400 / 30,
+            lineWidth: state.lineWidth + 400 / dataInfo.sec,
           }));
         }, 1000);
       }

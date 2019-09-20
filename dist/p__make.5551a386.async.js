@@ -132,7 +132,9 @@ class Make extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
     };
 
     this.upload = () => {
-      var sourceId = this.state.sourceId;
+      var _this$state3 = this.state,
+          sourceId = _this$state3.sourceId,
+          timer = _this$state3.timer;
       var location = this.props.location;
       this.setState({
         uploading: true
@@ -150,7 +152,8 @@ class Make extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
           });
           Object(_services_index__WEBPACK_IMPORTED_MODULE_5__[/* uploadVoice */ "b"])({
             serverId,
-            code: location.query.code || ''
+            code: location.query.code || '',
+            sec: timer
           }).then(r => {
             if (r.status === 200) {
               localStorage.sourceId = sourceId;
@@ -242,13 +245,13 @@ class Make extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
 
 
   render() {
-    var _this$state3 = this.state,
-        sourceId = _this$state3.sourceId,
-        processing = _this$state3.processing,
-        uploading = _this$state3.uploading,
-        playing = _this$state3.playing,
-        timer = _this$state3.timer,
-        finished = _this$state3.finished;
+    var _this$state4 = this.state,
+        sourceId = _this$state4.sourceId,
+        processing = _this$state4.processing,
+        uploading = _this$state4.uploading,
+        playing = _this$state4.playing,
+        timer = _this$state4.timer,
+        finished = _this$state4.finished;
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: _make_less__WEBPACK_IMPORTED_MODULE_2___default.a.normal
     }, uploading ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_loading__WEBPACK_IMPORTED_MODULE_3__["default"], {

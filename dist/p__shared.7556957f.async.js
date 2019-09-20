@@ -56,7 +56,8 @@ class Shared extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
       var _this$state = this.state,
           playing = _this$state.playing,
           speaking = _this$state.speaking,
-          localId = _this$state.localId;
+          localId = _this$state.localId,
+          dataInfo = _this$state.dataInfo;
       var speakRef = document.getElementById('speakAudio');
 
       if (localId) {
@@ -73,7 +74,7 @@ class Shared extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
         } else {
           this.interval = setInterval(() => {
             this.setState((state, props) => ({
-              lineWidth: state.lineWidth + 400 / 30
+              lineWidth: state.lineWidth + 400 / dataInfo.sec
             }));
           }, 1000);
         }
@@ -255,6 +256,15 @@ class Shared extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
       umi_router__WEBPACK_IMPORTED_MODULE_1___default.a.push('error');
     }
 
+    wx.onVoicePlayEnd({
+      success: res => {
+        var localId = res.localId; // 返回音频的本地ID
+
+        this.setState({
+          playing: false
+        });
+      }
+    });
     this.createAudio();
     this.createSpeakAutio();
 

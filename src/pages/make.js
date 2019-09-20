@@ -151,7 +151,7 @@ export default class Make extends React.PureComponent {
 
   // 上传录音
   upload = () => {
-    const { sourceId } = this.state;
+    const { sourceId, timer } = this.state;
     const { location } = this.props;
 
     this.setState({
@@ -168,6 +168,7 @@ export default class Make extends React.PureComponent {
         uploadVoice({
           serverId,
           code: location.query.code || '',
+          sec: timer,
         }).then(r => {
           if (r.status === 200) {
             localStorage.sourceId = sourceId;
