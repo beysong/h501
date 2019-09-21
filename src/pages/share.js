@@ -57,15 +57,15 @@ export default class Share extends React.PureComponent {
           });
 
           console.log('0-0-0-0-1');
-          // wx.onVoicePlayEnd({
-          //   success: res => {
-          //     console.log('0-0-0-0-2');
-          //     this.setState({
-          //       playing: false,
-          //     });
-          //     // var localId = res.localId; // 返回音频的本地ID
-          //   },
-          // });
+          wx.onVoicePlayEnd({
+            success: res => {
+              console.log('0-0-0-0-2');
+              this.setState({
+                playing: false,
+              });
+              // var localId = res.localId; // 返回音频的本地ID
+            },
+          });
         });
       });
     } else {
@@ -91,15 +91,15 @@ export default class Share extends React.PureComponent {
         });
 
         console.log('0-0-0-0-1');
-        // wx.onVoicePlayEnd({
-        //   success: res => {
-        //     console.log('0-0-0-0-2');
-        //     this.setState({
-        //       playing: false,
-        //     });
-        //     // var localId = res.localId; // 返回音频的本地ID
-        //   },
-        // });
+        wx.onVoicePlayEnd({
+          success: res => {
+            console.log('0-0-0-0-2');
+            this.setState({
+              playing: false,
+            });
+            // var localId = res.localId; // 返回音频的本地ID
+          },
+        });
       });
     }
   }

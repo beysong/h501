@@ -266,6 +266,11 @@ class Shared extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
             success: res => {
               var localId = res.localId; // 返回音频的本地ID
 
+              if (this.interval) {
+                clearInterval(this.interval);
+                this.interval = null;
+              }
+
               this.setState({
                 playing: false,
                 lineWidth: 0
@@ -302,6 +307,11 @@ class Shared extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
         wx.onVoicePlayEnd({
           success: res => {
             var localId = res.localId; // 返回音频的本地ID
+
+            if (this.interval) {
+              clearInterval(this.interval);
+              this.interval = null;
+            }
 
             this.setState({
               playing: false,

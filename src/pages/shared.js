@@ -47,6 +47,10 @@ export default class Shared extends React.PureComponent {
           wx.onVoicePlayEnd({
             success: res => {
               var localId = res.localId; // 返回音频的本地ID
+              if (this.interval) {
+                clearInterval(this.interval);
+                this.interval = null;
+              }
               this.setState({
                 playing: false,
                 lineWidth: 0,
@@ -79,6 +83,11 @@ export default class Shared extends React.PureComponent {
         wx.onVoicePlayEnd({
           success: res => {
             var localId = res.localId; // 返回音频的本地ID
+
+            if (this.interval) {
+              clearInterval(this.interval);
+              this.interval = null;
+            }
             this.setState({
               playing: false,
               lineWidth: 0,

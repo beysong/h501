@@ -290,15 +290,15 @@ class share_Share extends react_default.a.PureComponent {
             success: () => {// 设置成功
             }
           });
-          console.log('0-0-0-0-1'); // wx.onVoicePlayEnd({
-          //   success: res => {
-          //     console.log('0-0-0-0-2');
-          //     this.setState({
-          //       playing: false,
-          //     });
-          //     // var localId = res.localId; // 返回音频的本地ID
-          //   },
-          // });
+          console.log('0-0-0-0-1');
+          wx.onVoicePlayEnd({
+            success: res => {
+              console.log('0-0-0-0-2');
+              this.setState({
+                playing: false
+              }); // var localId = res.localId; // 返回音频的本地ID
+            }
+          });
         });
       });
     } else {
@@ -328,15 +328,15 @@ class share_Share extends react_default.a.PureComponent {
           success: () => {// 设置成功
           }
         });
-        console.log('0-0-0-0-1'); // wx.onVoicePlayEnd({
-        //   success: res => {
-        //     console.log('0-0-0-0-2');
-        //     this.setState({
-        //       playing: false,
-        //     });
-        //     // var localId = res.localId; // 返回音频的本地ID
-        //   },
-        // });
+        console.log('0-0-0-0-1');
+        wx.onVoicePlayEnd({
+          success: res => {
+            console.log('0-0-0-0-2');
+            this.setState({
+              playing: false
+            }); // var localId = res.localId; // 返回音频的本地ID
+          }
+        });
       });
     }
   }
