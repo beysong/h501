@@ -121,9 +121,13 @@ export default class Make extends React.PureComponent {
         st,
       });
       this.timeroutRef = setInterval(() => {
-        this.setState((state, props) => ({
-          timer: state.timer + 1,
-        }));
+        if (this.state.timer < 30) {
+          this.setState((state, props) => ({
+            timer: state.timer + 1,
+          }));
+        } else {
+          this.toggleStart();
+        }
       }, 1000);
     }
   };
@@ -186,14 +190,14 @@ export default class Make extends React.PureComponent {
             uploading: false,
           });
         });
-        wx.downloadVoice({
-          serverId, // 需要下载的音频的服务器端ID，由uploadVoice接口获得
-          isShowProgressTips: 1, // 默认为1，显示进度提示
-          success: function(res) {
-            console.log('9999999999:', res);
-            var localId = res.localId; // 返回音频的本地ID
-          },
-        });
+        // wx.downloadVoice({
+        //   serverId, // 需要下载的音频的服务器端ID，由uploadVoice接口获得
+        //   isShowProgressTips: 1, // 默认为1，显示进度提示
+        //   success: function(res) {
+        //     console.log('9999999999:', res);
+        //     var localId = res.localId; // 返回音频的本地ID
+        //   },
+        // });
       },
     });
   };
