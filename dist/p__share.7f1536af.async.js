@@ -149,8 +149,9 @@ class share_Share extends react_default.a.PureComponent {
     this.togglePlay = () => {
       var _this$state = this.state,
           playing = _this$state.playing,
-          speaking = _this$state.speaking;
-      var audioRef = document.getElementById('audioLabel3');
+          speaking = _this$state.speaking,
+          sourceId = _this$state.sourceId; // let audioRef = document.getElementById('audioLabel3');
+
       var speakRef = document.getElementById('speakAudio');
 
       if (speaking) {
@@ -161,19 +162,20 @@ class share_Share extends react_default.a.PureComponent {
       }
 
       if (playing) {
-        // wx.pauseVoice({
-        //   localId: sourceId, // 需要暂停的音频的本地ID，由stopRecord接口获得
-        // });
-        audioRef.pause();
+        wx.pauseVoice({
+          localId: sourceId // 需要暂停的音频的本地ID，由stopRecord接口获得
+
+        }); // audioRef.pause();
+
         this.setState({
           playing: false
         });
       } else {
-        // wx.playVoice({
-        //   localId: sourceId,
-        // });
-        console.log('audioRef', audioRef);
-        audioRef.play();
+        wx.playVoice({
+          localId: sourceId
+        }); // console.log('audioRef', audioRef);
+        // audioRef.play();
+
         this.setState({
           playing: true
         });
@@ -215,12 +217,17 @@ class share_Share extends react_default.a.PureComponent {
     this.toggleSpeak = () => {
       var _this$state2 = this.state,
           speaking = _this$state2.speaking,
-          playing = _this$state2.playing;
-      var audioRef = document.getElementById('audioLabel3');
+          playing = _this$state2.playing,
+          sourceId = _this$state2.sourceId; // let audioRef = document.getElementById('audioLabel3');
+
       var speakRef = document.getElementById('speakAudio');
 
       if (playing) {
-        audioRef.pause();
+        // audioRef.pause();
+        wx.pauseVoice({
+          localId: sourceId // 需要暂停的音频的本地ID，由stopRecord接口获得
+
+        });
         this.setState({
           playing: false
         });
@@ -252,7 +259,7 @@ class share_Share extends react_default.a.PureComponent {
   }
 
   componentDidMount() {
-    this.createAudio();
+    // this.createAudio();
     this.createSpeakAutio();
 
     if (Object(utils["a" /* isAndroid */])() && !Object(utils["b" /* weixinVersion */])()) {

@@ -31,7 +31,7 @@ export default class Share extends React.PureComponent {
   }
 
   componentDidMount() {
-    this.createAudio();
+    // this.createAudio();
     this.createSpeakAutio();
     if (isAndroid() && !weixinVersion()) {
       wxConfig2().then(r => {
@@ -126,9 +126,9 @@ export default class Share extends React.PureComponent {
   /* global wx */
   // 播放录音
   togglePlay = () => {
-    const { playing, speaking } = this.state;
+    const { playing, speaking, sourceId } = this.state;
 
-    let audioRef = document.getElementById('audioLabel3');
+    // let audioRef = document.getElementById('audioLabel3');
     let speakRef = document.getElementById('speakAudio');
     if (speaking) {
       speakRef.pause();
@@ -137,20 +137,20 @@ export default class Share extends React.PureComponent {
       });
     }
     if (playing) {
-      // wx.pauseVoice({
-      //   localId: sourceId, // 需要暂停的音频的本地ID，由stopRecord接口获得
-      // });
+      wx.pauseVoice({
+        localId: sourceId, // 需要暂停的音频的本地ID，由stopRecord接口获得
+      });
 
-      audioRef.pause();
+      // audioRef.pause();
       this.setState({
         playing: false,
       });
     } else {
-      // wx.playVoice({
-      //   localId: sourceId,
-      // });
-      console.log('audioRef', audioRef);
-      audioRef.play();
+      wx.playVoice({
+        localId: sourceId,
+      });
+      // console.log('audioRef', audioRef);
+      // audioRef.play();
       this.setState({
         playing: true,
       });
@@ -193,11 +193,16 @@ export default class Share extends React.PureComponent {
     });
   };
   toggleSpeak = () => {
-    const { speaking, playing } = this.state;
-    let audioRef = document.getElementById('audioLabel3');
+    const { speaking, playing, sourceId } = this.state;
+    // let audioRef = document.getElementById('audioLabel3');
     let speakRef = document.getElementById('speakAudio');
     if (playing) {
-      audioRef.pause();
+      // audioRef.pause();
+
+      wx.pauseVoice({
+        localId: sourceId, // 需要暂停的音频的本地ID，由stopRecord接口获得
+      });
+
       this.setState({
         playing: false,
       });

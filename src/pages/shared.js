@@ -49,6 +49,7 @@ export default class Shared extends React.PureComponent {
               var localId = res.localId; // 返回音频的本地ID
               this.setState({
                 playing: false,
+                lineWidth: 0,
               });
             },
           });
@@ -80,6 +81,7 @@ export default class Shared extends React.PureComponent {
             var localId = res.localId; // 返回音频的本地ID
             this.setState({
               playing: false,
+              lineWidth: 0,
             });
           },
         });

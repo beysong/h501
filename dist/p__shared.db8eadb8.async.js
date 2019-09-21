@@ -267,7 +267,8 @@ class Shared extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
               var localId = res.localId; // 返回音频的本地ID
 
               this.setState({
-                playing: false
+                playing: false,
+                lineWidth: 0
               });
             }
           }); //需在用户可能点击分享按钮前就先调用
@@ -303,7 +304,8 @@ class Shared extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
             var localId = res.localId; // 返回音频的本地ID
 
             this.setState({
-              playing: false
+              playing: false,
+              lineWidth: 0
             });
           }
         }); //需在用户可能点击分享按钮前就先调用
